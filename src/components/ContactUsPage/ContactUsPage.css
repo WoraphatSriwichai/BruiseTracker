@@ -1,0 +1,329 @@
+.contactus-page-container {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    color: black;
+    background-color: #FFF;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
+/* Navbar */
+.contactus-navbar {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #436850;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contactus-navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #FFF;
+}
+
+.contactus-navbar .navbar-brand span {
+    font-size: 0.7em;
+}
+
+.contactus-navbar .navbar-logo {
+    width: 100%;
+    max-width: 100px;
+    margin-right: 4%;
+    vertical-align: middle;
+}
+
+.contactus-navbar .navbar-actions .navbar-button {
+    background: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 10px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.contactus-navbar .navbar-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.contactus-navbar .navbar-actions .navbar-button:hover {
+    background-color: #FFDD55;
+    color: #4B6A3D;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.contactus-hero {
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.contactus-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+/* Content Section */
+.contactus-content {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-section {
+    background: #FFF;
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    border: 2px solid #ADBC9F;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-title {
+    font-size: 2.2em;
+    color: #12372A;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.content-description {
+    line-height: 1.7;
+    color: #436850;
+    font-size: 0.8em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Frameworks Section */
+.frameworks-section {
+    margin-top: 60px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.frameworks-title {
+    font-size: 1.8em;
+    color: #12372A;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.frameworks-logos {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.framework-item {
+    text-align: center;
+    color: #436850;
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 150px;
+    border: 2px solid #ADBC9F;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.framework-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.framework-item:hover {
+    transform: scale(1.1);
+}
+
+.framework-item .framework-logo {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.contactuspage-footer {
+    background-color: #436850;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    margin-top: 80px;
+    position: relative;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    background: none;
+    color: #FFF;
+    font-size: 0.7em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #FFDD55;
+}
+
+.footer-address {
+    font-size: 0.7em;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .contactus-navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contactus-navbar .navbar-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contactus-hero {
+        height: 250px;
+    }
+
+    .hero-title {
+        font-size: 2em;
+    }
+
+    .contactus-content {
+        padding: 40px 10px;
+    }
+
+    .content-title {
+        font-size: 1.8em;
+    }
+
+    .content-description {
+        font-size: 0.9em;
+    }
+
+    .frameworks-logos {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .framework-item {
+        width: 100px;
+    }
+
+    .framework-item .framework-logo {
+        width: 40px;
+    }
+
+    .contactuspage-footer {
+        padding: 10px 15px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-address {
+        font-size: 0.6em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contactus-navbar {
+        padding: 10px 20px;
+    }
+
+    .contactus-navbar .navbar-logo {
+        max-width: 80px;
+    }
+
+    .contactus-navbar .navbar-actions .navbar-button {
+        padding: 8px 20px;
+    }
+
+    .contactus-hero {
+        height: 200px;
+    }
+
+    .hero-title {
+        font-size: 1.5em;
+    }
+
+    .contactus-content {
+        padding: 30px 5px;
+    }
+
+    .content-title {
+        font-size: 1.5em;
+    }
+
+    .content-description {
+        font-size: 0.8em;
+    }
+
+    .framework-item {
+        width: 80px;
+    }
+
+    .framework-item .framework-logo {
+        width: 30px;
+    }
+
+    .contactuspage-footer {
+        padding: 8px 10px;
+    }
+
+    .footer-address {
+        font-size: 0.5em;
+    }
+}

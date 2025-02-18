@@ -1,0 +1,254 @@
+.photo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.view-photo-result-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FFF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #4B6A3D;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.photo-info {
+    font-family: 'Roboto', sans-serif;
+    color: #436850;
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 12px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #436850;
+    color: #FFF;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.prev-button {
+    left: -55px;
+}
+
+.next-button {
+    right: -55px;
+}
+
+.nav-button:hover {
+    background-color: #6B8F4A;
+}
+
+/* Back Button */
+.back-to-btn {
+    background: #12372A;
+    color: #fff;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: -1%;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-btn:hover {
+    background: #212529;
+    transform: scale(1.05);
+}
+
+.back-to-btn:active {
+    transform: scale(1.02);
+}
+
+/* Footer */
+.footer-viewphotoresutls {
+    background-color: #436850;
+    padding: 15px 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.footer-link {
+    background: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.footer-address-viewphotoresults {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: -0.5%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mango-logo {
+        width: 80px;
+    }
+
+    .photo-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .photo {
+        max-height: 300px;
+    }
+
+    .photo-info {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+    }
+
+    .nav-button {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .prev-button {
+        left: -45px;
+    }
+
+    .next-button {
+        right: -45px;
+    }
+
+    .back-to-btn {
+        padding: 15px 40px;
+        font-size: 0.9rem;
+    }
+
+    .footer-viewphotoresutls {
+        padding: 10px 15px;
+    }
+
+    .footer-address-viewphotoresults {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .mango-logo {
+        width: 60px;
+    }
+
+    .photo-container {
+        padding: 15px;
+    }
+
+    .photo {
+        max-height: 200px;
+    }
+
+    .photo-info {
+        font-size: 0.7rem;
+        padding: 8px 12px;
+    }
+
+    .nav-button {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    .prev-button {
+        left: -35px;
+    }
+
+    .next-button {
+        right: -35px;
+    }
+
+    .back-to-btn {
+        padding: 12px 30px;
+        font-size: 0.8rem;
+    }
+
+    .footer-viewphotoresutls {
+        padding: 8px 10px;
+    }
+
+    .footer-address-viewphotoresults {
+        font-size: 0.7em;
+    }
+}

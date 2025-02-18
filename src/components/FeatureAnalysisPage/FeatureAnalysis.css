@@ -1,0 +1,476 @@
+/* General Styles */
+.bruise-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FFF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.bruise-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: #FFF;
+}
+
+.FeatureAnalysis-navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 24px;
+    background-color: #436850;
+    color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Content */
+.bruise-content {
+    flex: 1;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.bruise-title {
+    font-size: 1.7rem;
+    color: #12372A;
+    margin-bottom: 10px;
+    margin-top: -0%;
+}
+
+/* File upload container */
+.file-upload-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    /* Increased the gap slightly for better spacing */
+    margin-top: 4%;
+    max-width: 80%;
+    /* Limit the width to make it appear smaller */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* File dropzone */
+.file-dropzone {
+    border: 2px dashed #ADBC9F;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    width: 48%;
+    /* Adjusted width for consistency */
+    background-color: #e5e5e5;
+    transition: background-color 0.3s;
+    min-height: 120px;
+    /* Set a minimum height */
+}
+
+.file-dropzone.drag-active {
+    background-color: #e8f5e9;
+    border-color: #3a5330;
+}
+
+.file-input {
+    display: none;
+}
+
+.browse-btn {
+    background: #436850;
+    color: #fff;
+    padding: 10px 25px;
+    /* Increased padding for a bigger button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.browse-btn:hover {
+    background: #3a5330;
+}
+
+/* Selected files box */
+.selected-files-box {
+    width: 48%;
+    padding: 15px;
+    /* Increased padding for balance */
+    background-color: #e5e5e5;
+    border-radius: 12px;
+    border: 2px solid #ADBC9F;
+    text-align: left;
+    max-height: 160px;
+    /* Increased max-height for more content visibility */
+    overflow-y: auto;
+}
+
+.selected-files-box h3 {
+    font-size: 1.2rem;
+    color: #12372A;
+    margin-bottom: 10px;
+    margin-top: -0%;
+}
+
+.selected-files-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.selected-files-box li {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* Upload Button */
+.upload-bt {
+    background: #436850;
+    color: #fff;
+    padding: 18px 50px;
+    /* Increased padding for bigger button */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.upload-bt:hover {
+    background: #3a5330;
+    transform: scale(1.05);
+}
+
+.upload-bt:active {
+    transform: scale(1.02);
+}
+
+/* Back Button */
+.backkk-bt {
+    background: #12372A;
+    color: #fff;
+    padding: 18px 50px;
+    /* Increased padding for bigger button */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.backkk-bt:hover {
+    background: #212529;
+    transform: scale(1.05);
+}
+
+.backkk-bt:active {
+    transform: scale(1.02);
+}
+
+/* Delete Button */
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ff4d4d;
+    font-size: 1.2rem;
+    padding: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-btn:hover {
+    color: #e60000;
+    transform: scale(1.2);
+}
+
+.delete-btn:focus {
+    outline: none;
+    color: #cc0000;
+}
+
+.feature-selection-container {
+    margin-top: 40px;
+    padding: 30px;
+    background: #e5e5e5;
+    border: 2px solid #ADBC9F;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-selection-title {
+    font-size: 1.3rem;
+    color: #12372A;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.feature-selection-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.feature-selection-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feature-category {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature-category h3 {
+    font-size: 1.2rem;
+    color: #436850;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #436850;
+    padding-bottom: 5px;
+}
+
+.feature-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.feature-option label {
+    font-size: 1rem;
+    color: #333;
+}
+
+.tooltip {
+    display: inline-block;
+    background: #436850;
+    color: #fff;
+    font-size: 0.8rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    cursor: pointer;
+    position: relative;
+}
+
+.tooltip:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4B6A3D;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #4B6A3D transparent transparent transparent;
+}
+
+/* Custom Checkbox Style */
+input[type="checkbox" i] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: 2px solid #436850;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="checkbox" i]:checked {
+    background-color: #12372A;
+    /* Full green box */
+    border-color: #3a5330;
+}
+
+/* Hover and Focus States */
+input[type="checkbox" i]:hover {
+    border-color: #3a5330;
+}
+
+input[type="checkbox" i]:focus {
+    border-color: #3a5330;
+    box-shadow: 0 0 5px rgba(74, 107, 61, 0.5);
+}
+
+/* Footer */
+.footer-featureanalysis {
+    background-color: #436850;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.footer-link {
+    background: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.footer-address-featureanalysis {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: -0.5%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .FeatureAnalysis-navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mango-logo {
+        width: 80px;
+    }
+
+    .bruise-title {
+        font-size: 1.5rem;
+    }
+
+    .feature-selection-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .feature-category {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .file-upload-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .file-dropzone,
+    .selected-files-box {
+        width: 100%;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bt {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .footer-featureanalysis {
+        padding: 10px 15px;
+    }
+
+    .footer-address-featureanalysis {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .FeatureAnalysis-navbar {
+        padding: 10px 20px;
+    }
+
+    .mango-logo {
+        width: 60px;
+    }
+
+    .bruise-title {
+        font-size: 1.2rem;
+    }
+
+    .feature-selection-container {
+        padding: 15px;
+    }
+
+    .feature-category h3 {
+        font-size: 1rem;
+    }
+
+    .feature-option label {
+        font-size: 0.9rem;
+    }
+
+    .file-dropzone,
+    .selected-files-box {
+        padding: 15px;
+    }
+
+    .bt {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .footer-featureanalysis {
+        padding: 8px 10px;
+    }
+
+    .footer-address-featureanalysis {
+        font-size: 0.7em;
+    }
+}

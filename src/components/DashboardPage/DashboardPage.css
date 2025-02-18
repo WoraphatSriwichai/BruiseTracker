@@ -1,0 +1,262 @@
+/* General Styles */
+.dashboard-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FFF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.export-progress-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.export-progress {
+    font-size: 16px;
+    color: #436850;
+}
+
+.manger-logo {
+    width: 100%;
+    cursor: pointer;
+    max-width: 100px;
+    margin-right: 4%;
+    vertical-align: middle;
+}
+
+.navbar-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #436850;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard-title {
+    font-size: 1.5rem;
+    color: #12372A;
+    margin-bottom: 10px;
+    margin-top: 1.5%;
+}
+
+.dashboard-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.dashboard-table {
+    width: 100%;
+    background-color: #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.dashboard-table-container {
+    width: 90%;
+    margin: 0 auto;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 1%;
+}
+
+.dashboard-table thead th {
+    background: #436850;
+    color: #e5e5e5;
+    padding: 15px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.dashboard-table tbody td {
+    padding: 15px;
+    text-align: center;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.dashboard-table tbody tr:nth-child(odd) td {
+    background: #f9f9f9;
+}
+
+.dashboard-table tbody tr:hover td {
+    background: #e4f5e3;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.view-btn {
+    background: #436850;
+    color: #fff;
+}
+
+.view-btn:hover {
+    background: #3a5330;
+}
+
+.export-btn {
+    background: #e0bb42;
+    color: #12372A;
+}
+
+.export-btn:hover {
+    background: #e6c24d;
+}
+
+/* Footer */
+.footering {
+    background-color: #436850;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.footering-link {
+    background: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.footering-address {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: -0.7%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar-dashboard {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .dashboard-title {
+        font-size: 1.2rem;
+    }
+
+    .dashboard-subtitle {
+        font-size: 1rem;
+    }
+
+    .dashboard-table-container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .dashboard-table thead th {
+        padding: 10px;
+    }
+
+    .dashboard-table tbody td {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    .footering {
+        padding: 10px 15px;
+    }
+
+    .footering-address {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar-dashboard {
+        padding: 10px 20px;
+    }
+
+    .navbar .manger-logo {
+        max-width: 80px;
+    }
+
+    .navbar-links .navbar-link {
+        padding: 8px 20px;
+    }
+
+    .dashboard-title {
+        font-size: 1rem;
+    }
+
+    .dashboard-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .dashboard-table-container {
+        padding: 0 5px;
+    }
+
+    .dashboard-table thead th {
+        padding: 8px;
+    }
+
+    .dashboard-table tbody td {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+    }
+
+    .footering {
+        padding: 8px 10px;
+    }
+
+    .footering-address {
+        font-size: 0.7em;
+    }
+}

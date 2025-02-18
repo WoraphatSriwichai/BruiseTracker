@@ -1,0 +1,528 @@
+/* General Styles */
+.bruiseareacalculation-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FFF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Crop Image Button */
+.crop-image-bt {
+    background-color: #cea500;
+    color: white;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.crop-image-bt:hover {
+    background-color: #e6b800;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.crop-image-bt:active {
+    background-color: #cc9900;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+/* Remove Background Button */
+.remove-background-bt {
+    background-color: #0083ae;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.remove-background-bt:hover {
+    background-color: #0086b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.remove-background-bt:active {
+    background-color: #007399;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+.download-all-zip-bt {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #436850;
+    /* A vibrant green shade */
+    margin-top: 7%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.download-all-zip-bt:hover {
+    background-color: #45a049;
+    /* Slightly darker green for hover effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    /* Adds a subtle lift effect */
+}
+
+.download-all-zip-bt:active {
+    background-color: #3e8e41;
+    /* Darker green for active state */
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+    /* Pressed-down effect */
+}
+
+.resized-images {
+    padding: 30px 40px;
+    border: 2px solid #ADBC9F;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    margin: 2% auto;
+    text-align: center;
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.resized-images h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+    color: #444;
+    position: sticky;
+    top: 0;
+    background-color: #f9f9f9;
+    z-index: 1;
+    padding: 10px 0;
+    border-bottom: 2px solid #ADBC9F;
+}
+
+.resized-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.resized-image-card {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resized-image-preview {
+    max-width: 100%;
+    max-height: 100px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.resized-image-details {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    /* Ensure text wraps */
+    overflow-wrap: break-word;
+    /* Ensure text wraps */
+    text-align: center;
+    /* Center align text */
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #6b8e23, #3a5330);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #556b2f, #2e3d1f);
+}
+
+.resize-settings-bruiseareacalculation {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px dashed #ADBC9F;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.resize-settings-bruiseareacalculation h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #444;
+}
+
+.resize-settings-bruiseareacalculation .input-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.resize-settings-bruiseareacalculation .resize-number-input {
+    width: 90px;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.resize-settings-bruiseareacalculation .aspect-ratio-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.resize-settings-bruiseareacalculation .aspect-ratio-label input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.bruiseareacalculation-content {
+    flex: 1;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.bruiseareacalculation-title {
+    font-size: 1.8rem;
+    color: #12372A;
+    margin-bottom: 10px;
+}
+
+.bruise-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* File upload container */
+.file-upload-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 4%;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* File dropzone */
+.file-dropzone {
+    border: 2px dashed #ADBC9F;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    width: 48%;
+    background-color: #e5e5e5;
+    transition: background-color 0.3s;
+    min-height: 120px;
+}
+
+.file-dropzone.drag-active {
+    background-color: #e8f5e9;
+    border-color: #3a5330;
+}
+
+.file-input {
+    display: none;
+}
+
+/* ...existing code... */
+
+.browse-bruiseareacalculation-btn {
+    background: #436850;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.browse-bruiseareacalculation-btn:hover {
+    background: #3a5330;
+}
+
+.browse-bruiseareacalculation-btn:focus {
+    background: #2e4725;
+}
+
+/* ...existing code... */
+
+/* Selected files box */
+.selected-files-box {
+    width: 48%;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 2px solid #ADBC9F;
+    text-align: left;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.selected-files-box h3 {
+    font-size: 1.2rem;
+    color: #12372A;
+    margin-bottom: 10px;
+}
+
+.selected-files-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.selected-files-box li {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.upload-bruiseareacalculation-bt {
+    background: #436850;
+    color: #fff;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.upload-bruiseareacalculation-bt:hover {
+    background: #3a5330;
+    transform: scale(1.05);
+}
+
+.upload-bruiseareacalculation-bt:active {
+    background: #2e4725;
+    /* New color when clicked */
+    transform: scale(1.02);
+}
+
+.backto-bt {
+    background: #12372A;
+    color: #fff;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.backto-bt:hover {
+    background: #212529;
+    transform: scale(1.05);
+}
+
+.backto-bt:active {
+    transform: scale(1.02);
+}
+
+/* Delete Button */
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ff4d4d;
+    font-size: 1.2rem;
+    padding: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.delete-btn:hover {
+    color: #e60000;
+    transform: scale(1.2);
+}
+
+.delete-btn:focus {
+    outline: none;
+    color: #cc0000;
+}
+
+/* Footer */
+.footer-resize {
+    background-color: #436850;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.footer-link {
+    background: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.footer-address-resize {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: -0.5%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mango-logo {
+        width: 80px;
+    }
+
+    .bruiseareacalculation-title {
+        font-size: 1.5rem;
+    }
+
+    .bruise-description {
+        font-size: 0.9rem;
+    }
+
+    .file-upload-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .file-dropzone,
+    .selected-files-box {
+        width: 100%;
+    }
+
+    .resize-settings-bruiseareacalculation {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .footer-resize {
+        padding: 10px 15px;
+    }
+
+    .footer-address-resize {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .mango-logo {
+        width: 60px;
+    }
+
+    .bruiseareacalculation-title {
+        font-size: 1.2rem;
+    }
+
+    .bruise-description {
+        font-size: 0.8rem;
+    }
+
+    .file-dropzone,
+    .selected-files-box {
+        padding: 15px;
+    }
+
+    .resize-settings-bruiseareacalculation {
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .footer-resize {
+        padding: 8px 10px;
+    }
+
+    .footer-address-resize {
+        font-size: 0.7em;
+    }
+}

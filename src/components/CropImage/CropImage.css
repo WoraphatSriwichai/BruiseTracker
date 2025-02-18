@@ -1,0 +1,290 @@
+/* General Styles */
+.bruiseareacalculation-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FFF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.bruiseareacalculation-content {
+    flex: 1;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.bruiseareacalculation-title {
+    font-size: 1.8rem;
+    color: #12372A;
+    margin-bottom: 10px;
+}
+
+.bruise-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Crop Image Container */
+.crop-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1000px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.crop-image-upload {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px dashed #436850;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.upload-label {
+    background: #436850;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.upload-label:hover {
+    background: #3a5330;
+}
+
+.image-crop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.crop-box {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.crop-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.zoom-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.zoom-icon {
+    font-size: 1.2rem;
+    color: #436850;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.zoom-icon:hover {
+    color: #3a5330;
+}
+
+.zoom-range {
+    width: 150px;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reset-btn {
+    background: #12372A;
+    color: #fff;
+}
+
+.reset-btn:hover {
+    background: #212529;
+    transform: scale(1.05);
+}
+
+.reset-btn:active {
+    transform: scale(1.02);
+}
+
+.upload-bruiseareacalculation-bt {
+    background: #436850;
+    color: #fff;
+}
+
+.upload-bruiseareacalculation-bt:hover {
+    background: #3a5330;
+    transform: scale(1.05);
+}
+
+.upload-bruiseareacalculation-bt:active {
+    transform: scale(1.02);
+}
+
+/* Footer */
+.footer-cropimage {
+    background-color: #436850;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.footer-link {
+    background: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.footer-address-cropimage {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: -0.5%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .bruiseareacalculation-title {
+        font-size: 1.5rem;
+    }
+
+    .bruise-description {
+        font-size: 0.9rem;
+    }
+
+    .crop-image-container {
+        padding: 20px 10px;
+    }
+
+    .crop-box {
+        height: 300px;
+    }
+
+    .zoom-range {
+        width: 100px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .footer-cropimage {
+        padding: 10px 15px;
+    }
+
+    .footer-address-cropimage {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .navbar .mango-logo {
+        max-width: 80px;
+    }
+
+    .navbar-links .navbar-link {
+        padding: 8px 20px;
+    }
+
+    .bruiseareacalculation-title {
+        font-size: 1.2rem;
+    }
+
+    .bruise-description {
+        font-size: 0.8rem;
+    }
+
+    .crop-box {
+        height: 200px;
+    }
+
+    .zoom-range {
+        width: 80px;
+    }
+
+    .btn {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .footer-cropimage {
+        padding: 8px 10px;
+    }
+
+    .footer-address-cropimage {
+        font-size: 0.7em;
+    }
+}

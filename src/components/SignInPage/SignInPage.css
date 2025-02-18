@@ -1,0 +1,365 @@
+/* Background style */
+.signin-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../assets/mangobackground.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Password alert message style */
+.password-alert {
+    margin-top: 5px;
+    color: #b80000;
+    /* Red for alert */
+    font-size: 12px;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 10px;
+}
+
+/* Remember me container */
+/* Remember Me checkbox */
+.remember-me {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #436850;
+}
+
+/* Styling for the checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hide the default checkbox */
+.checkbox-container input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    background-color: #f1f1f1;
+    border: 2px solid #436850;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Add a checkmark when checked */
+.checkbox-container input:checked~.checkmark {
+    background-color: #436850;
+    border-color: #436850;
+}
+
+/* Checkmark icon */
+.checkbox-container input:checked~.checkmark:after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Hover effect */
+.checkbox-container:hover .checkmark {
+    border-color: #3e7f31;
+}
+
+/* Alert message style */
+.alert-message {
+    margin-bottom: 15px;
+    color: #b80000;
+    /* Red for alert */
+    background-color: #ffe6e6;
+    /* Light red background */
+    border: 1px solid #ffcccc;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Add a close button to the alert */
+.alert-message::after {
+    content: '✖';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #b80000;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark overlay for reducing exposure */
+.signin-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Slightly darker for more focus on form */
+    z-index: 1;
+}
+
+/* Sign-in box style */
+.signin-box {
+    position: relative;
+    background-color: #F1E4C3;
+    /* Softer cream color */
+    padding: 30px 50px;
+    border-radius: 20px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    /* Softer shadow */
+    text-align: center;
+    width: 350px;
+    /* Slightly wider for spacious design */
+    z-index: 2;
+    font-family: 'Arial', sans-serif;
+    /* Updated font for a cleaner look */
+}
+
+/* Logo style */
+.signin-logo {
+    width: 100px;
+    margin-bottom: 15px;
+}
+
+/* Title style */
+h1 {
+    font-size: 26px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Input field styles */
+.signin-input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #BDBDBD;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.signin-input[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    top: 100%;
+    left: 0;
+    white-space: normal;
+    z-index: 10;
+}
+
+/* Button style */
+.signin-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #436850;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.signin-button:hover {
+    background-color: #3e7f31;
+}
+
+/* Links styles */
+.signin-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.forgot-password,
+.signup-link {
+    color: #436850;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover,
+.signup-link:hover {
+    color: #b56e03;
+    text-decoration: underline;
+}
+
+/* Highlight input when filled */
+.signin-input:focus {
+    border-color: #597E52;
+    box-shadow: 0px 0px 5px rgba(89, 126, 82, 0.5);
+}
+
+/* Password wrapper to align input and toggle button */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-input {
+    padding-right: 40px;
+    /* Adds space for the toggle button */
+}
+
+/* Toggle password button styles */
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #436850;
+}
+
+.toggle-password:hover {
+    color: #3e7f31;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .signin-box {
+        width: 90%;
+        padding: 20px 30px;
+    }
+
+    .signin-logo {
+        width: 80px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .signin-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .signin-button {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .password-alert,
+    .alert-message {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .signin-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .forgot-password,
+    .signup-link {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .signin-box {
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .signin-logo {
+        width: 60px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .signin-input {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .signin-button {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .password-alert,
+    .alert-message {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .signin-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .forgot-password,
+    .signup-link {
+        font-size: 13px;
+    }
+}

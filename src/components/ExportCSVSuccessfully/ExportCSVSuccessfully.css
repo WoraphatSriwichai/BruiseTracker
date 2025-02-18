@@ -1,0 +1,269 @@
+.navbar-exportcsv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #436850;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-brand span {
+    font-size: 0.8em;
+}
+
+.profile-links {
+    display: flex;
+    gap: 30px;
+    margin-right: 5%;
+}
+
+.profile-link {
+    background: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 12px 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-link:hover {
+    background-color: #FFDD55;
+    color: #4B6A3D;
+    transform: scale(1.05);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-link:active {
+    transform: scale(1);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.export-csv-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #FFF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.export-csv-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    margin-top: 1.5%;
+    background-color: #fff;
+}
+
+.export-csv-title {
+    font-size: 2em;
+    margin-bottom: 25px;
+    color: #4B6A3D;
+    font-weight: 600;
+}
+
+.export-csv-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #e5e5e5;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 5.5%;
+    border: 2px solid #ADBC9F;
+}
+
+.export-csv-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.export-csv-form input {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 250px;
+    margin-top: 5px;
+}
+
+.export-password {
+    background-color: #436850;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 550;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.export-password-button:hover {
+    background-color: #FFDD55;
+    color: #4B6A3D;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* Cancel Button Styles */
+.cancel-button {
+    background-color: #FF4D4D;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1em;
+    font-weight: 550;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.cancel-button:hover {
+    background-color: #FF9E9E;
+    transform: scale(1.05);
+}
+
+.cancel-button:active {
+    transform: scale(1);
+}
+
+.check-img {
+    width: 50px;
+    /* Adjust the size of the check image */
+    height: 50px;
+    margin-bottom: 15px;
+    /* Adds space between the image and text */
+}
+
+.check-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centers both the image and text horizontally */
+    justify-content: center;
+    /* Centers them vertically if needed */
+    text-align: center;
+    /* Ensures the text is centered under the image */
+    margin-bottom: 20px;
+    /* Adds some space between the image-text container and the button */
+}
+
+/* Footer */
+.footer-exportcsv {
+    background-color: #436850;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    margin-top: 80px;
+    position: relative;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    background: none;
+    color: #FFF;
+    font-size: 0.7em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #FFDD55;
+}
+
+.footer-exportcsv-address {
+    font-size: 0.95em;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar-exportcsv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .manger-logo {
+        width: 80px;
+    }
+
+    .export-csv-title {
+        font-size: 1.5em;
+    }
+
+    .export-csv-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .export-password,
+    .cancel-button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .footer-exportcsv {
+        padding: 10px 15px;
+    }
+
+    .footer-exportcsv-address {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar-exportcsv {
+        padding: 10px 20px;
+    }
+
+    .manger-logo {
+        width: 60px;
+    }
+
+    .export-csv-title {
+        font-size: 1.2em;
+    }
+
+    .export-csv-container {
+        padding: 15px;
+    }
+
+    .export-password,
+    .cancel-button {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .footer-exportcsv {
+        padding: 8px 10px;
+    }
+
+    .footer-exportcsv-address {
+        font-size: 0.7em;
+    }
+}

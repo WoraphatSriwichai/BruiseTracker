@@ -1,0 +1,125 @@
+/* Background style */
+.feedback-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../assets/mangobackground.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Dark overlay */
+.feedback-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Feedback box style */
+.feedback-box {
+    position: relative;
+    background-color: #F1E4C3;
+    padding: 30px 50px;
+    border-radius: 20px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 350px;
+    z-index: 2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title and text style */
+h1 {
+    font-size: 26px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 4%;
+}
+
+/* Styles for emotion list */
+.emotion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Individual emotion item styles */
+.emotion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 120px;
+    background-color: #f9f9f9;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.emotion-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    border-color: #4b6a3d;
+}
+
+.emotion-item.selected {
+    border-color: #4b6a3d;
+    background-color: #f1e4c3;
+    transform: scale(1.05);
+}
+
+.emotion-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.emotion-label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Comment box styles */
+.feedback-comment {
+    width: 100%;
+    height: 80px;
+    margin: 20px 0;
+    padding: 12px;
+    border: 1px solid #BDBDBD;
+    border-radius: 8px;
+    resize: none;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Button styles */
+.feedback-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #4B6A3D;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-button:hover {
+    background-color: #3e7f31;
+}

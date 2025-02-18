@@ -1,0 +1,234 @@
+/* General Styles */
+.remove-background-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FFF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.remove-background-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    margin-top: 1.5%;
+}
+
+/* Content */
+.remove-background-content {
+    flex: 1;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.remove-background-title {
+    font-size: 1.8rem;
+    color: #12372A;
+    margin-bottom: 10px;
+    margin-top: -0%;
+}
+
+.remove-background-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Image Container */
+/* Image Container */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1000px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-upload {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px dashed #436850;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.upload-label {
+    background: #436850;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.upload-label:hover {
+    background: #3a5330;
+}
+
+.image-preview {
+    margin-top: 20px;
+}
+
+.uploaded-image,
+.processed-image {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    color: red;
+    margin-top: 20px;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.btn {
+    padding: 18px 50px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.reset-btn {
+    background: #12372A;
+    color: #fff;
+}
+
+.reset-btn:hover {
+    background: #212529;
+    transform: scale(1.05);
+}
+
+.reset-btn:active {
+    transform: scale(1.02);
+}
+
+.remove-btn {
+    background: #436850;
+    color: #fff;
+}
+
+.remove-btn:hover {
+    background: #3a5330;
+    transform: scale(1.05);
+}
+
+.remove-btn:active {
+    transform: scale(1.02);
+}
+
+/* Footer */
+.footer {
+    background-color: #436850;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.footer-address {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75em;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: -0.5%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mango-logo {
+        width: 80px;
+    }
+
+    .remove-background-title {
+        font-size: 1.5rem;
+    }
+
+    .remove-background-description {
+        font-size: 0.9rem;
+    }
+
+    .image-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .footer {
+        padding: 10px 15px;
+    }
+
+    .footer-address {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .mango-logo {
+        width: 60px;
+    }
+
+    .remove-background-title {
+        font-size: 1.2rem;
+    }
+
+    .remove-background-description {
+        font-size: 0.8rem;
+    }
+
+    .image-container {
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        padding: 8px 10px;
+    }
+
+    .footer-address {
+        font-size: 0.7em;
+    }
+}

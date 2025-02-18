@@ -1,0 +1,289 @@
+/* General Styles */
+.show-area-calculation-page {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #FFF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* No Information Available Box */
+.no-info-box {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-showareacalculation {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 24px;
+    background-color: #436850;
+    color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 30px;
+    margin-right: 0.2%;
+}
+
+.area-action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 4%;
+}
+
+/* Upload Button */
+.upload-btn {
+    background: #436850;
+    color: #fff;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.upload-btn:hover {
+    background: #3a5330;
+    transform: scale(1.05);
+}
+
+.upload-btn:active {
+    transform: scale(1.02);
+}
+
+/* Back Button */
+.backer-btn {
+    background: #12372A;
+    color: #fff;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.backer-btn:hover {
+    background: #6C757D;
+    transform: scale(1.05);
+}
+
+.backer-btn:active {
+    transform: scale(1.02);
+}
+
+.show-area-calculation-content {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    overflow-y: auto;
+    /* Enable scrolling for content */
+}
+
+.show-area-calculation-title {
+    font-size: 1.5rem;
+    color: #12372A;
+    margin-bottom: 10px;
+    margin-top: 1.5%;
+}
+
+.show-area-calculation-table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    /* Set max height to enable scroll */
+}
+
+.show-area-calculation-table {
+    width: 100%;
+    background-color: #e5e5e5;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.show-area-calculation-table thead th {
+    background: #436850;
+    color: #fff;
+    padding: 15px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.show-area-calculation-table tbody td {
+    padding: 15px;
+    text-align: center;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+    /* Add this line to enable text wrapping */
+    white-space: normal;
+    /* Add this line to enable text wrapping */
+}
+
+.show-area-calculation-table tbody tr:nth-child(odd) td {
+    background: #f9f9f9;
+}
+
+.show-area-calculation-table tbody tr:hover td {
+    background: #e4f5e3;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.view-result-btn {
+    background: #436850;
+    color: #fff;
+}
+
+.view-result-btn:hover {
+    background: #3a5330;
+}
+
+.export-result-btn {
+    background: rgb(219, 0, 0);
+    color: white;
+}
+
+.export-result-btn:hover {
+    background: #e6c24d;
+}
+
+/* Footer */
+.footer-showareacalculation {
+    background-color: #436850;
+    padding: 15px 20px;
+    text-align: center;
+    margin-top: auto;
+    /* Push the footer to the bottom */
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.footer-link {
+    background: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.footer-showareacalculation-address {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: -0.5%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar-showareacalculation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .mango-logo {
+        width: 80px;
+    }
+
+    .show-area-calculation-title {
+        font-size: 1.5rem;
+    }
+
+    .show-area-calculation-table-container {
+        padding: 0 10px;
+    }
+
+    .show-area-calculation-table thead th,
+    .show-area-calculation-table tbody td {
+        padding: 10px;
+    }
+
+    .area-action-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .footer-showareacalculation {
+        padding: 10px 15px;
+    }
+
+    .footer-showareacalculation-address {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar-showareacalculation {
+        padding: 10px 20px;
+    }
+
+    .mango-logo {
+        width: 60px;
+    }
+
+    .show-area-calculation-title {
+        font-size: 1.2rem;
+    }
+
+    .show-area-calculation-table thead th,
+    .show-area-calculation-table tbody td {
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .footer-showareacalculation {
+        padding: 8px 10px;
+    }
+
+    .footer-showareacalculation-address {
+        font-size: 0.7em;
+    }
+}
