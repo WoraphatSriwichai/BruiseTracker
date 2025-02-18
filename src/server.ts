@@ -5,12 +5,22 @@ import rateLimit from 'express-rate-limit';
 import { generateAccessToken, generateRefreshToken, verifyToken } from './jwt';
 import { hashPassword, verifyPassword } from './hash';
 import client from './db';
+import { createTable } from './dbconnect';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+// Ensure the database table is created when the application runs
+const initializeDatabase = async () => {
+  await createTable();
+};
+
+initializeDatabase().catch(err => {
+  console.error('Error initializing database:', err);
+});
 
 // Rate limiter middleware for login route
 const loginLimiter = rateLimit({

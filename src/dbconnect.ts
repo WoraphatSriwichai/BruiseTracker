@@ -1,6 +1,6 @@
 import client from './db';
 
-const createTable = async () => {
+export const createTable = async () => {
   const createTableQuery = `
     CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
@@ -20,9 +20,3 @@ const createTable = async () => {
     console.error('Error creating table:', err);
   }
 };
-
-const main = async () => {
-  await createTable();
-};
-
-main();
