@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import rateLimit from 'express-rate-limit';
 import { generateAccessToken, generateRefreshToken, verifyToken } from './jwt';
 import { hashPassword, verifyPassword } from './hash';
 import client from './db';
@@ -10,6 +11,15 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
+
+// Rate limiter middleware for login route
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // limit each IP to 5 login requests per windowMs
+  handler: (req, res) => {
+    res.status(429).json({ error: 'Too many login attempts, please try again after 15 minutes' });
+  }
+});
 
 // Middleware to authenticate and extract user ID from token
 interface AuthenticatedRequest extends express.Request {
@@ -87,7 +97,7 @@ app.post('/register', async (req, res) => {
 });
 
 // User login route
-app.post('/login', async (req, res) => {
+app.post('/login', loginLimiter , async (req, res) => {
   const { email, password } = req.body;
 
   try {

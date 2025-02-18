@@ -50,7 +50,7 @@ useAuth();
           console.error('Error details:', errorData.details);
         }
       } catch (err) {
-        setAlertMessage('Error logging in');
+        setAlertMessage(err.message);
         console.error('Error details:', err.message);
       }
     }
