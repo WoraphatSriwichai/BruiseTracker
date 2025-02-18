@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const secretKey = process.env.JWT_SECRET || 'your-secret-key';
+const secretKey = process.env.JWT_SECRET as string;
 
 export const generateAccessToken = (payload: object) => {
     return jwt.sign(payload, secretKey, { expiresIn: '1h' }); // Access token expires in 1 hour

@@ -7,6 +7,7 @@ import userProfileImg from '../../assets/profile.jpg';
 
 function MainHomePage() {
     const navigate = useNavigate();
+    
 
     const handleAboutUs = useCallback(() => navigate('/aboutuspage'), [navigate]);
     const handleContactUs = useCallback(() => navigate('/contactuspage'), [navigate]);

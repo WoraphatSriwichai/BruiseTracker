@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './FirstHomePage.css';
 import mangoBackground from '../../assets/differentmango.jpg';
 import logoWhite from '../../assets/Logo_white.png';
-import { UnAuth, useAuth } from '../../Auth';
+import useAuth from '../../Auth';
 
 function FirstHomePage() {
     useAuth();

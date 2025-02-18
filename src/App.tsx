@@ -30,6 +30,7 @@ import CropImage from './components/CropImage/CropImage';
 import RemoveBackground from './components/RemoveBackground/RemoveBackground';
 import TestTokenPage from './components/Token/tokentest';
 import LogoutPage from './components/Logout/logout';
+import PrivateRoute from './AuthRoute';
 
 function App() {
   return (
@@ -44,26 +45,26 @@ function App() {
           <Route path="/verify" element={<Verify />} />
           <Route path="/changepassword" element={<ChangePassword />} />
           <Route path="/changepasswordupdate" element={<ChangePasswordUpdate />} />
-          <Route path="/mainhomepage" element={<MainHomePage />} />
+          <Route path="/mainhomepage" element={<PrivateRoute element={<MainHomePage />} />} />
           <Route path="/aboutuspage" element={<AboutUsPage />} />
           <Route path="/contactuspage" element={<ContactUsPage />} />
           <Route path="/feedbackpage" element={<FeedbackPage />} />
           <Route path="/feedbacksubmitted" element={<FeedbackSubmitted />} />
-          <Route path="/dashboardpage" element={<DashboardPage />} />
-          <Route path="/userprofilepage" element={<UserProfilePage />} />
-          <Route path="/edituserprofile" element={<EditUserProfile />} />
-          <Route path="/changeprofilepassword" element={<ChangeProfilePassword />} />
-          <Route path="/newpasswordupdate" element={<NewPasswordUpdate />} />
-          <Route path="/bruiseareacalculation" element={<BruiseAreaCalculation />} />
-          <Route path="/showareacalculation" element={<ShowAreaCalculation />} />
-          <Route path="/exportcsvsuccessfully" element={<ExportCSVSuccessfully />} />
-          <Route path="/featureanalysis" element={<FeatureAnalysis />} />
-          <Route path="/viewphotoresults" element={<ViewPhotoResults />} />
-          <Route path="/featureanalysisresults" element={<FeatureAnalysisResults />} />
-          <Route path="/exportfeaturesuccessful" element={<ExportFeatureSuccessful />} />
-          <Route path="/resize" element={<Resize />} />
-          <Route path="/cropimage" element={<CropImage />} />
-          <Route path="/removebackground" element={<RemoveBackground />} />
+          <Route path="/dashboardpage" element={<PrivateRoute element={<DashboardPage />} />} />
+          <Route path="/userprofilepage" element={<PrivateRoute element={<UserProfilePage />} />} />
+          <Route path="/edituserprofile" element={<PrivateRoute element={<EditUserProfile />} />} />
+          <Route path="/changeprofilepassword" element={<PrivateRoute element={<ChangeProfilePassword />} />} />
+          <Route path="/newpasswordupdate" element={<PrivateRoute element={<NewPasswordUpdate />} />} />
+          <Route path="/bruiseareacalculation" element={<PrivateRoute element={<BruiseAreaCalculation />} />} />
+          <Route path="/showareacalculation" element={<PrivateRoute element={<ShowAreaCalculation />} />} />
+          <Route path="/exportcsvsuccessfully" element={<PrivateRoute element={<ExportCSVSuccessfully />} />} />
+          <Route path="/featureanalysis" element={<PrivateRoute element={<FeatureAnalysis />} />} />
+          <Route path="/viewphotoresults" element={<PrivateRoute element={<ViewPhotoResults />} />} />
+          <Route path="/featureanalysisresults" element={<PrivateRoute element={<FeatureAnalysisResults />} />} />
+          <Route path="/exportfeaturesuccessful" element={<PrivateRoute element={<ExportFeatureSuccessful />} />} />
+          <Route path="/resize" element={<PrivateRoute element={<Resize />} />} />
+          <Route path="/cropimage" element={<PrivateRoute element={<CropImage />} />} />
+          <Route path="/removebackground" element={<PrivateRoute element={<RemoveBackground />} />} />
           <Route path="/testtoken" element={<TestTokenPage />} />
           <Route path="/logout" element={<LogoutPage />} />
         </Routes>

@@ -14,17 +14,5 @@ const useAuth = () => {
   }, [navigate]);
 };
 
-const UnAuth = () => {
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-
-    if (!token) {
-      // Redirect to the home page if the token does not exist
-      navigate('/');
-    }
-  }, [navigate]);
-};
-
-export { useAuth, UnAuth };
+export default useAuth;

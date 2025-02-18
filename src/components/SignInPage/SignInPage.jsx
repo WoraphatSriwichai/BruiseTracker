@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import './SignInPage.css';
 import mangoLogo from '../../assets/Logo_black.png';
-import { UnAuth, useAuth } from '../../Auth';
+import useAuth from '../../Auth';
 
 function SignInPage() {
 useAuth();
