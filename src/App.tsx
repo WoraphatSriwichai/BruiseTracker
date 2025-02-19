@@ -11,8 +11,6 @@ import ChangePasswordUpdate from './components/ChangePasswordUpdate/ChangePasswo
 import MainHomePage from './components/MainHomePage/MainHomePage';
 import AboutUsPage from './components/AboutUsPage/AboutUsPage';
 import ContactUsPage from './components/ContactUsPage/ContactUsPage';
-import FeedbackPage from './components/FeedbackPage/FeedbackPage';
-import FeedbackSubmitted from './components/FeedbackPage/FeedbackSubmitted';
 import DashboardPage from './components/DashboardPage/DashboardPage';
 import UserProfilePage from './components/UserProfilePage/UserProfilePage';
 import EditUserProfile from './components/EditUserProfile/EditUserProfile';
@@ -37,22 +35,20 @@ function App() {
     <UserProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Navigate to="/firsthomepage" />} />
-          <Route path="/firsthomepage" element={<FirstHomePage />} />
+          <Route path="/" element={<Navigate to="/landing" />} />
+          <Route path="/landing" element={<FirstHomePage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/changepassword" element={<ChangePassword />} />
-          <Route path="/changepasswordupdate" element={<ChangePasswordUpdate />} />
-          <Route path="/mainhomepage" element={<PrivateRoute element={<MainHomePage />} />} />
-          <Route path="/aboutuspage" element={<AboutUsPage />} />
-          <Route path="/contactuspage" element={<ContactUsPage />} />
-          <Route path="/feedbackpage" element={<FeedbackPage />} />
-          <Route path="/feedbacksubmitted" element={<FeedbackSubmitted />} />
-          <Route path="/dashboardpage" element={<PrivateRoute element={<DashboardPage />} />} />
-          <Route path="/userprofilepage" element={<PrivateRoute element={<UserProfilePage />} />} />
-          <Route path="/edituserprofile" element={<PrivateRoute element={<EditUserProfile />} />} />
+          <Route path="/changepassword/success" element={<ChangePasswordUpdate />} />
+          <Route path="/home" element={<PrivateRoute element={<MainHomePage />} />} />
+          <Route path="/aboutus" element={<AboutUsPage />} />
+          <Route path="/contactus" element={<ContactUsPage />} />
+          <Route path="/dashboard" element={<PrivateRoute element={<DashboardPage />} />} />
+          <Route path="/profile" element={<PrivateRoute element={<UserProfilePage />} />} />
+          <Route path="/profile/edit" element={<PrivateRoute element={<EditUserProfile />} />} />
           <Route path="/changeprofilepassword" element={<PrivateRoute element={<ChangeProfilePassword />} />} />
           <Route path="/newpasswordupdate" element={<PrivateRoute element={<NewPasswordUpdate />} />} />
           <Route path="/bruiseareacalculation" element={<PrivateRoute element={<BruiseAreaCalculation />} />} />
@@ -63,7 +59,7 @@ function App() {
           <Route path="/featureanalysisresults" element={<PrivateRoute element={<FeatureAnalysisResults />} />} />
           <Route path="/exportfeaturesuccessful" element={<PrivateRoute element={<ExportFeatureSuccessful />} />} />
           <Route path="/resize" element={<PrivateRoute element={<Resize />} />} />
-          <Route path="/cropimage" element={<PrivateRoute element={<CropImage />} />} />
+          <Route path="/crop" element={<PrivateRoute element={<CropImage />} />} />
           <Route path="/removebackground" element={<PrivateRoute element={<RemoveBackground />} />} />
           <Route path="/testtoken" element={<TestTokenPage />} />
           <Route path="/logout" element={<LogoutPage />} />
