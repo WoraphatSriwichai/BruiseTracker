@@ -8,7 +8,7 @@ import mangoLogo from '../../assets/Logo_black.png';
 import useAuth from '../../Auth';
 
 function SignInPage() {
-useAuth();
+  useAuth();
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState('');
   const [passwordAlert, setPasswordAlert] = useState('');
@@ -17,6 +17,7 @@ useAuth();
 
   const handleForgotPassword = () => { navigate('/forgotpassword'); };
   const handleSignUpClick = () => { navigate('/signup'); };
+  const handleLogoClick = () => { navigate('/home'); };
 
   const handleSignInClick = async () => {
     const usernameOrEmail = document.getElementById('username').value.trim();
@@ -69,7 +70,7 @@ useAuth();
   return (
     <div className="signin-container">
       <div className="signin-box">
-        <img src={mangoLogo} alt="Mango Logo" className="signin-logo" />
+        <img src={mangoLogo} alt="Mango Logo" className="signin-logo" onClick={handleLogoClick} />
         <h1>Sign-In</h1>
 
         <input

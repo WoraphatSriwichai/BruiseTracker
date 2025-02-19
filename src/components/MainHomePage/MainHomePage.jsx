@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MainHomePage.css';
 import mangoBackground from '../../assets/differentmango.jpg';
@@ -7,7 +7,8 @@ import userProfileImg from '../../assets/profile.jpg';
 
 function MainHomePage() {
     const navigate = useNavigate();
-    
+    const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
     const handleAboutUs = useCallback(() => navigate('/aboutus'), [navigate]);
     const handleContactUs = useCallback(() => navigate('/contactus'), [navigate]);
     const handleDashboard = useCallback(() => navigate('/dashboard'), [navigate]);
@@ -17,6 +18,18 @@ function MainHomePage() {
     const handleResize = useCallback(() => navigate('/resize'), [navigate]);
     const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
     const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
+    const handleSignOut = useCallback(() => {
+        
+        // Clear authentication tokens
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        // Navigate to sign-in page
+        navigate('/signin');
+    }, [navigate]);
+
+    const toggleProfileDropdown = () => {
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
+    };
 
     return (
         <div className="main-homepage">
@@ -38,7 +51,13 @@ function MainHomePage() {
                 </div>
 
                 <div className="navbar-profile">
-                    <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={handleUserProfile} />
+                    <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+                    {isProfileDropdownOpen && (
+                        <div className="profile-dropdown">
+                            <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                            <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
+                        </div>
+                    )}
                 </div>
             </nav>
 

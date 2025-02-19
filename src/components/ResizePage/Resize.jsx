@@ -26,7 +26,7 @@ const Resize = () => {
 
     // Navigation handlers
     const handleCropImage = useCallback(() => {
-        navigate('/cropimage'); // Navigate to the CropImage page
+        navigate('/crop'); // Navigate to the CropImage page
     }, [navigate]);
 
     const handleDownloadAllImages = useCallback(async () => {
