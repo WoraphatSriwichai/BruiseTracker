@@ -43,7 +43,7 @@ useAuth();
           const data = await response.json();
           localStorage.setItem('accessToken', data.accessToken);
           localStorage.setItem('refreshToken', data.refreshToken);
-          navigate('/mainhomepage'); // Redirect to main page after successful sign-in
+          navigate('/home'); // Redirect to main page after successful sign-in
         } else {
           const errorData = await response.json();
           setAlertMessage(errorData.error || 'Error logging in');

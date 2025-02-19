@@ -56,7 +56,7 @@ function ChangePassword() {
 
                 if (response.ok) {
                     localStorage.setItem('signupPassword', newPassword); // Store the new password in local storage
-                    navigate('/changepasswordupdate'); // Navigate to the change password update page
+                    navigate('/changepassword/success'); // Navigate to the change password update page
                 } else {
                     const errorData = await response.json();
                     setAlertMessage(errorData.error || 'Error changing password');

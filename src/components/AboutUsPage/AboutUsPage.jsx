@@ -12,9 +12,9 @@ function AboutUsPage() {
 
     // Navigation handlers
     const handleSignIn = () => { navigate('/signin'); };
-    const handleContactUs = () => { navigate('/contactuspage'); };
-    const handleAboutUs = () => { navigate('/aboutuspage'); };
-    const handlemainhomepage = () => { navigate('/mainhomepage')}
+    const handleContactUs = () => { navigate('/contactus'); };
+    const handleAboutUs = () => { navigate('/aboutus'); };
+    const handlemainhomepage = () => { navigate('/home')}
 
     useEffect(() => {
         

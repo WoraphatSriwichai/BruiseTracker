@@ -49,15 +49,15 @@ function App() {
           <Route path="/dashboard" element={<PrivateRoute element={<DashboardPage />} />} />
           <Route path="/profile" element={<PrivateRoute element={<UserProfilePage />} />} />
           <Route path="/profile/edit" element={<PrivateRoute element={<EditUserProfile />} />} />
-          <Route path="/changeprofilepassword" element={<PrivateRoute element={<ChangeProfilePassword />} />} />
-          <Route path="/newpasswordupdate" element={<PrivateRoute element={<NewPasswordUpdate />} />} />
-          <Route path="/bruiseareacalculation" element={<PrivateRoute element={<BruiseAreaCalculation />} />} />
-          <Route path="/showareacalculation" element={<PrivateRoute element={<ShowAreaCalculation />} />} />
-          <Route path="/exportcsvsuccessfully" element={<PrivateRoute element={<ExportCSVSuccessfully />} />} />
-          <Route path="/featureanalysis" element={<PrivateRoute element={<FeatureAnalysis />} />} />
-          <Route path="/viewphotoresults" element={<PrivateRoute element={<ViewPhotoResults />} />} />
-          <Route path="/featureanalysisresults" element={<PrivateRoute element={<FeatureAnalysisResults />} />} />
-          <Route path="/exportfeaturesuccessful" element={<PrivateRoute element={<ExportFeatureSuccessful />} />} />
+          <Route path="/profile/changepassword" element={<PrivateRoute element={<ChangeProfilePassword />} />} />
+          <Route path="/newpassword" element={<PrivateRoute element={<NewPasswordUpdate />} />} />
+          <Route path="/bruise" element={<PrivateRoute element={<BruiseAreaCalculation />} />} />
+          <Route path="/showarea/accuracy" element={<PrivateRoute element={<ShowAreaCalculation />} />} />
+          <Route path="/exportcsv" element={<PrivateRoute element={<ExportCSVSuccessfully />} />} />
+          <Route path="/analysis" element={<PrivateRoute element={<FeatureAnalysis />} />} />
+          <Route path="/viewphoto/result" element={<PrivateRoute element={<ViewPhotoResults />} />} />
+          <Route path="/analysis/result" element={<PrivateRoute element={<FeatureAnalysisResults />} />} />
+          <Route path="/exportfeature" element={<PrivateRoute element={<ExportFeatureSuccessful />} />} />
           <Route path="/resize" element={<PrivateRoute element={<Resize />} />} />
           <Route path="/crop" element={<PrivateRoute element={<CropImage />} />} />
           <Route path="/removebackground" element={<PrivateRoute element={<RemoveBackground />} />} />

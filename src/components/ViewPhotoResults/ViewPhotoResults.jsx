@@ -29,16 +29,16 @@ const ViewPhotoResults = () => {
     };
 
     // Navigation handlers
-    const handleAboutUs = () => navigate('/aboutuspage');
-    const handleContactUs = () => navigate('/contactuspage');
-    const handleUserProfile = () => navigate('/userprofilepage');
-    const handleBack = () => navigate("/showareacalculation");
-    const handleDashboard = () => navigate('/dashboardpage');
-    const handleBruiseAreaCalculation = () => navigate('/bruiseareacalculation');
-    const handleFeatureAnalysis = () => navigate('/featureanalysis');
+    const handleAboutUs = () => navigate('/aboutus');
+    const handleContactUs = () => navigate('/contactus');
+    const handleUserProfile = () => navigate('/profile');
+    const handleBack = () => navigate("/showarea/accuracy");
+    const handleDashboard = () => navigate('/dashboard');
+    const handleBruiseAreaCalculation = () => navigate('/bruise');
+    const handleFeatureAnalysis = () => navigate('/analysis');
     const handleResize = () => navigate('/resize');
     const handleRemoveBackground = () => navigate('/removebackground');
-    const handlemainhomepage = () => navigate('/mainhomepage')
+    const handlemainhomepage = () => navigate('/home')
 
     return (
         <div className="view-photo-result-page">

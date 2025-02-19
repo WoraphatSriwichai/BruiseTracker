@@ -34,7 +34,7 @@ const FeatureAnalysisResults = () => {
                 setExportProgress((prevProgress) => {
                     if (prevProgress >= 100) {
                         clearInterval(interval);
-                        navigate('/exportfeaturesuccessful');
+                        navigate('/exportfeature');
                         return 100;
                     }
                     return prevProgress + 10;
@@ -43,15 +43,15 @@ const FeatureAnalysisResults = () => {
         }
     }, [data, navigate]);
 
-    const handleDashboard = useCallback(() => navigate('/dashboardpage'), [navigate]);
-    const handleFeatureAnalysis = useCallback(() => navigate('/featureanalysis'), [navigate]);
-    const handleBruiseAreaCalculation = useCallback(() => navigate('/bruiseareacalculation'), [navigate]);
-    const handleAboutUs = useCallback(() => navigate('/aboutuspage'), [navigate]);
-    const handleContactUs = useCallback(() => navigate('/contactuspage'), [navigate]);
-    const handleUserProfile = useCallback(() => navigate('/userprofilepage'), [navigate]);
+    const handleDashboard = useCallback(() => navigate('/dashboard'), [navigate]);
+    const handleFeatureAnalysis = useCallback(() => navigate('/analysis'), [navigate]);
+    const handleBruiseAreaCalculation = useCallback(() => navigate('/bruise'), [navigate]);
+    const handleAboutUs = useCallback(() => navigate('/aboutus'), [navigate]);
+    const handleContactUs = useCallback(() => navigate('/contactus'), [navigate]);
+    const handleUserProfile = useCallback(() => navigate('/profile'), [navigate]);
     const handleResize = useCallback(() => navigate('/resize'), [navigate]);
     const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
-    const handlemainhomepage = useCallback(() => navigate('/mainhomepage'), [navigate]);
+    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
 
     const handleCheckboxChange = useCallback((feature) => {
         setChecked((prevChecked) => ({

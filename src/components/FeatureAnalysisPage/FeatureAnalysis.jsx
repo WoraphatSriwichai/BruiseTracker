@@ -9,14 +9,14 @@ const FeatureAnalysis = () => {
     const [selectedFiles, setSelectedFiles] = useState([]);
     const navigate = useNavigate();
     
-    const handleAboutUs = useCallback(() => navigate('/aboutuspage'), [navigate]);
-    const handleContactUs = useCallback(() => navigate('/contactuspage'), [navigate]);
-    const handleUserProfile = useCallback(() => navigate('/userprofilepage'), [navigate]);
-    const handleDashboard = useCallback(() => navigate('/dashboardpage'), [navigate]);
-    const handleBruiseAreaCalculation = useCallback(() => navigate('/bruiseareacalculation'), [navigate]);
+    const handleAboutUs = useCallback(() => navigate('/aboutus'), [navigate]);
+    const handleContactUs = useCallback(() => navigate('/contactus'), [navigate]);
+    const handleUserProfile = useCallback(() => navigate('/profile'), [navigate]);
+    const handleDashboard = useCallback(() => navigate('/dashboard'), [navigate]);
+    const handleBruiseAreaCalculation = useCallback(() => navigate('/bruise'), [navigate]);
     const handleResize = useCallback(() => navigate('/resize'), [navigate]);
     const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
-    const handlemainhomepage = useCallback(() => navigate('/mainhomepage'), [navigate]);
+    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
     const handleFeatureAnalysisResults = useCallback(() => {
         const fileData = selectedFiles.map((file, index) => ({
             id: index + 1,
@@ -35,7 +35,7 @@ const FeatureAnalysis = () => {
         });
         localStorage.setItem('operationHistory', JSON.stringify(operationHistory));
 
-        navigate('/featureanalysisresults');
+        navigate('/analysis/result');
     }, [selectedFiles, navigate]);
 
     const handleFileChange = useCallback((event) => {

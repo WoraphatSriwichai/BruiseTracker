@@ -11,7 +11,7 @@ const EditUserProfile = () => {
   const [profileImage, setProfileImage] = useState(userInfo.profileImage || userProfileImg);
   const [errorMessage, setErrorMessage] = useState('');
   const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
-  const handlemainhomepage = useCallback(() => navigate('/mainhomepage'), [navigate]);
+  const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
 
   const handleResize = useCallback(() => {
     navigate('/resize');

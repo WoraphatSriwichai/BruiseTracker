@@ -9,15 +9,15 @@ const DashboardPage = () => {
     const [operationHistory, setOperationHistory] = useState([]);
     const [exportProgress, setExportProgress] = useState(0);
 
-    const handleAboutUs = useCallback(() => { navigate('/aboutuspage'); }, [navigate]);
-    const handleContactUs = useCallback(() => { navigate('/contactuspage'); }, [navigate]);
-    const handleUserProfile = useCallback(() => { navigate('/userprofilepage'); }, [navigate]);
-    const handleBruiseAreaCalculation = useCallback(() => { navigate('/bruiseareacalculation'); }, [navigate]);
-    const handleFeatureAnalysis = useCallback(() => { navigate('/featureanalysis'); }, [navigate]);
-    const handleShowAreaCalculation = useCallback(() => { navigate('/showareacalculation'); }, [navigate]);
+    const handleAboutUs = useCallback(() => { navigate('/aboutus'); }, [navigate]);
+    const handleContactUs = useCallback(() => { navigate('/contactus'); }, [navigate]);
+    const handleUserProfile = useCallback(() => { navigate('/profile'); }, [navigate]);
+    const handleBruiseAreaCalculation = useCallback(() => { navigate('/bruise'); }, [navigate]);
+    const handleFeatureAnalysis = useCallback(() => { navigate('/analysis'); }, [navigate]);
+    const handleShowAreaCalculation = useCallback(() => { navigate('/showarea/accuracy'); }, [navigate]);
     const handleResize = useCallback(() => { navigate('/resize'); }, [navigate]);
     const handleRemoveBackground = useCallback(() => { navigate('/removebackground'); }, [navigate]);
-    const handlemainhomepage = useCallback(() => navigate('/mainhomepage'), [navigate]);
+    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
 
     useEffect(() => {
         const history = JSON.parse(localStorage.getItem('operationHistory')) || [];
@@ -41,7 +41,7 @@ const DashboardPage = () => {
             setExportProgress(prevProgress => {
                 if (prevProgress >= 100) {
                     clearInterval(interval);
-                    navigate('/exportcsvsuccessfully');
+                    navigate('/exportcsv');
                     return 100;
                 }
                 return prevProgress + 10;

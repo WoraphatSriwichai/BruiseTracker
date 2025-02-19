@@ -25,16 +25,16 @@ const ShowAreaCalculation = () => {
 
   const handleRemoveBackground = useCallback(() => navigate("/removebackground"), [navigate]);
 
-  const handleAboutUs = useCallback(() => navigate("/aboutuspage"), [navigate]);
-  const handleContactUs = useCallback(() => navigate("/contactuspage"), [navigate]);
-  const handleUserProfile = useCallback(() => navigate("/userprofilepage"), [navigate]);
-  const handleBack = useCallback(() => navigate("/bruiseareacalculation"), [navigate]);
+  const handleAboutUs = useCallback(() => navigate("/aboutus"), [navigate]);
+  const handleContactUs = useCallback(() => navigate("/contactus"), [navigate]);
+  const handleUserProfile = useCallback(() => navigate("/profile"), [navigate]);
+  const handleBack = useCallback(() => navigate("/bruise"), [navigate]);
   const handleResize = useCallback(() => navigate('/resize'), [navigate]);
-  const handleDashboard = useCallback(() => navigate("/dashboardpage"), [navigate]);
-  const handleBruiseAreaCalculation = useCallback(() => navigate("/bruiseareacalculation"), [navigate]);
-  const handleFeatureAnalysis = useCallback(() => navigate("/featureanalysis"), [navigate]);
-  const handleViewPhotoResults = useCallback((index) => navigate("/viewphotoresults", { state: { index } }), [navigate]);
-    const handlemainhomepage = useCallback(() => navigate('/mainhomepage'), [navigate]);
+  const handleDashboard = useCallback(() => navigate("/dashboard"), [navigate]);
+  const handleBruiseAreaCalculation = useCallback(() => navigate("/bruise"), [navigate]);
+  const handleFeatureAnalysis = useCallback(() => navigate("/analysis"), [navigate]);
+  const handleViewPhotoResults = useCallback((index) => navigate("/viewphoto/result", { state: { index } }), [navigate]);
+    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
 
   const handleExportCSV = useCallback(() => {
     if (tableData.length === 0) {
@@ -45,7 +45,7 @@ const ShowAreaCalculation = () => {
         setExportProgress((prevProgress) => {
           if (prevProgress >= 100) {
             clearInterval(interval);
-            navigate("/exportcsvsuccessfully");
+            navigate("/exportcsv");
             return 100;
           }
           return prevProgress + 10;

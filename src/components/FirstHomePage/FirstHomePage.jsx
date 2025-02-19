@@ -12,8 +12,8 @@ function FirstHomePage() {
     const handleSignIn = () => { navigate('/signin'); };
     const handleSignUp = () => { navigate('/signup'); };
     const handleGetStarted = () => { navigate('/signin'); };
-    const handleAboutUs = () => { navigate('/aboutuspage'); };
-    const handleContactUs = () => { navigate('/contactuspage'); };
+    const handleAboutUs = () => { navigate('/aboutus'); };
+    const handleContactUs = () => { navigate('/contactus'); };
 
     return (
         <div className="first-homepage">

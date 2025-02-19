@@ -50,7 +50,7 @@ const ChangeProfilePassword = () => {
 
         if (response.ok) {
           localStorage.setItem('signupPassword', newPassword); // Store the new password in local storage
-          navigate('/newpasswordupdate'); // Navigate to the password update confirmation page
+          navigate('/newpassword'); // Navigate to the password update confirmation page
         } else {
           const errorData = await response.json();
           setAlertMessage(errorData.error || 'Error changing password');
@@ -73,7 +73,7 @@ const ChangeProfilePassword = () => {
     }
   }, []);
 
-  const handlemainhomepage = useCallback(() => navigate('/mainhomepage'), [navigate]);
+  const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
 
   return (
     <div className="change-profilepassword-page">
@@ -157,7 +157,7 @@ const ChangeProfilePassword = () => {
           <button className="save-profilepassword-button" onClick={handleNewPasswordUpdate}>
             Save Password
           </button>
-          <button className="ban-button" onClick={() => navigate('/userprofilepage')}>Cancel</button>
+          <button className="ban-button" onClick={() => navigate('/profile')}>Cancel</button>
         </div>
       </div>
 

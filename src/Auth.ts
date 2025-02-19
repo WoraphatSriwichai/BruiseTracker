@@ -9,7 +9,7 @@ const useAuth = () => {
 
     if (token) {
       // Optionally, you can verify the token with the server here
-      navigate('/mainhomepage'); // Redirect to the main homepage if the token exists
+      navigate('/home'); // Redirect to the main homepage if the token exists
     }
   }, [navigate]);
 };

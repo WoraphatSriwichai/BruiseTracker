@@ -51,19 +51,19 @@ const UserProfilePage = () => {
     <div className="profile-page">
       <nav className="profile">
         <div className="profile-brand">
-          <img src={mangoLogo} alt="Mango Logo" className="manger-logo" onClick={() => navigate('/mainhomepage')} />
+          <img src={mangoLogo} alt="Mango Logo" className="manger-logo" onClick={() => navigate('/home')} />
         </div>
         <div className="navbar-links">
-          <button className="profile-link" onClick={() => navigate('/dashboardpage')}>Dashboard</button>
-          <button className="profile-link" onClick={() => navigate('/bruiseareacalculation')}>Bruised Area Calculation</button>
-          <button className="profile-link" onClick={() => navigate('/featureanalysis')}>Feature Analysis</button>
+          <button className="profile-link" onClick={() => navigate('/dashboard')}>Dashboard</button>
+          <button className="profile-link" onClick={() => navigate('/bruise')}>Bruised Area Calculation</button>
+          <button className="profile-link" onClick={() => navigate('/analysis')}>Feature Analysis</button>
           <button className="profile-link" onClick={() => navigate('/resize')}>Resize</button>
           <button className="navbar-link" onClick={() => navigate('/removebackground')}>Remove Background</button>
-          <button className="profile-link" onClick={() => navigate('/aboutuspage')}>About Us</button>
-          <button className="profile-link" onClick={() => navigate('/contactuspage')}>Contact Us</button>
+          <button className="profile-link" onClick={() => navigate('/aboutus')}>About Us</button>
+          <button className="profile-link" onClick={() => navigate('/contactus')}>Contact Us</button>
         </div>
         <div className="navbar-profile">
-          <img src={userInfo.profileImage || userProfileImg} alt="User Profile" className="user-profile" onClick={() => navigate('/userprofilepage')} />
+          <img src={userInfo.profileImage || userProfileImg} alt="User Profile" className="user-profile" onClick={() => navigate('/profile')} />
         </div>
       </nav>
 
@@ -77,8 +77,8 @@ const UserProfilePage = () => {
             <p><strong>Phone Number:</strong> {userInfo.phone}</p>
             <p><strong>Country:</strong> {userInfo.country}</p>
             <div className="profile-buttons">
-              <button className="editer-button" onClick={() => navigate('/edituserprofile')}>Edit</button>
-              <button className="change-userprofilepage-button" onClick={() => navigate('/changeprofilepassword')}>Change Password</button>
+              <button className="editer-button" onClick={() => navigate('/profile/edit')}>Edit</button>
+              <button className="change-userprofilepage-button" onClick={() => navigate('/profile/changepassword')}>Change Password</button>
             </div>
           </div>
         </div>
