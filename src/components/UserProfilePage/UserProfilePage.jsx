@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './UserProfilePage.css';
 import mangoLogo from '../../assets/Logo_white.png';
@@ -10,6 +10,25 @@ const UserProfilePage = () => {
   const { userInfo, setUserInfo } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const toggleProfileDropdown = () => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+      
+  const handleSignOut = useCallback(() => {
+          
+    // Clear authentication tokens
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    
+    // Navigate to sign-in page
+    navigate('/signin');
+  }, [navigate]);
+
+  const handleUserProfile = () => {
+    navigate('/profile');
+  };
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -62,8 +81,15 @@ const UserProfilePage = () => {
           <button className="profile-link" onClick={() => navigate('/aboutus')}>About Us</button>
           <button className="profile-link" onClick={() => navigate('/contactus')}>Contact Us</button>
         </div>
+
         <div className="navbar-profile">
-          <img src={userInfo.profileImage || userProfileImg} alt="User Profile" className="user-profile" onClick={() => navigate('/profile')} />
+          <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+          {isProfileDropdownOpen && (
+            <div className="profile-dropdown">
+              <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+              <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
+            </div>
+          )}
         </div>
       </nav>
 

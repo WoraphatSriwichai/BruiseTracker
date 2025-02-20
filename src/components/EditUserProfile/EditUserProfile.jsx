@@ -8,10 +8,27 @@ import { UserContext } from '../../UserContext';
 const EditUserProfile = () => {
   const navigate = useNavigate();
   const { userInfo, setUserInfo } = useContext(UserContext);
-  const [profileImage, setProfileImage] = useState(userInfo.profileImage || userProfileImg);
+  const [setProfileImage] = useState(userInfo.profileImage || userProfileImg);
   const [errorMessage, setErrorMessage] = useState('');
   const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
   const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
+  const handleUserProfile = useCallback(() => { navigate('/profile'); }, [navigate]);
+
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+          
+  const toggleProfileDropdown = () => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
+    const handleSignOut = useCallback(() => {
+            
+      // Clear authentication tokens
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+      
+      // Navigate to sign-in page
+      navigate('/signin');
+  }, [navigate]);
 
   const handleResize = useCallback(() => {
     navigate('/resize');
@@ -24,6 +41,7 @@ const EditUserProfile = () => {
     setUserInfo((prevUserInfo) => ({ ...prevUserInfo, [name]: value }));
   }, [setUserInfo]);
 
+  // eslint-disable-next-line no-unused-vars
   const handleImageUpload = useCallback((e) => {
     const file = e.target.files[0];
     if (file) {
@@ -31,7 +49,7 @@ const EditUserProfile = () => {
       setProfileImage(imageURL);
       setUserInfo((prevUserInfo) => ({ ...prevUserInfo, profileImage: imageURL }));
     }
-  }, [setUserInfo]);
+  }, [setProfileImage, setUserInfo]);
 
   const handleSave = useCallback(async () => {
     const requiredFields = ['name', 'email', 'phone', 'country'];
@@ -73,26 +91,28 @@ const EditUserProfile = () => {
           <img src={mangoLogo} alt="Mango Logo" className="manger-logo" onClick={handlemainhomepage}/>
         </div>
         <div className="edit-links">
-          <button className="edit-link" onClick={handleNavigation('/dashboardpage')}>Dashboard</button>
-          <button className="edit-link" onClick={handleNavigation('/bruiseareacalculation')}>Bruised Area Calculation</button>
-          <button className="edit-link" onClick={handleNavigation('/featureanalysis')}>Feature Analysis</button>
+          <button className="edit-link" onClick={handleNavigation('/dashboard')}>Dashboard</button>
+          <button className="edit-link" onClick={handleNavigation('/bruise')}>Bruised Area Calculation</button>
+          <button className="edit-link" onClick={handleNavigation('/analysis')}>Feature Analysis</button>
           <button className="profile-link" onClick={handleResize}>Resize</button>
           <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-          <button className="edit-link" onClick={handleNavigation('/aboutuspage')}>About Us</button>
-          <button className="edit-link" onClick={handleNavigation('/contactuspage')}>Contact Us</button>
+          <button className="edit-link" onClick={handleNavigation('/aboutus')}>About Us</button>
+          <button className="edit-link" onClick={handleNavigation('/contactus')}>Contact Us</button>
         </div>
-        <div className="edit-profile">
-          <img src={profileImage} alt="User Profile" className="user-profile" onClick={handleNavigation('/userprofilepage')} />
+        <div className="navbar-profile">
+            <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+            {isProfileDropdownOpen && (
+                <div className="profile-dropdown">
+                    <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                    <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
+                </div>
+            )}
         </div>
       </nav>
 
       <div className="edit-profile-content">
         <h2 className="edit-title">Edit User Information</h2>
         <div className="edit-container">
-          <div className="profile-section">
-            <img src={profileImage} alt="Profile" className="profile-image" />
-            {/* <input type="file" accept="image/*" onChange={handleImageUpload} className="image-upload" /> */}
-          </div>
           <div className="edit-info">
             <div className="edit-info-row">
               <label>

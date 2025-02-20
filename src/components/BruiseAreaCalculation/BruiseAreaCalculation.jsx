@@ -8,6 +8,7 @@ const BruiseAreaCalculation = () => {
     const [dragActive, setDragActive] = useState(false);
     const [selectedFiles, setSelectedFiles] = useState([]);
     const navigate = useNavigate();
+    const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
     const handleAboutUs = useCallback(() => navigate('/aboutus'), [navigate]);
     const handleContactUs = useCallback(() => navigate('/contactus'), [navigate]);
@@ -17,6 +18,19 @@ const BruiseAreaCalculation = () => {
     const handleResize = useCallback(() => navigate('/resize'), [navigate]);
     const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
     const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
+
+    const toggleProfileDropdown = () => {
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
+    };
+
+    const handleSignOut = useCallback(() => {
+        // Clear authentication tokens
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        
+        // Navigate to sign-in page
+        navigate('/signin');
+    }, [navigate]);
 
     const handleFileChange = useCallback((event) => {
         const files = Array.from(event.target.files);
@@ -93,8 +107,15 @@ const BruiseAreaCalculation = () => {
                     <button className="navbar-link" onClick={handleAboutUs}>About Us</button>
                     <button className="navbar-link" onClick={handleContactUs}>Contact Us</button>
                 </div>
-                <div className="navbar-profile" onClick={handleUserProfile}>
+                
+                <div className="navbar-profile" onClick={toggleProfileDropdown}>
                     <img src={userProfileImg} alt="User Profile" className="user-profile" />
+                    {isProfileDropdownOpen && (
+                        <div className="profile-dropdown">
+                            <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                            <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
+                        </div>
+                    )}
                 </div>
             </nav>
 

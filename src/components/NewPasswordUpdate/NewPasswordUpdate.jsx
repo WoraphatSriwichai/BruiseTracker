@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NewPasswordUpdate.css';
 import mangoLogo from '../../assets/Logo_white.png';
@@ -7,6 +7,22 @@ import checkImg from '../../assets/check.png'; // Import the check.png image
 
 const PasswordUpdatePage = () => {
     const navigate = useNavigate();
+
+    const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+            
+    const toggleProfileDropdown = () => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+    };
+
+    const handleSignOut = useCallback(() => {
+            
+        // Clear authentication tokens
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        
+        // Navigate to sign-in page
+        navigate('/signin');
+    }, [navigate]);
 
     const handleAboutUs = useCallback(() => navigate('/aboutus'), [navigate]);
     const handleContactUs = useCallback(() => navigate('/contactus'), [navigate]);
@@ -39,7 +55,13 @@ const PasswordUpdatePage = () => {
                 </div>
 
                 <div className="navbar-profile">
-                    <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={handleUserProfile} />
+                    <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+                    {isProfileDropdownOpen && (
+                    <div className="profile-dropdown">
+                        <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                        <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
+                    </div>
+                    )}
                 </div>
             </nav>
 

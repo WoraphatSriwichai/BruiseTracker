@@ -8,6 +8,13 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const ChangeProfilePassword = () => {
   const navigate = useNavigate();
+  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+  const toggleProfileDropdown = () => {
+    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  };
+
+  const handleUserProfile = useCallback(() => navigate("/profile"), [navigate]);
 
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -75,6 +82,16 @@ const ChangeProfilePassword = () => {
 
   const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
 
+  const handleSignOut = useCallback(() => {
+          
+  // Clear authentication tokens
+  localStorage.removeItem('accessToken');
+  localStorage.removeItem('refreshToken');
+  
+  // Navigate to sign-in page
+  navigate('/signin');
+  }, [navigate]);
+
   return (
     <div className="change-profilepassword-page">
       <nav className="profile">
@@ -83,17 +100,23 @@ const ChangeProfilePassword = () => {
         </div>
 
         <div className="navbar-links">
-          <button className="profile-link" onClick={() => navigate('/dashboardpage')}>Dashboard</button>
-          <button className="profile-link" onClick={() => navigate('/bruiseareacalculation')}>Bruised Area Calculation</button>
-          <button className="profile-link" onClick={() => navigate('/featureanalysis')}>Feature Analysis</button>
+          <button className="profile-link" onClick={() => navigate('/dashboard')}>Dashboard</button>
+          <button className="profile-link" onClick={() => navigate('/bruise')}>Bruised Area Calculation</button>
+          <button className="profile-link" onClick={() => navigate('/analysis')}>Feature Analysis</button>
           <button className="navbar-link" onClick={handleResize}>Resize</button>
           <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-          <button className="edit-link" onClick={() => navigate('/aboutuspage')}>About Us</button>
-          <button className="edit-link" onClick={() => navigate('/contactuspage')}>Contact Us</button>
+          <button className="edit-link" onClick={() => navigate('/aboutus')}>About Us</button>
+          <button className="edit-link" onClick={() => navigate('/contactus')}>Contact Us</button>
         </div>
 
         <div className="navbar-profile">
-          <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={() => navigate('/userprofilepage')} />
+          <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+          {isProfileDropdownOpen && (
+              <div className="profile-dropdown">
+                  <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                  <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
+              </div>
+            )}
         </div>
       </nav>
 

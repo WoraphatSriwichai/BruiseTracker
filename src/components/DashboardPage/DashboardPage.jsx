@@ -9,6 +9,22 @@ const DashboardPage = () => {
     const [operationHistory, setOperationHistory] = useState([]);
     const [exportProgress, setExportProgress] = useState(0);
 
+    const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+        
+        const toggleProfileDropdown = () => {
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
+        };
+    
+        const handleSignOut = useCallback(() => {
+                
+            // Clear authentication tokens
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
+            
+            // Navigate to sign-in page
+            navigate('/signin');
+        }, [navigate]);
+
     const handleAboutUs = useCallback(() => { navigate('/aboutus'); }, [navigate]);
     const handleContactUs = useCallback(() => { navigate('/contactus'); }, [navigate]);
     const handleUserProfile = useCallback(() => { navigate('/profile'); }, [navigate]);
@@ -64,8 +80,15 @@ const DashboardPage = () => {
                     <button className="navbar-link" onClick={handleAboutUs}>About Us</button>
                     <button className="navbar-link" onClick={handleContactUs}>Contact Us</button>
                 </div>
-                <div className="navbar-profile" onClick={handleUserProfile}>
-                    <img src={userProfileImg} alt="User Profile" className="user-profile" />
+                
+                <div className="navbar-profile">
+                    <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+                    {isProfileDropdownOpen && (
+                        <div className="profile-dropdown">
+                            <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                            <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
+                        </div>
+                    )}
                 </div>
             </nav>
             <div className="dashboard-content">
