@@ -12,17 +12,16 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 8%;
+    padding: 5%;
     border-radius: 15px;
     background: #e5e5e5;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     width: 70%;
     max-width: 650px;
     height: auto;
-    overflow-y: auto;
     margin: 15px auto;
     border: 2px solid #ADBC9F;
-    margin-top: 0.8%;
+    margin-top: 0.4%;
 }
 
 .edit-image {
@@ -44,11 +43,6 @@ body {
     font-size: 1.7em;
     font-weight: 600;
     color: #FFFFFF;
-}
-
-.edit-brand span {
-    margin-left: 10px;
-    font-size: 0.8em;
 }
 
 .edit-page {
@@ -125,25 +119,21 @@ body {
     text-align: center;
 }
 
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
 .edit-info {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-top: -5%;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .edit-info-row {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .edit-info label {
@@ -156,7 +146,7 @@ body {
 
 .edit-info input {
     margin-top: 5px;
-    padding: 8px;
+    padding: 10px;
     font-size: 1em;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -205,13 +195,7 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
-.edit-button:hover {
-    background-color: #FFDD55;
-    color: #4B6A3D;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-}
-
+.edit-button:hover,
 .change-password-button:hover {
     background-color: #FFDD55;
     color: #4B6A3D;
@@ -219,11 +203,7 @@ body {
     transform: scale(1.05);
 }
 
-.edit-button:active {
-    transform: scale(1);
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
+.edit-button:active,
 .change-password-button:active {
     transform: scale(1);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -233,26 +213,6 @@ body {
     background-color: #436850;
     padding: 15px 20px;
     text-align: center;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-}
-
-.footer-link {
-    background: none;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
-    padding: 10px 20px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    text-transform: uppercase;
 }
 
 .footer-address-edituserprofile {
@@ -273,10 +233,6 @@ body {
     .edit-links {
         flex-direction: column;
         gap: 10px;
-    }
-
-    .edit-logo {
-        width: 20%;
     }
 
     .edit-title {
@@ -316,10 +272,6 @@ body {
 @media screen and (max-width: 480px) {
     .edit {
         padding: 10px 20px;
-    }
-
-    .edit-logo {
-        width: 25%;
     }
 
     .edit-title {
