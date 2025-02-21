@@ -44,8 +44,6 @@ body {
     margin-right: 20%;
 }
 
-/* ...existing code... */
-
 .navbar-link {
     background: none;
     color: #FFFFFF;
@@ -70,8 +68,6 @@ body {
     transform: scale(1);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
-
-/* ...existing code... */
 
 /* User Profile Content */
 .user-profile-content {
@@ -141,12 +137,10 @@ body {
 
 .editer-button {
     background-color: #005dc1;
-    /* Blue color */
 }
 
 .editer-button:hover {
     background-color: #0056b3;
-    /* Darker blue on hover */
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
@@ -196,7 +190,6 @@ body {
     text-align: center;
     margin-top: -0.5%;
 }
-
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {

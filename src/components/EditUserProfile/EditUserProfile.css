@@ -62,7 +62,6 @@ body {
     align-items: center;
     padding: 14px 30px;
     background-color: #436850;
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 10;

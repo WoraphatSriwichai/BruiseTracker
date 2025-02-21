@@ -27,15 +27,16 @@
     color: #FFF;
 }
 
-.contactus-navbar .navbar-brand span {
-    font-size: 0.7em;
-}
-
 .contactus-navbar .navbar-logo {
     width: 100%;
     max-width: 100px;
     margin-right: 4%;
     vertical-align: middle;
+}
+
+.contactus-navbar .navbar-actions {
+    display: flex;
+    gap: 15px;
 }
 
 .contactus-navbar .navbar-actions .navbar-button {
@@ -49,11 +50,6 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-}
-
-.contactus-navbar .navbar-actions {
-    display: flex;
-    gap: 15px;
 }
 
 .contactus-navbar .navbar-actions .navbar-button:hover {

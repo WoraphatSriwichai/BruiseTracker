@@ -48,15 +48,6 @@
     gap: 15px;
 }
 
-.export-feature-form input {
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    width: 250px;
-    margin-top: 5px;
-}
-
 .export-password-button {
     background-color: #436850;
     color: white;
@@ -76,48 +67,19 @@
     transform: scale(1.05);
 }
 
-/* Cancel Button Styles */
-.cancel-button {
-    background-color: #FF4D4D;
-    color: white;
-    padding: 12px 20px;
-    font-size: 1em;
-    font-weight: 550;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.3s ease-in-out;
-}
-
-.cancel-button:hover {
-    background-color: #FF9E9E;
-    transform: scale(1.05);
-}
-
-.cancel-button:active {
-    transform: scale(1);
-}
-
 .check-img {
     width: 50px;
-    /* Adjust the size of the check image */
     height: 50px;
     margin-bottom: 15px;
-    /* Adds space between the image and text */
 }
 
 .check-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centers both the image and text horizontally */
     justify-content: center;
-    /* Centers them vertically if needed */
     text-align: center;
-    /* Ensures the text is centered under the image */
     margin-bottom: 20px;
-    /* Adds some space between the image-text container and the button */
 }
 
 /* Footer */
@@ -180,8 +142,7 @@
         padding: 20px;
     }
 
-    .export-password-button,
-    .cancel-button {
+    .export-password-button {
         width: 100%;
         padding: 10px;
     }
@@ -212,8 +173,7 @@
         padding: 15px;
     }
 
-    .export-password-button,
-    .cancel-button {
+    .export-password-button {
         padding: 8px;
         font-size: 0.9em;
     }

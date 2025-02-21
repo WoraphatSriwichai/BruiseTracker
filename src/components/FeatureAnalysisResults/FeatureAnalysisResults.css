@@ -36,9 +36,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Feature Selection Box - Updated */
-.feature-selection,
-.additional-selection {
+/* Feature Selection Box */
+.feature-selection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -52,42 +51,32 @@
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2% auto 0;
     border: 2px solid #ADBC9F;
-    margin-top: 2%;
 }
 
-.feature-selection label,
-.additional-selection label {
+.feature-selection label {
     display: flex;
     align-items: center;
     font-weight: 600;
 }
 
 /* Checkbox Style */
-.feature-selection input[type="checkbox"],
-.additional-selection input[type="checkbox"] {
+.feature-selection input[type="checkbox"] {
     width: 20px;
     height: 20px;
     margin-right: 10px;
     background-color: #12372A;
-    /* White background when unchecked */
     border: 2px solid #436850;
-    /* Green border */
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease;
     position: relative;
 }
 
-/* Update the checked state */
-.feature-selection input[type="checkbox"]:checked,
-.additional-selection input[type="checkbox"]:checked {
+.feature-selection input[type="checkbox"]:checked {
     background-color: white;
-    /* Green background when checked */
     border-color: #436850;
-    /* Keep the green border */
 }
 
 /* Title */
@@ -102,12 +91,12 @@
 .results-table {
     max-height: 400px;
     overflow-y: auto;
-    /* Set max height to enable scroll */
 }
 
 .results-table table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 1.5%;
 }
 
 .results-table th,
@@ -227,8 +216,7 @@
         font-size: 1.5rem;
     }
 
-    .feature-selection,
-    .additional-selection {
+    .feature-selection {
         width: 90%;
         padding: 20px;
     }
@@ -269,8 +257,7 @@
         font-size: 1.2rem;
     }
 
-    .feature-selection,
-    .additional-selection {
+    .feature-selection {
         padding: 15px;
     }
 

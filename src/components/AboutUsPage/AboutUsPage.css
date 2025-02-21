@@ -27,15 +27,16 @@
     cursor: pointer;
 }
 
-.aboutus-navbar .navbar-brand span {
-    font-size: 0.7em;
-}
-
 .aboutus-navbar .navbar-logo {
     width: 100%;
     max-width: 100px;
     margin-right: 4%;
     vertical-align: middle;
+}
+
+.aboutus-navbar .navbar-actions {
+    display: flex;
+    gap: 15px;
 }
 
 .aboutus-navbar .navbar-actions .navbar-button {
@@ -49,11 +50,6 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-}
-
-.aboutus-navbar .navbar-actions {
-    display: flex;
-    gap: 15px;
 }
 
 .aboutus-navbar .navbar-actions .navbar-button:hover {
@@ -162,11 +158,10 @@
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.6s ease-out, transform 0.6s ease-out;
     width: 150px;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .framework-item.animate {
@@ -217,12 +212,6 @@
     font-size: 0.7em;
     margin-top: 10px;
 }
-
-/* @media screen and (max-width : 1280px) {
-    .hero-content h1{
-        font-size: 0.1rem;
-    }
-} */
 
 /* Animations */
 @keyframes fadeIn {

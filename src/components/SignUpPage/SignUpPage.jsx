@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 // filepath: /e:/Bruise_Tracker/mango-bruise-area/src/components/SignUpPage/SignUpPage.jsx
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';

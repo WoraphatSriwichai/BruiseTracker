@@ -99,7 +99,6 @@
     padding: 20px;
     text-align: center;
     overflow-y: auto;
-    /* Enable scrolling for content */
 }
 
 .show-area-calculation-title {
@@ -112,7 +111,6 @@
 .show-area-calculation-table-container {
     max-height: 400px;
     overflow-y: auto;
-    /* Set max height to enable scroll */
 }
 
 .show-area-calculation-table {
@@ -138,9 +136,7 @@
     background: #fff;
     border-bottom: 1px solid #ddd;
     word-wrap: break-word;
-    /* Add this line to enable text wrapping */
     white-space: normal;
-    /* Add this line to enable text wrapping */
 }
 
 .show-area-calculation-table tbody tr:nth-child(odd) td {
@@ -177,27 +173,6 @@
     padding: 15px 20px;
     text-align: center;
     margin-top: auto;
-    /* Push the footer to the bottom */
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-}
-
-.footer-link {
-    background: none;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
-    padding: 10px 20px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    text-transform: uppercase;
 }
 
 .footer-showareacalculation-address {

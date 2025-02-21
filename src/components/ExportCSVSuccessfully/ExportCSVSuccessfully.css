@@ -7,10 +7,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.profile-brand span {
-    font-size: 0.8em;
-}
-
 .profile-links {
     display: flex;
     gap: 30px;
@@ -89,15 +85,6 @@
     gap: 15px;
 }
 
-.export-csv-form input {
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    width: 250px;
-    margin-top: 5px;
-}
-
 .export-password {
     background-color: #436850;
     color: white;
@@ -110,55 +97,26 @@
     transition: all 0.3s ease-in-out;
 }
 
-.export-password-button:hover {
+.export-password:hover {
     background-color: #FFDD55;
     color: #4B6A3D;
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
 
-/* Cancel Button Styles */
-.cancel-button {
-    background-color: #FF4D4D;
-    color: white;
-    padding: 12px 20px;
-    font-size: 1em;
-    font-weight: 550;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: all 0.3s ease-in-out;
-}
-
-.cancel-button:hover {
-    background-color: #FF9E9E;
-    transform: scale(1.05);
-}
-
-.cancel-button:active {
-    transform: scale(1);
-}
-
 .check-img {
     width: 50px;
-    /* Adjust the size of the check image */
     height: 50px;
     margin-bottom: 15px;
-    /* Adds space between the image and text */
 }
 
 .check-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centers both the image and text horizontally */
     justify-content: center;
-    /* Centers them vertically if needed */
     text-align: center;
-    /* Ensures the text is centered under the image */
     margin-bottom: 20px;
-    /* Adds some space between the image-text container and the button */
 }
 
 /* Footer */
@@ -221,8 +179,7 @@
         padding: 20px;
     }
 
-    .export-password,
-    .cancel-button {
+    .export-password {
         width: 100%;
         padding: 10px;
     }
@@ -253,8 +210,7 @@
         padding: 15px;
     }
 
-    .export-password,
-    .cancel-button {
+    .export-password {
         padding: 8px;
         font-size: 0.9em;
     }

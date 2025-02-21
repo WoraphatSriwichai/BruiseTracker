@@ -66,7 +66,6 @@
     display: inline-block;
     padding: 12px 20px;
     background-color: #436850;
-    /* A vibrant green shade */
     margin-top: 7%;
     color: #fff;
     font-size: 16px;
@@ -82,18 +81,14 @@
 
 .download-all-zip-bt:hover {
     background-color: #45a049;
-    /* Slightly darker green for hover effect */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
-    /* Adds a subtle lift effect */
 }
 
 .download-all-zip-bt:active {
     background-color: #3e8e41;
-    /* Darker green for active state */
     box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.2);
     transform: translateY(1px);
-    /* Pressed-down effect */
 }
 
 .resized-images {
@@ -150,11 +145,8 @@
     color: #555;
     margin-bottom: 8px;
     word-wrap: break-word;
-    /* Ensure text wraps */
     overflow-wrap: break-word;
-    /* Ensure text wraps */
     text-align: center;
-    /* Center align text */
 }
 
 .download-btn {
@@ -271,8 +263,6 @@
     display: none;
 }
 
-/* ...existing code... */
-
 .browse-bruiseareacalculation-btn {
     background: #436850;
     color: #fff;
@@ -293,8 +283,6 @@
 .browse-bruiseareacalculation-btn:focus {
     background: #2e4725;
 }
-
-/* ...existing code... */
 
 /* Selected files box */
 .selected-files-box {
@@ -352,7 +340,6 @@
 
 .upload-bruiseareacalculation-bt:active {
     background: #2e4725;
-    /* New color when clicked */
     transform: scale(1.02);
 }
 

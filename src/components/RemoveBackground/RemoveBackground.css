@@ -12,23 +12,15 @@
 
 .remove-background-content {
     flex: 1;
-    padding: 20px;
-    text-align: center;
-    margin-top: 1.5%;
-}
-
-/* Content */
-.remove-background-content {
-    flex: 1;
     padding: 40px 20px;
     text-align: center;
+    margin-top: 1.5%;
 }
 
 .remove-background-title {
     font-size: 1.8rem;
     color: #12372A;
     margin-bottom: 10px;
-    margin-top: -0%;
 }
 
 .remove-background-description {
@@ -37,7 +29,6 @@
     color: #666;
 }
 
-/* Image Container */
 /* Image Container */
 .image-container {
     display: flex;
