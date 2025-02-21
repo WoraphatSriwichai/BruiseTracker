@@ -309,8 +309,8 @@
 
 /* Custom Checkbox Style */
 input[type="checkbox" i] {
-    appearance: none;
     -webkit-appearance: none;
+    appearance: none;
     background-color: #fff;
     border: 2px solid #436850;
     border-radius: 4px;
