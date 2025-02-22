@@ -7,6 +7,16 @@
     max-height: 100vh;
 }
 
+.user-profile-aboutusmain {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid #FFFFFF;
+    transition: border-color 0.3s ease;
+}
+
 /* Navbar */
 .aboutus-navbar {
     display: flex;

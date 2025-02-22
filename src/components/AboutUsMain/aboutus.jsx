@@ -78,7 +78,7 @@ function AboutUs() {
                 </div>
 
                 <div className="navbar-profile">
-                    <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+                    <img src={userProfileImg} alt="User Profile" className="user-profile-aboutusmain" onClick={toggleProfileDropdown} />
                     {isProfileDropdownOpen && (
                         <div className="profile-dropdown">
                             <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
