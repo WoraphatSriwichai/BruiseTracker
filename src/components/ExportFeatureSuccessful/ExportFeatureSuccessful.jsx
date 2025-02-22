@@ -8,8 +8,8 @@ import checkImg from '../../assets/check.png'; // Import the check.png image
 const ExportFeatureSuccessful = () => {
     const navigate = useNavigate();
 
-    const handleAboutUs = useCallback(() => { navigate('/aboutus'); }, [navigate]);
-    const handleContactUs = useCallback(() => { navigate('/contactus'); }, [navigate]);
+    const handleAboutUs = useCallback(() => { navigate('/aboutusmain'); }, [navigate]);
+    const handleContactUs = useCallback(() => { navigate('/contactusmain'); }, [navigate]);
     const handleDashboard = useCallback(() => { navigate('/dashboard'); }, [navigate]);
     const handleUserProfile = useCallback(() => { navigate('/profile'); }, [navigate]);
     const handleFeatureAnalysisResults = useCallback(() => { navigate('/analysis/result'); }, [navigate]);

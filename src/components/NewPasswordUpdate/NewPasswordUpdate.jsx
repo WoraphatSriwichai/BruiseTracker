@@ -24,8 +24,8 @@ const PasswordUpdatePage = () => {
         navigate('/signin');
     }, [navigate]);
 
-    const handleAboutUs = useCallback(() => navigate('/aboutus'), [navigate]);
-    const handleContactUs = useCallback(() => navigate('/contactus'), [navigate]);
+    const handleAboutUs = useCallback(() => navigate('/aboutusmain'), [navigate]);
+    const handleContactUs = useCallback(() => navigate('/contactusmain'), [navigate]);
     const handleDashboard = useCallback(() => navigate('/dashboard'), [navigate]);
     const handleUserProfile = useCallback(() => navigate('/profile'), [navigate]);
     const handleSignIn = useCallback(() => navigate('/signin'), [navigate]);

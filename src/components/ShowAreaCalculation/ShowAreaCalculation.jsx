@@ -40,8 +40,8 @@ const ShowAreaCalculation = () => {
 
   const handleRemoveBackground = useCallback(() => navigate("/removebackground"), [navigate]);
 
-  const handleAboutUs = useCallback(() => navigate("/aboutus"), [navigate]);
-  const handleContactUs = useCallback(() => navigate("/contactus"), [navigate]);
+  const handleAboutUs = useCallback(() => navigate("/aboutusmain"), [navigate]);
+  const handleContactUs = useCallback(() => navigate("/contactusmain"), [navigate]);
   const handleUserProfile = useCallback(() => navigate("/profile"), [navigate]);
   const handleBack = useCallback(() => navigate("/bruise"), [navigate]);
   const handleResize = useCallback(() => navigate('/resize'), [navigate]);

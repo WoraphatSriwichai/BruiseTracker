@@ -105,8 +105,8 @@ const ChangeProfilePassword = () => {
           <button className="profile-link" onClick={() => navigate('/analysis')}>Feature Analysis</button>
           <button className="navbar-link" onClick={handleResize}>Resize</button>
           <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-          <button className="edit-link" onClick={() => navigate('/aboutus')}>About Us</button>
-          <button className="edit-link" onClick={() => navigate('/contactus')}>Contact Us</button>
+          <button className="edit-link" onClick={() => navigate('/aboutusmain')}>About Us</button>
+          <button className="edit-link" onClick={() => navigate('/contactusmain')}>Contact Us</button>
         </div>
 
         <div className="navbar-profile">

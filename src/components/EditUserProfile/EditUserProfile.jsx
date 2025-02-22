@@ -96,8 +96,8 @@ const EditUserProfile = () => {
           <button className="edit-link" onClick={handleNavigation('/analysis')}>Feature Analysis</button>
           <button className="profile-link" onClick={handleResize}>Resize</button>
           <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-          <button className="edit-link" onClick={handleNavigation('/aboutus')}>About Us</button>
-          <button className="edit-link" onClick={handleNavigation('/contactus')}>Contact Us</button>
+          <button className="edit-link" onClick={handleNavigation('/aboutusmain')}>About Us</button>
+          <button className="edit-link" onClick={handleNavigation('/contactusmain')}>Contact Us</button>
         </div>
         <div className="navbar-profile">
             <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />

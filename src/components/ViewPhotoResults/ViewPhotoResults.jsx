@@ -45,8 +45,8 @@ const ViewPhotoResults = () => {
     };
 
     // Navigation handlers
-    const handleAboutUs = () => navigate('/aboutus');
-    const handleContactUs = () => navigate('/contactus');
+    const handleAboutUs = () => navigate('/aboutusmain');
+    const handleContactUs = () => navigate('/contactusmain');
     const handleUserProfile = () => navigate('/profile');
     const handleBack = () => navigate("/showarea/accuracy");
     const handleDashboard = () => navigate('/dashboard');

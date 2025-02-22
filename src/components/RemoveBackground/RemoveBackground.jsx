@@ -26,8 +26,8 @@ const RemoveBackground = () => {
         navigate('/signin');
     }, [navigate]);
 
-    const handleAboutUs = useCallback(() => navigate('/aboutus'), [navigate]);
-    const handleContactUs = useCallback(() => navigate('/contactus'), [navigate]);
+    const handleAboutUs = useCallback(() => navigate('/aboutusmain'), [navigate]);
+    const handleContactUs = useCallback(() => navigate('/contactusmain'), [navigate]);
     const handleUserProfile = useCallback(() => navigate('/profile'), [navigate]);
     const handleDashboard = useCallback(() => navigate('/dashboard'), [navigate]);
     const handleFeatureAnalysis = useCallback(() => navigate('/analysis'), [navigate]);

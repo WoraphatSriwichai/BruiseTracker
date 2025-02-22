@@ -29,6 +29,8 @@ import RemoveBackground from './components/RemoveBackground/RemoveBackground';
 import TestTokenPage from './components/Token/tokentest';
 import LogoutPage from './components/Logout/logout';
 import PrivateRoute from './AuthRoute';
+import AboutUs from './components/AboutUsMain/aboutus';
+import ContactUs from './components/ContactUsMain/contactus';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           <Route path="/landing" element={<FirstHomePage />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/aboutusmain" element={<AboutUs />} />
+          <Route path="/contactusmain" element={<ContactUs />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/changepassword" element={<ChangePassword />} />

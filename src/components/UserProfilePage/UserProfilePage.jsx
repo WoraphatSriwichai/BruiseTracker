@@ -78,8 +78,8 @@ const UserProfilePage = () => {
           <button className="profile-link" onClick={() => navigate('/analysis')}>Feature Analysis</button>
           <button className="profile-link" onClick={() => navigate('/resize')}>Resize</button>
           <button className="navbar-link" onClick={() => navigate('/removebackground')}>Remove Background</button>
-          <button className="profile-link" onClick={() => navigate('/aboutus')}>About Us</button>
-          <button className="profile-link" onClick={() => navigate('/contactus')}>Contact Us</button>
+          <button className="profile-link" onClick={() => navigate('/aboutusmain')}>About Us</button>
+          <button className="profile-link" onClick={() => navigate('/contactusmain')}>Contact Us</button>
         </div>
 
         <div className="navbar-profile">
