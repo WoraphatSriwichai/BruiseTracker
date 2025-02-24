@@ -11,11 +11,21 @@ export const createTable = async () => {
       phone VARCHAR(15),
       country VARCHAR(50)
     );
+
+    CREATE TABLE IF NOT EXISTS histories (
+      id SERIAL PRIMARY KEY,
+      operation_type VARCHAR(100) NOT NULL,
+      time_stamp TIMESTAMP NOT NULL,
+      result_id INTEGER,
+      user_id INTEGER not null,
+      FOREIGN KEY (user_id) REFERENCES users (id)
+    );
   `;
+
+
 
   try {
     await client.query(createTableQuery);
-    console.log('Table "users" created successfully');
   } catch (err) {
     console.error('Error creating table:', err);
   }
