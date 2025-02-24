@@ -135,7 +135,7 @@ const ShowAreaCalculation = () => {
 
         <div className="area-action-buttons">
           <button className="btn backer-btn" onClick={handleBack}>Back</button>
-          <button className="btn upload-btn" onClick={handleExportCSV}>Export CSV</button>
+          <button className="btn upload-btn" onClick={handleExportCSV}>Export</button>
         </div>
 
         {isExporting && (

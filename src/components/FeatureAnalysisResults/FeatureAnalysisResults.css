@@ -17,7 +17,7 @@
     padding: 20px;
     border: 1px solid #f5c6cb;
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 0px;
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
@@ -89,14 +89,17 @@
 
 /* Table */
 .results-table {
-    max-height: 400px;
+    max-height: 450px;
     overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 .results-table table {
     border-collapse: collapse;
     width: 100%;
-    margin-top: 1.5%;
 }
 
 .results-table th,
@@ -110,8 +113,6 @@
     background-color: #436850;
     color: #FFFFFF;
     font-weight: bold;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     position: sticky;
     top: 0;
     z-index: 2;
@@ -137,6 +138,37 @@
 .results-table th:last-child,
 .results-table td:last-child {
     border-top-right-radius: 8px;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #436850;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-to-top:hover {
+    background-color: #3a5330;
+    transform: scale(1.1);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 .export-bt {

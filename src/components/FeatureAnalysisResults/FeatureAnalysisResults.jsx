@@ -15,13 +15,14 @@ const FeatureAnalysisResults = () => {
     });
 
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-            
+    const [showScrollButton, setShowScrollButton] = useState(false);
+
     const toggleProfileDropdown = () => {
-      setIsProfileDropdownOpen(!isProfileDropdownOpen);
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
-      const handleSignOut = useCallback(() => {
-              
+    const handleSignOut = useCallback(() => {
+      
         // Clear authentication tokens
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
@@ -76,166 +77,209 @@ const FeatureAnalysisResults = () => {
         }));
     }, []);
 
+    const handleScroll = () => {
+        if (window.scrollY > 300) {
+            setShowScrollButton(true);
+        } else {
+            setShowScrollButton(false);
+        }
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-      <div className="bruise-page">
-        {/* Navbar */}
-        <nav className="navbar">
-          <div className="navbar-brand">
-            <img src={mangoLogo} alt="Mango Logo" className="mango-logo" onClick={handlemainhomepage}/>
-          </div>
-          <div className="navbar-links">
-            <button className="navbar-link" onClick={handleDashboard}>
-              Dashboard
-            </button>
-            <button
-              className="navbar-link"
-              onClick={handleBruiseAreaCalculation}
-            >
-              Bruised Area Calculation
-            </button>
-            <button
-              className="navbar-link active"
-              onClick={handleFeatureAnalysis}
-            >
-              Feature Analysis
-            </button>
-            <button className="profile-link" onClick={handleResize}>
-              Resize
-            </button>
-            <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-            <button className="navbar-link" onClick={handleAboutUs}>
-              About Us
-            </button>
-            <button className="navbar-link" onClick={handleContactUs}>
-              Contact Us
-            </button>
-          </div>
-          <div className="navbar-profile">
-            <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
-            {isProfileDropdownOpen && (
-              <div className="profile-dropdown">
-                  <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
-                  <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
-              </div>
-            )}
-          </div>
-        </nav>
+        <div className="bruise-page">
+            
+            {/* Navbar */}
+            <nav className="navbar">
+                <div className="navbar-brand">
+                    <img
+                        src={mangoLogo}
+                        alt="Mango Logo"
+                        className="mango-logo"
+                        onClick={handlemainhomepage}
+                    />
+                </div>
+                <div className="navbar-links">
+                    <button className="navbar-link" onClick={handleDashboard}>
+                        Dashboard
+                    </button>
+                    <button
+                        className="navbar-link"
+                        onClick={handleBruiseAreaCalculation}
+                    >
+                        Bruised Area Calculation
+                    </button>
+                    <button
+                        className="navbar-link active"
+                        onClick={handleFeatureAnalysis}
+                    >
+                        Feature Analysis
+                    </button>
+                    <button className="profile-link" onClick={handleResize}>
+                        Resize
+                    </button>
+                    <button className="navbar-link" onClick={handleRemoveBackground}>
+                        Remove Background
+                    </button>
+                    <button className="navbar-link" onClick={handleAboutUs}>
+                        About Us
+                    </button>
+                    <button className="navbar-link" onClick={handleContactUs}>
+                        Contact Us
+                    </button>
+                </div>
+                <div className="navbar-profile">
+                    <img
+                        src={userProfileImg}
+                        alt="User Profile"
+                        className="user-profile"
+                        onClick={toggleProfileDropdown}
+                    />
+                    {isProfileDropdownOpen && (
+                        <div className="profile-dropdown">
+                            <button className="dropdown-link" onClick={handleUserProfile}>
+                                View Profile
+                            </button>
+                            <button className="dropdown-link" onClick={handleSignOut}>
+                                Sign Out
+                            </button>
+                        </div>
+                    )}
+                </div>
+            </nav>
 
-        {/* Content */}
-        <div className="bruise-content">
-          <h1 className="bruis-title">Feature Analysis Results</h1>
-          <div className="feature-selection">
-            <span>Selected Features :</span>
-            <label>
-              <input
-                type="checkbox"
-                checked={checked.glcm}
-                onChange={() => handleCheckboxChange("glcm")}
-              />
-              Gray-Level Co-occurrence Matrix (GLCM)
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={checked.rgb}
-                onChange={() => handleCheckboxChange("rgb")}
-              />
-              RGB
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={checked.hsv}
-                onChange={() => handleCheckboxChange("hsv")}
-              />
-              HSV
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={checked.perimeter}
-                onChange={() => handleCheckboxChange("perimeter")}
-              />
-              Perimeter
-            </label>
-          </div>
+            {/* Content */}
+            <div className="bruise-content">
+                <h1 className="bruis-title">Feature Analysis Results</h1>
+                <div className="feature-selection">
+                    <span>Selected Features :</span>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={checked.glcm}
+                            onChange={() => handleCheckboxChange("glcm")}
+                        />
+                        Gray-Level Co-occurrence Matrix (GLCM)
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={checked.rgb}
+                            onChange={() => handleCheckboxChange("rgb")}
+                        />
+                        RGB
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={checked.hsv}
+                            onChange={() => handleCheckboxChange("hsv")}
+                        />
+                        HSV
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            checked={checked.perimeter}
+                            onChange={() => handleCheckboxChange("perimeter")}
+                        />
+                        Perimeter
+                    </label>
+                </div>
 
-          {/* Table */}
-          <div className="results-table">
-            {data.length > 0 ? (
-              <table>
-                <thead>
-                  <tr>
-                    <th>Image ID</th>
-                    <th>Red Mean</th>
-                    <th>Green Mean</th>
-                    <th>Blue Mean</th>
-                    <th>GLCM Contrast</th>
-                    <th>GLCM Energy</th>
-                    <th>GLCM Homogeneity</th>
-                    <th>Area</th>
-                    <th>Perimeter</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((row) => (
-                    <tr key={row.id}>
-                      <td>{row.name}</td>
-                      <td>{row.red_mean || "-"}</td>
-                      <td>{row.green_mean || "-"}</td>
-                      <td>{row.blue_mean || "-"}</td>
-                      <td>
-                        {row.glcm_contrast ? row.glcm_contrast.toFixed(3) : "-"}
-                      </td>
-                      <td>
-                        {row.glcm_energy ? row.glcm_energy.toFixed(3) : "-"}
-                      </td>
-                      <td>
-                        {row.glcm_homogeneity
-                          ? row.glcm_homogeneity.toFixed(3)
-                          : "-"}
-                      </td>
-                      <td>{row.area || "-"}</td>
-                      <td>{row.perimeter || "-"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <div className="no-info-box">No information available</div>
-            )}
-          </div>
+                <div className="results-table">
+                    {data.length > 0 ? (
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Image ID</th>
+                                    <th>Red Mean</th>
+                                    <th>Green Mean</th>
+                                    <th>Blue Mean</th>
+                                    <th>GLCM Contrast</th>
+                                    <th>GLCM Energy</th>
+                                    <th>GLCM Homogeneity</th>
+                                    <th>Area</th>
+                                    <th>Perimeter</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {data.map((row) => (
+                                    <tr key={row.id}>
+                                        <td>{row.name}</td>
+                                        <td>{row.red_mean || "-"}</td>
+                                        <td>{row.green_mean || "-"}</td>
+                                        <td>{row.blue_mean || "-"}</td>
+                                        <td>
+                                            {row.glcm_contrast ? row.glcm_contrast.toFixed(3) : "-"}
+                                        </td>
+                                        <td>
+                                            {row.glcm_energy ? row.glcm_energy.toFixed(3) : "-"}
+                                        </td>
+                                        <td>
+                                            {row.glcm_homogeneity
+                                                ? row.glcm_homogeneity.toFixed(3)
+                                                : "-"}
+                                        </td>
+                                        <td>{row.area || "-"}</td>
+                                        <td>{row.perimeter || "-"}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : (
+                        <div className="no-info-box">No information available</div>
+                    )}
+                </div>
 
-          {/* Actions */}
-          <div className="action-buttons">
-            <button className="bt backkk-bt" onClick={handleFeatureAnalysis}>
-              Back
-            </button>
-            <button
-              className="bt export-bt"
-              onClick={handleExportFeatureSuccessful}
-            >
-              Export CSV
-            </button>
-          </div>
+                {/* Actions */}
+                <div className="action-buttons">
+                    <button className="bt backkk-bt" onClick={handleFeatureAnalysis}>
+                        Back
+                    </button>
+                    <button
+                        className="bt export-bt"
+                        onClick={handleExportFeatureSuccessful}
+                    >
+                        Export csv
+                    </button>
+                </div>
 
-          {isExporting && (
-            <div className="export-progress">
-              <p>Exporting CSV... {exportProgress}%</p>
+                {isExporting && (
+                    <div className="export-progress">
+                        <p>Exporting CSV... {exportProgress}%</p>
+                    </div>
+                )}
             </div>
-          )}
-        </div>
 
-        {/* Footer */}
-        <footer className="footer-featureanalysisresults">
-          <div className="footer-address-featureanalysisresults">
-            <p>
-              Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai
-              57100
-            </p>
-          </div>
-        </footer>
-      </div>
+            {/* Scroll to Top Button */}
+            <button
+                className={`scroll-to-top ${showScrollButton ? 'show' : ''}`}
+                onClick={scrollToTop}
+            >
+                ↑
+            </button>
+
+            {/* Footer */}
+            <footer className="footer-featureanalysisresults">
+                <div className="footer-address-featureanalysisresults">
+                    <p>
+                        Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai
+                        57100
+                    </p>
+                </div>
+            </footer>
+        </div>
     );
 };
 
