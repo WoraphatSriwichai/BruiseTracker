@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './RemoveBackground.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
@@ -13,11 +14,10 @@ const RemoveBackground = () => {
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
             
     const toggleProfileDropdown = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
     const handleSignOut = useCallback(() => {
-            
         // Clear authentication tokens
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
@@ -44,7 +44,7 @@ const RemoveBackground = () => {
         }
     };
 
-    const handleRemoveBackground = () => {
+    const handleRemoveBackground = async () => {
         if (!image) {
             alert('Please upload an image first!');
             return;
@@ -52,34 +52,23 @@ const RemoveBackground = () => {
 
         setErrorMessage(''); // Clear any previous error messages
 
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        const img = new Image();
-        img.src = image;
+        try {
+            const formData = new FormData();
+            formData.append('image', dataURLtoFile(image, 'uploaded-image.png'));
 
-        img.onload = () => {
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
+            const response = await axios.post('http://localhost:4000/remove_background', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                responseType: 'blob',
+            });
 
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < imageData.data.length; i += 4) {
-                const r = imageData.data[i];
-                const g = imageData.data[i + 1];
-                const b = imageData.data[i + 2];
-
-                // Simple algorithm to make non-black pixels transparent
-                if (r > 50 || g > 50 || b > 50) {
-                    imageData.data[i + 3] = 0; // Set alpha to 0 (transparent)
-                }
-            }
-            ctx.putImageData(imageData, 0, 0);
-
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                setProcessedImage(url);
-            }, 'image/png');
-        };
+            const imageUrl = URL.createObjectURL(new Blob([response.data], { type: 'image/png' }));
+            setProcessedImage(imageUrl);
+        } catch (error) {
+            console.error('Error removing background:', error);
+            setErrorMessage('Failed to remove background. Please try again.');
+        }
     };
 
     const handleDownloadImage = () => {
@@ -97,6 +86,18 @@ const RemoveBackground = () => {
         setImage(null);
         setProcessedImage(null);
         setErrorMessage('');
+    };
+
+    const dataURLtoFile = (dataurl, filename) => {
+        const arr = dataurl.split(',');
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        let n = bstr.length;
+        const u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new File([u8arr], filename, { type: mime });
     };
 
     return (
@@ -145,12 +146,14 @@ const RemoveBackground = () => {
 
                     {image && (
                         <div className="image-preview">
+                            <h3>Original Image</h3>
                             <img src={image} alt="Uploaded" className="uploaded-image" />
                         </div>
                     )}
 
                     {processedImage && (
                         <div className="image-preview">
+                            <h3>Processed Image</h3>
                             <img src={processedImage} alt="Processed" className="processed-image" />
                         </div>
                     )}
