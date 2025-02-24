@@ -119,10 +119,10 @@ const ShowAreaCalculation = () => {
                     <td>{row.area}</td>
                     <td>{row.percentage}</td>
                     <td>
-                      <button className="btn view-result-btn" onClick={() => handleViewPhotoResults(index)}>View Photo</button>
+                      <button className="btn-showarea-view" onClick={() => handleViewPhotoResults(index)}>View Photo</button>
                     </td>
                     <td>
-                      <button className="btn export-result-btn" onClick={() => handleDelete(row.id)}>Delete Photo</button>
+                      <button className="btn-showarea-delete" onClick={() => handleDelete(row.id)}>Delete Photo</button>
                     </td>
                   </tr>
                 ))}

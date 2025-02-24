@@ -115,9 +115,10 @@
 
 .show-area-calculation-table {
     width: 100%;
-    background-color: #e5e5e5;
+    background-color: #f5f5f5;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
 }
 
 .show-area-calculation-table thead th {
@@ -128,6 +129,8 @@
     position: sticky;
     top: 0;
     z-index: 1;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
 }
 
 .show-area-calculation-table tbody td {
@@ -135,8 +138,6 @@
     text-align: center;
     background: #fff;
     border-bottom: 1px solid #ddd;
-    word-wrap: break-word;
-    white-space: normal;
 }
 
 .show-area-calculation-table tbody tr:nth-child(odd) td {
@@ -146,25 +147,55 @@
 .show-area-calculation-table tbody tr:hover td {
     background: #e4f5e3;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
-.view-result-btn {
-    background: #436850;
+/* View Photo Button */
+.btn-showarea-view {
+    background: linear-gradient(135deg, #6b73ff, #000dff);
     color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.view-result-btn:hover {
-    background: #3a5330;
+.btn-showarea-view:hover {
+    background: linear-gradient(135deg, #5a63e0, #0000e0);
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.export-result-btn {
-    background: rgb(219, 0, 0);
-    color: white;
+.btn-showarea-view:active {
+    transform: scale(1.02);
 }
 
-.export-result-btn:hover {
-    background: #e6c24d;
+/* Delete Button */
+.btn-showarea-delete {
+    background: linear-gradient(135deg, #ff6b6b, #ff0000);
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-showarea-delete:hover {
+    background: linear-gradient(135deg, #e05a5a, #e00000);
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-showarea-delete:active {
+    transform: scale(1.02);
 }
 
 /* Footer */
