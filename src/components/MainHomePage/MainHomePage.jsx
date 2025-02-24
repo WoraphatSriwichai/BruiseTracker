@@ -18,14 +18,11 @@ function MainHomePage() {
     const handleResize = useCallback(() => navigate('/resize'), [navigate]);
     const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
     const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
+    
     const handleSignOut = useCallback(() => {
         
-        // Clear authentication tokens
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
-        
         // Navigate to sign-in page
-        navigate('/signin');
+        navigate('/logout');
     }, [navigate]);
 
     const toggleProfileDropdown = () => {

@@ -20,13 +20,10 @@ const RemoveBackground = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
-    const handleSignOut = useCallback(() => {
-        // Clear authentication tokens
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
+    const handleSignOut = useCallback(() => {    
         
         // Navigate to sign-in page
-        navigate('/signin');
+        navigate('/logout');
     }, [navigate]);
 
     const handleAboutUs = useCallback(() => navigate('/aboutusmain'), [navigate]);

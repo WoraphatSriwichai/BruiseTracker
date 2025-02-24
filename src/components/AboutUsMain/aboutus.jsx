@@ -17,13 +17,9 @@ function AboutUs() {
     };
 
      const handleSignOut = useCallback(() => {
-            
-        // Clear authentication tokens
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
         
         // Navigate to sign-in page
-        navigate('/signin');
+        navigate('/logout');
     }, [navigate]);
 
     // Navigation handlers
