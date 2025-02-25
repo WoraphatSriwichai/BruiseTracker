@@ -28,6 +28,10 @@ function SignUpPage() {
     navigate('/signin');
   };
 
+  const handleFirstHomePage = () => {
+    navigate("/");
+  };
+
   const handleSignUpClick = async () => {
     const username = usernameRef.current ? usernameRef.current.value.trim() : '';
     const email = emailRef.current ? emailRef.current.value.trim() : '';
@@ -90,7 +94,7 @@ function SignUpPage() {
   return (
     <div className="signup-container">
       <div className="signup-box">
-        <img src={mangoLogo} alt="Mango Logo" className="signup-logo" />
+        <img src={mangoLogo} alt="Mango Logo" className="signup-logo" onClick={handleFirstHomePage}/>
         <h1>Sign-Up</h1>
 
         {/* Display alert message if any error occurs */}

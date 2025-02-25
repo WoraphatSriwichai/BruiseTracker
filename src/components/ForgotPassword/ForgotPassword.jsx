@@ -32,10 +32,14 @@ function ForgotPassword() {
         }
     }, [handleSendEmail]);
 
+    const handleFirstHomePage = () => {
+      navigate("/");
+    };
+
     return (
         <div className="ForgotPassword-container">
             <div className="ForgotPassword-box">
-                <img src={mangoLogo} alt="Mango Logo" className="ForgotPassword-logo" />
+                <img src={mangoLogo} alt="Mango Logo" className="ForgotPassword-logo" onClick={handleFirstHomePage}/>
                 <h1>Send Email</h1>
                 {alertMessage && <div className="alert-message">{alertMessage}</div>}
                 <input

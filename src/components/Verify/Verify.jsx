@@ -28,11 +28,15 @@ function Verify() {
             handleChangePassword();
         }
     };
+    
+    const handleFirstHomePage = () => {
+      navigate("/");
+    };
 
     return (
         <div className="Verify-container">
             <div className="Verify-box">
-                <img src={mangoLogo} alt="Mango Logo" className="Verify-logo" />
+                <img src={mangoLogo} alt="Mango Logo" className="Verify-logo" onClick={handleFirstHomePage}/>
                 <h1>Verification</h1>
                 {alertMessage && <div className="alert-message">{alertMessage}</div>}
                 <input

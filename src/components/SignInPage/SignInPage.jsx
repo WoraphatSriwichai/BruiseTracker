@@ -17,7 +17,7 @@ function SignInPage() {
 
   const handleForgotPassword = () => { navigate('/forgotpassword'); };
   const handleSignUpClick = () => { navigate('/signup'); };
-  const handleLogoClick = () => { navigate('/home'); };
+  const handleFirstHomePage = () => { navigate('/'); };
 
   const handleSignInClick = async () => {
     const usernameOrEmail = document.getElementById('username').value.trim();
@@ -70,7 +70,7 @@ function SignInPage() {
   return (
     <div className="signin-container">
       <div className="signin-box">
-        <img src={mangoLogo} alt="Mango Logo" className="signin-logo" onClick={handleLogoClick} />
+        <img src={mangoLogo} alt="Mango Logo" className="signin-logo" onClick={handleFirstHomePage} />
         <h1>Sign-In</h1>
 
         <input

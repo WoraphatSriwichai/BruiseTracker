@@ -53,6 +53,7 @@
 .Verify-logo {
     width: 100px;
     margin-bottom: 15px;
+    cursor: pointer;
 }
 
 /* Title style */

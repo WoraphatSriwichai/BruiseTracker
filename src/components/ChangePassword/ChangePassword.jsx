@@ -15,6 +15,10 @@ function ChangePassword() {
         confirmPassword: false
     });
 
+    const handleFirstHomePage = () => {
+    navigate("/");
+    };
+
     const newPasswordRef = useRef(null);
     const confirmPasswordRef = useRef(null);
 
@@ -79,7 +83,7 @@ function ChangePassword() {
     return (
         <div className="ChangePassword-container"> {/* Main container */}
             <div className="ChangePassword-box"> {/* Box containing the password fields and buttons */}
-                <img src={mangoLogo} alt="Mango Logo" className="ChangePassword-logo" /> {/* Logo image */}
+                <img src={mangoLogo} alt="Mango Logo" className="ChangePassword-logo" onClick={handleFirstHomePage}/> {/* Logo image */}
                 <h1>Change Password</h1> {/* Title */}
                 {alertMessage && <div className="alert-message">{alertMessage}</div>} {/* Display alert message if exists */}
                 <div className="changepassword-wrapper"> {/* Wrapper for new password input */}
