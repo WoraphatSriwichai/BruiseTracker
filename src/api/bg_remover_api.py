@@ -3,22 +3,29 @@ from flask_cors import CORS
 import os
 import cv2
 import numpy as np
-from sklearn.cluster import KMeans
+from sklearn.cluster import MiniBatchKMeans
 import io
 from PIL import Image
+from concurrent.futures import ThreadPoolExecutor
 
 app = Flask(__name__)
 CORS(app)
 
-# Function to remove background using K-Means
+# Set environment variable to optimize MiniBatchKMeans
+os.environ['OMP_NUM_THREADS'] = '6'
+
+# Function to remove background using MiniBatchKMeans
 def remove_background(image):
-    height, width, _ = image.shape
+    # Downscale the image for faster processing
+    scale_factor = 0.5
+    small_image = cv2.resize(image, (0, 0), fx=scale_factor, fy=scale_factor, interpolation=cv2.INTER_AREA)
+    height, width, _ = small_image.shape
 
     # Reshape the image to a 2D array of pixels
-    pixels = image.reshape(-1, 3)
+    pixels = small_image.reshape(-1, 3)
 
-    # Apply K-means clustering
-    kmeans = KMeans(n_clusters=2, random_state=42)
+    # Apply MiniBatchKMeans clustering
+    kmeans = MiniBatchKMeans(n_clusters=2, random_state=42, batch_size=3072)
     kmeans.fit(pixels)
 
     # Get cluster labels and centroids
@@ -32,8 +39,11 @@ def remove_background(image):
     mask = (labels != background_label).astype(np.uint8)
     mask = mask.reshape(height, width)
 
+    # Upscale the mask to the original image size
+    mask = cv2.resize(mask, (image.shape[1], image.shape[0]), interpolation=cv2.INTER_LINEAR)
+
     # Refine the mask (optional: morphological operations)
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3, 3))
     mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
 
     # Remove the background
@@ -52,7 +62,12 @@ def remove_background_route():
     file = request.files['image']
     image = Image.open(file.stream)
     image_rgb = np.array(image.convert('RGB'))
-    result = remove_background(image_rgb)
+    
+    # Use ThreadPoolExecutor for parallel processing
+    with ThreadPoolExecutor() as executor:
+        future = executor.submit(remove_background, image_rgb)
+        result = future.result()
+    
     result_image = Image.fromarray(result)
     img_io = io.BytesIO()
     result_image.save(img_io, 'PNG')
