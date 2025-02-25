@@ -13,16 +13,15 @@ const RemoveBackground = () => {
     const [processedImages, setProcessedImages] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
     const [dragActive, setDragActive] = useState(false);
-
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-            
+    const [isLoading, setIsLoading] = useState(false);
+    const [progress, setProgress] = useState(0);
+
     const toggleProfileDropdown = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
     const handleSignOut = useCallback(() => {    
-        
-        // Navigate to sign-in page
         navigate('/logout');
     }, [navigate]);
 
@@ -53,9 +52,11 @@ const RemoveBackground = () => {
         }
 
         setErrorMessage(''); // Clear any previous error messages
+        setIsLoading(true);
+        setProgress(0);
 
         try {
-            const processed = await Promise.all(selectedFiles.map(async (file) => {
+            const processed = await Promise.all(selectedFiles.map(async (file, index) => {
                 const formData = new FormData();
                 formData.append('image', file);
 
@@ -64,6 +65,10 @@ const RemoveBackground = () => {
                         'Content-Type': 'multipart/form-data',
                     },
                     responseType: 'blob',
+                    onUploadProgress: (progressEvent) => {
+                        const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+                        setProgress(((index + percentCompleted / 100) / selectedFiles.length) * 100);
+                    }
                 });
 
                 const imageUrl = URL.createObjectURL(new Blob([response.data], { type: 'image/png' }));
@@ -74,6 +79,8 @@ const RemoveBackground = () => {
         } catch (error) {
             console.error('Error removing background:', error);
             setErrorMessage('Failed to remove background. Please try again.');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -104,6 +111,7 @@ const RemoveBackground = () => {
         setSelectedFiles([]);
         setProcessedImages([]);
         setErrorMessage('');
+        setProgress(0);
     };
 
     return (
@@ -184,11 +192,11 @@ const RemoveBackground = () => {
                 </div>
 
                 <div className="action-buttons">
-                    <button className="btn reset-btn" onClick={handleReset}>
+                    <button className="btn reset-btn" onClick={handleReset} disabled={isLoading}>
                         Reset
                     </button>
-                    <button className="btn remove-btn" onClick={handleRemoveBackground}>
-                        Remove
+                    <button className="btn remove-btn" onClick={handleRemoveBackground} disabled={isLoading}>
+                        {isLoading ? `Processing... ${progress.toFixed(2)}%` : 'Remove'}
                     </button>
                 </div>
 
