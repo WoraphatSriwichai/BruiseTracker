@@ -4,6 +4,8 @@ import './UserProfilePage.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
 import { UserContext } from '../../UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const UserProfilePage = () => {
   const navigate = useNavigate();
@@ -17,8 +19,6 @@ const UserProfilePage = () => {
   };
       
   const handleSignOut = useCallback(() => {
-    
-    // Navigate to sign-in page
     navigate('/logout');
   }, [navigate]);
 
@@ -69,13 +69,27 @@ const UserProfilePage = () => {
           <img src={mangoLogo} alt="Mango Logo" className="manger-logo" onClick={() => navigate('/home')} />
         </div>
         <div className="navbar-links">
-          <button className="profile-link" onClick={() => navigate('/dashboard')}>Dashboard</button>
-          <button className="profile-link" onClick={() => navigate('/bruise')}>Bruised Area Calculation</button>
-          <button className="profile-link" onClick={() => navigate('/analysis')}>Feature Analysis</button>
-          <button className="profile-link" onClick={() => navigate('/resize')}>Resize</button>
-          <button className="navbar-link" onClick={() => navigate('/removebackground')}>Remove Background</button>
-          <button className="profile-link" onClick={() => navigate('/aboutusmain')}>About Us</button>
-          <button className="profile-link" onClick={() => navigate('/contactusmain')}>Contact Us</button>
+          <button className="navbar-link" onClick={() => navigate('/dashboard')}>
+            <FontAwesomeIcon icon={faHome} /> Home
+          </button>
+          <button className="navbar-link" onClick={() => navigate('/bruise')}>
+            <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation
+          </button>
+          <button className="navbar-link" onClick={() => navigate('/analysis')}>
+            <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
+          </button>
+          <button className="navbar-link" onClick={() => navigate('/resize')}>
+            <FontAwesomeIcon icon={faExpand} /> Resize
+          </button>
+          <button className="navbar-link" onClick={() => navigate('/removebackground')}>
+            <FontAwesomeIcon icon={faEraser} /> Remove Background
+          </button>
+          <button className="navbar-link" onClick={() => navigate('/aboutusmain')}>
+            <FontAwesomeIcon icon={faInfoCircle} /> About Us
+          </button>
+          <button className="navbar-link" onClick={() => navigate('/contactusmain')}>
+            <FontAwesomeIcon icon={faEnvelope} /> Contact Us
+          </button>
         </div>
 
         <div className="navbar-profile">

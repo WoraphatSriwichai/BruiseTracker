@@ -4,6 +4,8 @@ import './FirstHomePage.css';
 import mangoBackground from '../../assets/differentmango.jpg';
 import logoWhite from '../../assets/Logo_white.png';
 import useAuth from '../../Auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function FirstHomePage() {
     useAuth();
@@ -41,8 +43,12 @@ function FirstHomePage() {
             {/* Footer */}
             <footer className="footer-FirstHomePage">
                 <div className="footer-links">
-                    <button className="footer-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="footer-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className="footer-link" onClick={handleAboutUs}>
+                        <FontAwesomeIcon icon={faInfoCircle} /> About Us
+                    </button>
+                    <button className="footer-link" onClick={handleContactUs}>
+                        <FontAwesomeIcon icon={faEnvelope} /> Contact Us
+                    </button>
                 </div>
                 <div className="footer-address">
                     <p>Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>

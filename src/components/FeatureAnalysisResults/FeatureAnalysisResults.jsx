@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './FeatureAnalysisResults.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const FeatureAnalysisResults = () => {
     const navigate = useNavigate();
@@ -22,8 +24,6 @@ const FeatureAnalysisResults = () => {
     };
 
     const handleSignOut = useCallback(() => {      
-        
-        // Navigate to sign-in page
         navigate('/logout');
     }, [navigate]);
 
@@ -107,31 +107,31 @@ const FeatureAnalysisResults = () => {
                 </div>
                 <div className="navbar-links">
                     <button className="navbar-link" onClick={handleDashboard}>
-                        Dashboard
+                        <FontAwesomeIcon icon={faHome} /> Home
                     </button>
                     <button
                         className="navbar-link"
                         onClick={handleBruiseAreaCalculation}
                     >
-                        Bruised Area Calculation
+                        <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation
                     </button>
                     <button
                         className="navbar-link active"
                         onClick={handleFeatureAnalysis}
                     >
-                        Feature Analysis
+                        <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
                     </button>
-                    <button className="profile-link" onClick={handleResize}>
-                        Resize
+                    <button className="navbar-link" onClick={handleResize}>
+                        <FontAwesomeIcon icon={faExpand} /> Resize
                     </button>
                     <button className="navbar-link" onClick={handleRemoveBackground}>
-                        Remove Background
+                        <FontAwesomeIcon icon={faEraser} /> Remove Background
                     </button>
                     <button className="navbar-link" onClick={handleAboutUs}>
-                        About Us
+                        <FontAwesomeIcon icon={faInfoCircle} /> About Us
                     </button>
                     <button className="navbar-link" onClick={handleContactUs}>
-                        Contact Us
+                        <FontAwesomeIcon icon={faEnvelope} /> Contact Us
                     </button>
                 </div>
                 <div className="navbar-profile">

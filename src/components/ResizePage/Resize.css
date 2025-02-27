@@ -10,6 +10,11 @@
     padding: 0;
 }
 
+.navbar-link.active {
+    background-color: #FFDD55;
+    color: #4B6A3D;
+}
+
 /* Crop Image Button */
 .crop-image-bt {
     background-color: #cea500;

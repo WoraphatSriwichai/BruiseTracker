@@ -4,6 +4,8 @@ import './ContactUsPage.css';
 import mangoBackground from '../../assets/differentmango.jpg';
 import mangoLogo from '../../assets/Logo_white.png';
 import facebookLogo from '../../assets/facebook.png';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function ContactUsPage() {
     const navigate = useNavigate();
@@ -66,10 +68,10 @@ function ContactUsPage() {
                 </section>
             </main>
 
-            <footer className="contactuspage-footer">
+            <footer className="aboutus-footer">
                 <div className="footer-links">
-                    <button className="footer-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="footer-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className="footer-link" onClick={handleAboutUs}> <FontAwesomeIcon icon={faInfoCircle} /> About Us</button>
+                    <button className="footer-link" onClick={handleContactUs}> <FontAwesomeIcon icon={faEnvelope} /> Contact Us</button>
                 </div>
                 <p className="footer-address">Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
             </footer>

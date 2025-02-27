@@ -3,33 +3,28 @@ import { useNavigate } from 'react-router-dom';
 import './DashboardPage.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const DashboardPage = () => {
     const navigate = useNavigate();
     const [operationHistory, setOperationHistory] = useState([]);
     const [exportProgress, setExportProgress] = useState(0);
-
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-        
-        const toggleProfileDropdown = () => {
-        setIsProfileDropdownOpen(!isProfileDropdownOpen);
-        };
-    
-        const handleSignOut = useCallback(() => {
-            
-            // Navigate to sign-in page
-            navigate('/logout');
-        }, [navigate]);
+    const [activeButton, setActiveButton] = useState('home'); // Set default active button
 
-    const handleAboutUs = useCallback(() => { navigate('/aboutusmain'); }, [navigate]);
-    const handleContactUs = useCallback(() => { navigate('/contactusmain'); }, [navigate]);
-    const handleUserProfile = useCallback(() => { navigate('/profile'); }, [navigate]);
-    const handleBruiseAreaCalculation = useCallback(() => { navigate('/bruise'); }, [navigate]);
-    const handleFeatureAnalysis = useCallback(() => { navigate('/analysis'); }, [navigate]);
-    const handleShowAreaCalculation = useCallback(() => { navigate('/showarea/accuracy'); }, [navigate]);
-    const handleResize = useCallback(() => { navigate('/resize'); }, [navigate]);
-    const handleRemoveBackground = useCallback(() => { navigate('/removebackground'); }, [navigate]);
-    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
+    const toggleProfileDropdown = () => {
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
+    };
+
+    const handleSignOut = useCallback(() => {
+        navigate('/logout');
+    }, [navigate]);
+
+    const handleNavigation = useCallback((path, buttonName) => {
+        navigate(path);
+        setActiveButton(buttonName);
+    }, [navigate]);
 
     useEffect(() => {
         const history = JSON.parse(localStorage.getItem('operationHistory')) || [];
@@ -61,34 +56,39 @@ const DashboardPage = () => {
         }, 100);
     }, [navigate]);
 
+    const handleShowAreaCalculation = () => {
+        // Add your logic here
+        console.log('Show area calculation');
+    };
+
     return (
         <div className="dashboard-page">
             <nav className="navbar-dashboard">
                 <div className="navbar-brand">
-                    <img src={mangoLogo} alt="Mango Logo" className="manger-logo" onClick={handlemainhomepage}/>
+                    <img src={mangoLogo} alt="Mango Logo" className="manger-logo" onClick={() => handleNavigation('/home', 'home')} />
                 </div>
                 <div className="navbar-links">
-                    <button className="navbar-link">Dashboard</button>
-                    <button className="navbar-link" onClick={handleBruiseAreaCalculation}>Bruised Area Calculation</button>
-                    <button className="navbar-link" onClick={handleFeatureAnalysis}>Feature Analysis</button>
-                    <button className="navbar-link" onClick={handleResize}>Resize</button>
-                    <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-                    <button className="navbar-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="navbar-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className={`navbar-link ${activeButton === 'home' ? 'active' : ''}`} onClick={() => handleNavigation('/dashboard', 'home')}> <FontAwesomeIcon icon={faHome} />Home</button>
+                    <button className={`navbar-link ${activeButton === 'bruise' ? 'active' : ''}`} onClick={() => handleNavigation('/bruise', 'bruise')}><FontAwesomeIcon icon={faCalculator} />Bruised Area Calculation</button>
+                    <button className={`navbar-link ${activeButton === 'analysis' ? 'active' : ''}`} onClick={() => handleNavigation('/analysis', 'analysis')}> <FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
+                    <button className={`navbar-link ${activeButton === 'resize' ? 'active' : ''}`} onClick={() => handleNavigation('/resize', 'resize')}> <FontAwesomeIcon icon={faExpand} />Resize</button>
+                    <button className={`navbar-link ${activeButton === 'removebackground' ? 'active' : ''}`} onClick={() => handleNavigation('/removebackground', 'removebackground')}> <FontAwesomeIcon icon={faEraser} />Remove Background</button>
+                    <button className={`navbar-link ${activeButton === 'aboutus' ? 'active' : ''}`} onClick={() => handleNavigation('/aboutusmain', 'aboutus')}> <FontAwesomeIcon icon={faInfoCircle} />About Us</button>
+                    <button className={`navbar-link ${activeButton === 'contactus' ? 'active' : ''}`} onClick={() => handleNavigation('/contactusmain', 'contactus')}><FontAwesomeIcon icon={faEnvelope} />Contact Us</button>
                 </div>
                 
                 <div className="navbar-profile">
                     <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
                     {isProfileDropdownOpen && (
                         <div className="profile-dropdown">
-                            <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                            <button className="dropdown-link" onClick={() => handleNavigation('/profile', 'profile')}>View Profile</button>
                             <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
                         </div>
                     )}
                 </div>
             </nav>
             <div className="dashboard-content">
-                <h2 className="dashboard-title">Dashboard</h2>
+                <h2 className="dashboard-title">Home</h2>
                 <div className="dashboard-table-container">
                     <table className="dashboard-table">
                         <thead>

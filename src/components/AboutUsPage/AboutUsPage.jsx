@@ -6,6 +6,8 @@ import mangoLogo from '../../assets/Logo_white.png';
 import pythonLogo from '../../assets/python.png';
 import pytorchLogo from '../../assets/pytorch.png';
 import tensorflowLogo from '../../assets/tensorflow.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function AboutUsPage() {
     const navigate = useNavigate();
@@ -81,8 +83,8 @@ function AboutUsPage() {
 
             <footer className="aboutus-footer">
                 <div className="footer-links">
-                    <button className="footer-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="footer-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className="footer-link" onClick={handleAboutUs}> <FontAwesomeIcon icon={faInfoCircle} /> About Us</button>
+                    <button className="footer-link" onClick={handleContactUs}> <FontAwesomeIcon icon={faEnvelope} /> Contact Us</button>
                 </div>
                 <p className="footer-address">Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
             </footer>

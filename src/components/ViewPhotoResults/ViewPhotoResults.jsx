@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import './ViewPhotoResults.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const ViewPhotoResults = () => {
     const navigate = useNavigate();
@@ -12,12 +14,10 @@ const ViewPhotoResults = () => {
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
             
     const toggleProfileDropdown = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
     const handleSignOut = useCallback(() => {
-        
-        // Navigate to sign-in page
         navigate('/logout');
     }, [navigate]);
 
@@ -50,7 +50,7 @@ const ViewPhotoResults = () => {
     const handleFeatureAnalysis = () => navigate('/analysis');
     const handleResize = () => navigate('/resize');
     const handleRemoveBackground = () => navigate('/removebackground');
-    const handlemainhomepage = () => navigate('/home')
+    const handlemainhomepage = () => navigate('/home');
 
     return (
         <div className="view-photo-result-page">
@@ -62,23 +62,37 @@ const ViewPhotoResults = () => {
                 </div>
 
                 <div className="navbar-links">
-                    <button className="navbar-link" onClick={handleDashboard}>Dashboard</button>
-                    <button className="navbar-link" onClick={handleBruiseAreaCalculation}>Bruised Area Calculation</button>
-                    <button className="navbar-link" onClick={handleFeatureAnalysis}>Feature Analysis</button>
-                    <button className="profile-link" onClick={handleResize}>Resize</button>
-                    <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-                    <button className="edit-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="edit-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className="navbar-link" onClick={handleDashboard}>
+                        <FontAwesomeIcon icon={faHome} /> Home
+                    </button>
+                    <button className="navbar-link" onClick={handleBruiseAreaCalculation}>
+                        <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation
+                    </button>
+                    <button className="navbar-link" onClick={handleFeatureAnalysis}>
+                        <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
+                    </button>
+                    <button className="navbar-link" onClick={handleResize}>
+                        <FontAwesomeIcon icon={faExpand} /> Resize
+                    </button>
+                    <button className="navbar-link" onClick={handleRemoveBackground}>
+                        <FontAwesomeIcon icon={faEraser} /> Remove Background
+                    </button>
+                    <button className="navbar-link" onClick={handleAboutUs}>
+                        <FontAwesomeIcon icon={faInfoCircle} /> About Us
+                    </button>
+                    <button className="navbar-link" onClick={handleContactUs}>
+                        <FontAwesomeIcon icon={faEnvelope} /> Contact Us
+                    </button>
                 </div>
 
                 <div className="navbar-profile">
-                <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
-                {isProfileDropdownOpen && (
-                    <div className="profile-dropdown">
-                        <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
-                        <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
-                    </div>
-                )}
+                    <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+                    {isProfileDropdownOpen && (
+                        <div className="profile-dropdown">
+                            <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                            <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
+                        </div>
+                    )}
                 </div>
             </nav>
 

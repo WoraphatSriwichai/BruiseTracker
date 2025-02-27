@@ -1,31 +1,27 @@
 import React, { useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './BruiseAreaCalculation.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const BruiseAreaCalculation = () => {
     const [dragActive, setDragActive] = useState(false);
     const [selectedFiles, setSelectedFiles] = useState([]);
     const navigate = useNavigate();
+    const location = useLocation();
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
-    const handleAboutUs = useCallback(() => navigate('/aboutusmain'), [navigate]);
-    const handleContactUs = useCallback(() => navigate('/contactusmain'), [navigate]);
-    const handleUserProfile = useCallback(() => navigate('/profile'), [navigate]);
-    const handleDashboard = useCallback(() => navigate('/dashboard'), [navigate]);
-    const handleFeatureAnalysis = useCallback(() => navigate('/analysis'), [navigate]);
-    const handleResize = useCallback(() => navigate('/resize'), [navigate]);
-    const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
-    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     const toggleProfileDropdown = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
     const handleSignOut = useCallback(() => {
-        
-        // Navigate to sign-in page
         navigate('/logout');
     }, [navigate]);
 
@@ -78,7 +74,6 @@ const BruiseAreaCalculation = () => {
         
         localStorage.setItem('uploadedFiles', JSON.stringify(fileData));
 
-        // Update operation history
         const operationHistory = JSON.parse(localStorage.getItem('operationHistory')) || [];
         operationHistory.push({
             type: 'Bruised Area Calculation',
@@ -93,23 +88,23 @@ const BruiseAreaCalculation = () => {
         <div className="bruiseareacalculation-page">
             <nav className="navbar">
                 <div className="navbar-brand">
-                    <img src={mangoLogo} alt="Mango Logo" className="mango-logo" onClick={handlemainhomepage}/>
+                    <img src={mangoLogo} alt="Mango Logo" className="mango-logo" onClick={() => handleNavigation('/home')} />
                 </div>
                 <div className="navbar-links">
-                    <button className="navbar-link" onClick={handleDashboard}>Dashboard</button>
-                    <button className="navbar-link">Bruised Area Calculation</button>
-                    <button className="navbar-link" onClick={handleFeatureAnalysis}>Feature Analysis</button>
-                    <button className="navbar-link" onClick={handleResize}>Resize</button>
-                    <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-                    <button className="navbar-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="navbar-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className={`navbar-link ${location.pathname === '/dashboard' ? 'active' : ''}`} onClick={() => handleNavigation('/dashboard')}> <FontAwesomeIcon icon={faHome} />  Home</button>
+                    <button className={`navbar-link ${location.pathname === '/bruise' ? 'active' : ''}`}> <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation</button>
+                    <button className={`navbar-link ${location.pathname === '/analysis' ? 'active' : ''}`} onClick={() => handleNavigation('/analysis')}> <FontAwesomeIcon icon={faChartBar} /> Feature Analysis</button>
+                    <button className={`navbar-link ${location.pathname === '/resize' ? 'active' : ''}`} onClick={() => handleNavigation('/resize')}> <FontAwesomeIcon icon={faExpand} /> Resize</button>
+                    <button className={`navbar-link ${location.pathname === '/removebackground' ? 'active' : ''}`} onClick={() => handleNavigation('/removebackground')}> <FontAwesomeIcon icon={faEraser} /> Remove Background</button>
+                    <button className={`navbar-link ${location.pathname === '/aboutusmain' ? 'active' : ''}`} onClick={() => handleNavigation('/aboutusmain')}> <FontAwesomeIcon icon={faInfoCircle} /> About Us</button>
+                    <button className={`navbar-link ${location.pathname === '/contactusmain' ? 'active' : ''}`} onClick={() => handleNavigation('/contactusmain')}> <FontAwesomeIcon icon={faEnvelope} /> Contact Us</button>
                 </div>
                 
                 <div className="navbar-profile" onClick={toggleProfileDropdown}>
                     <img src={userProfileImg} alt="User Profile" className="user-profile" />
                     {isProfileDropdownOpen && (
                         <div className="profile-dropdown">
-                            <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                            <button className="dropdown-link" onClick={() => handleNavigation('/profile')}>View Profile</button>
                             <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
                         </div>
                     )}
@@ -162,7 +157,7 @@ const BruiseAreaCalculation = () => {
                 </div>
 
                 <div className="action-buttons">
-                    <button className="bt backto-bt" onClick={handleDashboard}>
+                    <button className="bt backto-bt" onClick={() => handleNavigation('/dashboard')}>
                         Back
                     </button>
                     <button className="bt upload-bruiseareacalculation-bt" onClick={handleUpload}>

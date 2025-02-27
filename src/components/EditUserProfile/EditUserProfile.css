@@ -120,27 +120,22 @@ body {
 
 .edit-info {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    max-width: 600px;
+    background-color: #fff;
     padding: 20px;
-    background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .edit-info-row {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
-.edit-info label {
-    display: flex;
-    flex-direction: column;
-    font-size: 1em;
-    color: #333;
-    width: 100%;
+.edit-label {
+    flex: 1;
+    margin-right: 10px;
 }
 
 .edit-info input {
@@ -156,8 +151,6 @@ body {
 .edit-buttons {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    gap: 15px;
     margin-top: 20px;
 }
 

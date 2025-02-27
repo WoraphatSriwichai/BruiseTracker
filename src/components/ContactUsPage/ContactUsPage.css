@@ -34,29 +34,15 @@
     vertical-align: middle;
 }
 
-.contactus-navbar .navbar-actions {
-    display: flex;
-    gap: 15px;
-}
-
-.contactus-navbar .navbar-actions .navbar-button {
-    background: none;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
-    padding: 10px 25px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
 .contactus-navbar .navbar-actions .navbar-button:hover {
-    background-color: #FFDD55;
-    color: #4B6A3D;
+    background: linear-gradient(135deg, #FFE066, #FFC300);
     transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contactus-navbar .navbar-actions .navbar-button:active {
+    transform: scale(1);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Hero Section */
@@ -181,33 +167,29 @@
 }
 
 /* Footer */
-.contactuspage-footer {
-    background-color: #436850;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-    margin-top: 80px;
-    position: relative;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 20px;
-}
-
 .footer-link {
-    background: none;
-    color: #FFF;
-    font-size: 0.7em;
+    background: linear-gradient(135deg, #ADBC9F, #FBFADA);
+    color: #4B6A3D;
+    border: none;
+    padding: 12px 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: color 0.3s;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .footer-link:hover {
-    color: #FFDD55;
+    background: linear-gradient(135deg, #FFE066, #FFC300);
+    transform: scale(1.05);
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-link:active {
+    transform: scale(1);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer-address {

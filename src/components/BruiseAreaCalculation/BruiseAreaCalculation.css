@@ -67,6 +67,11 @@
     align-items: center;
 }
 
+.navbar-link.active {
+    background-color: #FFDD55;
+    color: #4B6A3D;
+}
+
 .user-profile {
     width: 40px;
     height: 40px;

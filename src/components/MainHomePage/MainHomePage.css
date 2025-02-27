@@ -9,6 +9,11 @@ body {
     /* Prevent scrolling */
 }
 
+.navbar-link.active {
+    background-color: #FFDD55;
+    color: #4B6A3D;
+}
+
 .profile-dropdown {
     position: absolute;
     top: 50px;
@@ -106,7 +111,7 @@ body {
 
 .navbar-links {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     margin-right: 5%;
 }
 
@@ -114,13 +119,16 @@ body {
     background: none;
     color: #FFFFFF;
     border: 2px solid #FFFFFF;
-    padding: 12px 24px;
+    padding: 8px 16px;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .navbar-link:hover {

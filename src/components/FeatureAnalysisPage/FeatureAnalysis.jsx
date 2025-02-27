@@ -3,32 +3,38 @@ import { useNavigate } from 'react-router-dom';
 import './FeatureAnalysis.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const FeatureAnalysis = () => {
     const [dragActive, setDragActive] = useState(false);
     const [selectedFiles, setSelectedFiles] = useState([]);
     const navigate = useNavigate();
-
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-            
+    const [activeButton, setActiveButton] = useState('featureAnalysis'); // Set default active button
+
     const toggleProfileDropdown = () => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+        setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
     const handleSignOut = useCallback(() => {
-        
-        // Navigate to sign-in page
         navigate('/logout');
     }, [navigate]);
-    
-    const handleAboutUs = useCallback(() => navigate('/aboutusmain'), [navigate]);
-    const handleContactUs = useCallback(() => navigate('/contactusmain'), [navigate]);
-    const handleUserProfile = useCallback(() => navigate('/profile'), [navigate]);
-    const handleDashboard = useCallback(() => navigate('/dashboard'), [navigate]);
-    const handleBruiseAreaCalculation = useCallback(() => navigate('/bruise'), [navigate]);
-    const handleResize = useCallback(() => navigate('/resize'), [navigate]);
-    const handleRemoveBackground = useCallback(() => navigate('/removebackground'), [navigate]);
-    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
+
+    const handleNavigation = useCallback((path, buttonName) => {
+        navigate(path);
+        setActiveButton(buttonName);
+    }, [navigate]);
+
+    const handleAboutUs = useCallback(() => handleNavigation('/aboutusmain', 'aboutus'), [handleNavigation]);
+    const handleContactUs = useCallback(() => handleNavigation('/contactusmain', 'contactus'), [handleNavigation]);
+    const handleUserProfile = useCallback(() => handleNavigation('/profile', 'profile'), [handleNavigation]);
+    const handleDashboard = useCallback(() => handleNavigation('/dashboard', 'home'), [handleNavigation]);
+    const handleBruiseAreaCalculation = useCallback(() => handleNavigation('/bruise', 'bruise'), [handleNavigation]);
+    const handleResize = useCallback(() => handleNavigation('/resize', 'resize'), [handleNavigation]);
+    const handleRemoveBackground = useCallback(() => handleNavigation('/removebackground', 'removebackground'), [handleNavigation]);
+    const handlemainhomepage = useCallback(() => handleNavigation('/home', 'home'), [handleNavigation]);
+
     const handleFeatureAnalysisResults = useCallback(() => {
         const fileData = selectedFiles.map((file, index) => ({
             id: index + 1,
@@ -89,20 +95,19 @@ const FeatureAnalysis = () => {
 
     return (
         <div className="bruise-page">
-
             {/* Navbar */}
             <nav className="FeatureAnalysis-navbar">
                 <div className="navbar-brand">
-                    <img src={mangoLogo} alt="Mango Logo" className="mango-logo" onClick={handlemainhomepage}/>
+                    <img src={mangoLogo} alt="Mango Logo" className="mango-logo" onClick={handlemainhomepage} />
                 </div>
                 <div className="navbar-links">
-                    <button className="navbar-link" onClick={handleDashboard}>Dashboard</button>
-                    <button className="navbar-link" onClick={handleBruiseAreaCalculation}>Bruised Area Calculation</button>
-                    <button className="navbar-link">Feature Analysis</button>
-                    <button className="navbar-link" onClick={handleResize}>Resize</button>
-                    <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-                    <button className="navbar-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="navbar-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className={`navbar-link ${activeButton === 'home' ? 'active' : ''}`} onClick={handleDashboard}> <FontAwesomeIcon icon={faHome} />Home</button>
+                    <button className={`navbar-link ${activeButton === 'bruise' ? 'active' : ''}`} onClick={handleBruiseAreaCalculation}><FontAwesomeIcon icon={faCalculator} />Bruised Area Calculation</button>
+                    <button className={`navbar-link ${activeButton === 'featureAnalysis' ? 'active' : ''}`}><FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
+                    <button className={`navbar-link ${activeButton === 'resize' ? 'active' : ''}`} onClick={handleResize}><FontAwesomeIcon icon={faExpand} />Resize</button>
+                    <button className={`navbar-link ${activeButton === 'removebackground' ? 'active' : ''}`} onClick={handleRemoveBackground}><FontAwesomeIcon icon={faEraser} />Remove Background</button>
+                    <button className={`navbar-link ${activeButton === 'aboutus' ? 'active' : ''}`} onClick={handleAboutUs}><FontAwesomeIcon icon={faInfoCircle} />About Us</button>
+                    <button className={`navbar-link ${activeButton === 'contactus' ? 'active' : ''}`} onClick={handleContactUs}><FontAwesomeIcon icon={faEnvelope} />Contact Us</button>
                 </div>
 
                 <div className="navbar-profile">

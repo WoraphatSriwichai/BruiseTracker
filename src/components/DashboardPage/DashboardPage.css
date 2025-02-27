@@ -20,6 +20,11 @@
     color: #436850;
 }
 
+.navbar-link.active {
+    background-color: #FFDD55;
+    color: #4B6A3D;
+}
+
 .manger-logo {
     width: 100%;
     cursor: pointer;

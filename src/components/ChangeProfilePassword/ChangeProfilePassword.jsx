@@ -5,6 +5,7 @@ import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const ChangeProfilePassword = () => {
   const navigate = useNavigate();
@@ -96,13 +97,13 @@ const ChangeProfilePassword = () => {
         </div>
 
         <div className="navbar-links">
-          <button className="profile-link" onClick={() => navigate('/dashboard')}>Dashboard</button>
-          <button className="profile-link" onClick={() => navigate('/bruise')}>Bruised Area Calculation</button>
-          <button className="profile-link" onClick={() => navigate('/analysis')}>Feature Analysis</button>
-          <button className="navbar-link" onClick={handleResize}>Resize</button>
-          <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-          <button className="edit-link" onClick={() => navigate('/aboutusmain')}>About Us</button>
-          <button className="edit-link" onClick={() => navigate('/contactusmain')}>Contact Us</button>
+          <button className="navbar-link" onClick={() => navigate('/dashboard')}> <FontAwesomeIcon icon={faHome} /> Home</button>
+          <button className="navbar-link" onClick={() => navigate('/bruise')}> <FontAwesomeIcon icon={faCalculator} />Bruised Area Calculation</button>
+          <button className="navbar-link" onClick={() => navigate('/analysis')}> <FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
+          <button className="navbar-link" onClick={handleResize}> <FontAwesomeIcon icon={faExpand} />Resize</button>
+          <button className="navbar-link" onClick={handleRemoveBackground}> <FontAwesomeIcon icon={faEraser} /> Remove Background</button>
+          <button className="navbar-link" onClick={() => navigate('/aboutusmain')}> <FontAwesomeIcon icon={faInfoCircle} />About Us</button>
+          <button className="navbar-link" onClick={() => navigate('/contactusmain')}> <FontAwesomeIcon icon={faEnvelope} />Contact Us</button>
         </div>
 
         <div className="navbar-profile">

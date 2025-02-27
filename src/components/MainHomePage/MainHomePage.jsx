@@ -4,6 +4,8 @@ import './MainHomePage.css';
 import mangoBackground from '../../assets/differentmango.jpg';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function MainHomePage() {
     const navigate = useNavigate();
@@ -20,8 +22,6 @@ function MainHomePage() {
     const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
     
     const handleSignOut = useCallback(() => {
-        
-        // Navigate to sign-in page
         navigate('/logout');
     }, [navigate]);
 
@@ -39,13 +39,27 @@ function MainHomePage() {
                 </div>
 
                 <div className="navbar-links">
-                    <button className="navbar-link" onClick={handleDashboard}>Dashboard</button>
-                    <button className="navbar-link" onClick={handleBruiseAreaCalculation}>Bruise Area Calculation</button>
-                    <button className="navbar-link" onClick={handleFeatureAnalysis}>Feature Analysis</button>
-                    <button className="navbar-link" onClick={handleResize}>Resize</button>
-                    <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-                    <button className="navbar-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="navbar-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className="navbar-link" onClick={handleDashboard}>
+                        <FontAwesomeIcon icon={faHome} /> Home
+                    </button>
+                    <button className="navbar-link" onClick={handleBruiseAreaCalculation}>
+                        <FontAwesomeIcon icon={faCalculator} /> Bruise Area Calculation
+                    </button>
+                    <button className="navbar-link" onClick={handleFeatureAnalysis}>
+                        <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
+                    </button>
+                    <button className="navbar-link" onClick={handleResize}>
+                        <FontAwesomeIcon icon={faExpand} /> Resize
+                    </button>
+                    <button className="navbar-link" onClick={handleRemoveBackground}>
+                        <FontAwesomeIcon icon={faEraser} /> Remove Background
+                    </button>
+                    <button className="navbar-link" onClick={handleAboutUs}>
+                        <FontAwesomeIcon icon={faInfoCircle} /> About Us
+                    </button>
+                    <button className="navbar-link" onClick={handleContactUs}>
+                        <FontAwesomeIcon icon={faEnvelope} /> Contact Us
+                    </button>
                 </div>
 
                 <div className="navbar-profile">

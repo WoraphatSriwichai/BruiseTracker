@@ -1,36 +1,29 @@
 import React, { useEffect, useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './contactus.css';
 import mangoBackground from '../../assets/differentmango.jpg';
 import mangoLogo from '../../assets/Logo_white.png';
 import facebookLogo from '../../assets/facebook.png';
-import userProfileImg from '../../assets/profile.jpg'; // Add this line
+import userProfileImg from '../../assets/profile.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function ContactUs() {
     const navigate = useNavigate();
-
+    const location = useLocation();
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
-    
+
     const toggleProfileDropdown = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
     };
 
-        const handleSignOut = useCallback(() => {
-        
-        // Navigate to sign-in page
+    const handleSignOut = useCallback(() => {
         navigate('/logout');
     }, [navigate]);
 
-    const handleDashboard = useCallback(() => { navigate('/dashboard'); }, [navigate]);
-    const handleBruiseAreaCalculation = useCallback(() => { navigate('/bruise'); }, [navigate]);
-    const handleFeatureAnalysis = useCallback(() => { navigate('/analysis'); }, [navigate]);
-    const handleResize = useCallback(() => { navigate('/resize'); }, [navigate]);
-    const handleRemoveBackground = useCallback(() => { navigate('/removebackground'); }, [navigate]);
-    const handleAboutUs = useCallback(() => { navigate('/aboutusmain'); }, [navigate]);
-    const handleContactUs = useCallback(() => { navigate('/contactusmain'); }, [navigate]);
-    const handleFacebookClick = useCallback(() => { window.open("https://www.facebook.com/IntegratedAgriTechEcosystem", "_blank"); }, []);
-    const handleUserProfile = useCallback(() => { navigate('/profile'); }, [navigate]);
-    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
+    const handleNavigation = (path) => {
+        navigate(path);
+    };
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
@@ -51,28 +44,41 @@ function ContactUs() {
 
     return (
         <div className="contactus-page-container">
-
             {/* Navbar */}
-            <nav className="navbar-mainhomepage">
+            <nav className="contactus-navbar">
                 <div className="navbar-brand">
-                    <img src={mangoLogo} alt="Mango Logo" className="manger-logo" onClick={handlemainhomepage}/>
+                    <img src={mangoLogo} alt="Mango Logo" className="navbar-logo" onClick={() => handleNavigation('/home')} />
                 </div>
 
                 <div className="navbar-links">
-                    <button className="navbar-link" onClick={handleDashboard}>Dashboard</button>
-                    <button className="navbar-link" onClick={handleBruiseAreaCalculation}>Bruise Area Calculation</button>
-                    <button className="navbar-link" onClick={handleFeatureAnalysis}>Feature Analysis</button>
-                    <button className="navbar-link" onClick={handleResize}>Resize</button>
-                    <button className="navbar-link" onClick={handleRemoveBackground}>Remove Background</button>
-                    <button className="navbar-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="navbar-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className={`navbar-link ${location.pathname === '/dashboard' ? 'active' : ''}`} onClick={() => handleNavigation('/dashboard')}>
+                        <FontAwesomeIcon icon={faHome} /> Home
+                    </button>
+                    <button className={`navbar-link ${location.pathname === '/bruise' ? 'active' : ''}`} onClick={() => handleNavigation('/bruise')}>
+                        <FontAwesomeIcon icon={faCalculator} /> Bruise Area Calculation
+                    </button>
+                    <button className={`navbar-link ${location.pathname === '/analysis' ? 'active' : ''}`} onClick={() => handleNavigation('/analysis')}>
+                        <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
+                    </button>
+                    <button className={`navbar-link ${location.pathname === '/resize' ? 'active' : ''}`} onClick={() => handleNavigation('/resize')}>
+                        <FontAwesomeIcon icon={faExpand} /> Resize
+                    </button>
+                    <button className={`navbar-link ${location.pathname === '/removebackground' ? 'active' : ''}`} onClick={() => handleNavigation('/removebackground')}>
+                        <FontAwesomeIcon icon={faEraser} /> Remove Background
+                    </button>
+                    <button className={`navbar-link ${location.pathname === '/aboutusmain' ? 'active' : ''}`} onClick={() => handleNavigation('/aboutusmain')}>
+                        <FontAwesomeIcon icon={faInfoCircle} /> About Us
+                    </button>
+                    <button className={`navbar-link ${location.pathname === '/contactusmain' ? 'active' : ''}`} onClick={() => handleNavigation('/contactusmain')}>
+                        <FontAwesomeIcon icon={faEnvelope} /> Contact Us
+                    </button>
                 </div>
 
                 <div className="navbar-profile">
                     <img src={userProfileImg} alt="User Profile" className="user-profile-contactusmain" onClick={toggleProfileDropdown} />
                     {isProfileDropdownOpen && (
                         <div className="profile-dropdown">
-                            <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
+                            <button className="dropdown-link" onClick={() => handleNavigation('/profile')}>View Profile</button>
                             <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
                         </div>
                     )}
@@ -95,7 +101,7 @@ function ContactUs() {
                 <section className="frameworks-section">
                     <h3 className="frameworks-title">Contact Us</h3>
                     <div className="frameworks-logos">
-                        <div className="framework-item" onClick={handleFacebookClick}>
+                        <div className="framework-item" onClick={() => window.open("https://www.facebook.com/IntegratedAgriTechEcosystem", "_blank")}>
                             <img src={facebookLogo} alt="Facebook Logo" className="framework-logo" />
                             <p>IATE</p>
                         </div>
@@ -105,8 +111,12 @@ function ContactUs() {
 
             <footer className="contactuspage-footer">
                 <div className="footer-links">
-                    <button className="footer-link" onClick={handleAboutUs}>About Us</button>
-                    <button className="footer-link" onClick={handleContactUs}>Contact Us</button>
+                    <button className="footer-link" onClick={() => handleNavigation('/aboutusmain')}>
+                        <FontAwesomeIcon icon={faInfoCircle} /> About Us
+                    </button>
+                    <button className="footer-link" onClick={() => handleNavigation('/contactusmain')}>
+                        <FontAwesomeIcon icon={faEnvelope} /> Contact Us
+                    </button>
                 </div>
                 <p className="footer-address">Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
             </footer>
