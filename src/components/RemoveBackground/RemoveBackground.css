@@ -273,6 +273,9 @@
     }
 
     .navbar-links {
+        word-wrap: nowrap;
+        overflow: hidden;
+        
         flex-direction: column;
         gap: 10px;
     }

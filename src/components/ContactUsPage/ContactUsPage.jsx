@@ -11,6 +11,7 @@ function ContactUsPage() {
     const navigate = useNavigate();
 
     const handleSignIn = useCallback(() => { navigate('/signin'); }, [navigate]);
+    const handleSignUp = useCallback(() => { navigate('/signup'); }, [navigate]);
     const handleAboutUs = useCallback(() => { navigate('/aboutus'); }, [navigate]);
     const handleContactUs = useCallback(() => { navigate('/contactus'); }, [navigate]);
     const handleFacebookClick = useCallback(() => { window.open("https://www.facebook.com/IntegratedAgriTechEcosystem", "_blank"); }, []);
@@ -41,6 +42,7 @@ function ContactUsPage() {
                 </div>
                 <div className="navbar-actions">
                     <button className="navbar-button" onClick={handleSignIn}>Sign-In</button>
+                    <button className="navbar-button" onClick={handleSignUp}>Sign-Up</button>
                 </div>
             </nav>
 
