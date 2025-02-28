@@ -12,6 +12,7 @@ const FeatureAnalysis = () => {
     const navigate = useNavigate();
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
     const [activeButton, setActiveButton] = useState('featureAnalysis'); // Set default active button
+    const [inputValue, setInputValue] = useState("");
 
     const toggleProfileDropdown = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -130,6 +131,20 @@ const FeatureAnalysis = () => {
                     <p className="feature-selection-description">
                         Select the features to analyze and enhance your mango bruise detection process.
                     </p>
+
+                    {/* Typing Box */}
+                    <div className="typing-box">
+                        <label htmlFor="customFeature">Enter a custom feature:</label>
+                        <input 
+                            type="text" 
+                            id="customFeature" 
+                            name="customFeature" 
+                            value={inputValue} 
+                            onChange={(e) => setInputValue(e.target.value)} 
+                            placeholder="Type your feature here..." 
+                        />
+                    </div>
+
                     <div className="feature-selection-grid">
                         <div className="feature-category">
                             <h3>Color Features</h3>
