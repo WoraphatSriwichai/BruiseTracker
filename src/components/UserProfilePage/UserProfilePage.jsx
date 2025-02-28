@@ -120,10 +120,11 @@ const UserProfilePage = () => {
         </div>
       </div>
 
-      <footer className="footer-userprofilepage">
-        <div className="footer-address">
-          <p>Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
-        </div>
+      {/* Footer */}
+      <footer className="footer-mainhomepage">
+          <div className="footer-address">
+              <p>Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
+          </div>
       </footer>
     </div>
   );

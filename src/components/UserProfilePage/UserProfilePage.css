@@ -156,41 +156,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Footer */
-.footer-userprofilepage {
-    background-color: #436850;
-    padding: 15px 20px;
-    text-align: center;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-}
-
-.footer-link {
-    background: none;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
-    padding: 10px 20px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    text-transform: uppercase;
-}
-
-.footer-address {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8em;
-    color: #FFFFFF;
-    text-align: center;
-    margin-top: -0.5%;
-}
-
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .profile {

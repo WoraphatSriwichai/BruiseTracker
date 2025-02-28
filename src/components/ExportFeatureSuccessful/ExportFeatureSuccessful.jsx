@@ -79,7 +79,7 @@ const ExportFeatureSuccessful = () => {
             </div>
 
             {/* Footer */}
-            <footer className="footer-exportfeature">
+            <footer className="footer-mainhomepage">
                 <div className="footer-address">
                     <p>Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
                 </div>

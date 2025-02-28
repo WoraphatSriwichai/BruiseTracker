@@ -93,27 +93,76 @@ const ChangeProfilePassword = () => {
     <div className="change-profilepassword-page">
       <nav className="profile">
         <div className="profile-brand">
-          <img src={mangoLogo} alt="Mango Logo" className="manger-logo" onClick={handlemainhomepage} />
+          <img
+            src={mangoLogo}
+            alt="Mango Logo"
+            className="manger-logo"
+            onClick={handlemainhomepage}
+          />
         </div>
 
         <div className="navbar-links">
-          <button className="navbar-link" onClick={() => navigate('/dashboard')}> <FontAwesomeIcon icon={faHome} /> Home</button>
-          <button className="navbar-link" onClick={() => navigate('/bruise')}> <FontAwesomeIcon icon={faCalculator} />Bruised Area Calculation</button>
-          <button className="navbar-link" onClick={() => navigate('/analysis')}> <FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
-          <button className="navbar-link" onClick={handleResize}> <FontAwesomeIcon icon={faExpand} />Resize</button>
-          <button className="navbar-link" onClick={handleRemoveBackground}> <FontAwesomeIcon icon={faEraser} /> Remove Background</button>
-          <button className="navbar-link" onClick={() => navigate('/aboutusmain')}> <FontAwesomeIcon icon={faInfoCircle} />About Us</button>
-          <button className="navbar-link" onClick={() => navigate('/contactusmain')}> <FontAwesomeIcon icon={faEnvelope} />Contact Us</button>
+          <button
+            className="navbar-link"
+            onClick={() => navigate("/dashboard")}
+          >
+            {" "}
+            <FontAwesomeIcon icon={faHome} /> Home
+          </button>
+          <button className="navbar-link" onClick={() => navigate("/bruise")}>
+            {" "}
+            <FontAwesomeIcon icon={faCalculator} />
+            Bruised Area Calculation
+          </button>
+          <button className="navbar-link" onClick={() => navigate("/analysis")}>
+            {" "}
+            <FontAwesomeIcon icon={faChartBar} />
+            Feature Analysis
+          </button>
+          <button className="navbar-link" onClick={handleResize}>
+            {" "}
+            <FontAwesomeIcon icon={faExpand} />
+            Resize
+          </button>
+          <button className="navbar-link" onClick={handleRemoveBackground}>
+            {" "}
+            <FontAwesomeIcon icon={faEraser} /> Remove Background
+          </button>
+          <button
+            className="navbar-link"
+            onClick={() => navigate("/aboutusmain")}
+          >
+            {" "}
+            <FontAwesomeIcon icon={faInfoCircle} />
+            About Us
+          </button>
+          <button
+            className="navbar-link"
+            onClick={() => navigate("/contactusmain")}
+          >
+            {" "}
+            <FontAwesomeIcon icon={faEnvelope} />
+            Contact Us
+          </button>
         </div>
 
         <div className="navbar-profile">
-          <img src={userProfileImg} alt="User Profile" className="user-profile" onClick={toggleProfileDropdown} />
+          <img
+            src={userProfileImg}
+            alt="User Profile"
+            className="user-profile"
+            onClick={toggleProfileDropdown}
+          />
           {isProfileDropdownOpen && (
-              <div className="profile-dropdown">
-                  <button className="dropdown-link" onClick={handleUserProfile}>View Profile</button>
-                  <button className="dropdown-link" onClick={handleSignOut}>Sign Out</button>
-              </div>
-            )}
+            <div className="profile-dropdown">
+              <button className="dropdown-link" onClick={handleUserProfile}>
+                View Profile
+              </button>
+              <button className="dropdown-link" onClick={handleSignOut}>
+                Sign Out
+              </button>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -121,11 +170,13 @@ const ChangeProfilePassword = () => {
         <h2 className="change-password-title">Change Password</h2>
         <div className="change-password-container">
           {alertMessage && <div className="alert-message">{alertMessage}</div>}
-          {passwordLengthAlert && <div className="alert-message">{passwordLengthAlert}</div>} {/* Display password length alert */}
-
+          {passwordLengthAlert && (
+            <div className="alert-message">{passwordLengthAlert}</div>
+          )}{" "}
+          {/* Display password length alert */}
           <div className="profilepassword-wrapper">
             <input
-              type={showCurrentPassword ? 'text' : 'password'}
+              type={showCurrentPassword ? "text" : "password"}
               placeholder="Enter current password"
               className="ChangePassword-input"
               value={currentPassword}
@@ -134,15 +185,16 @@ const ChangeProfilePassword = () => {
             <button
               type="button"
               className="toggle-visibility"
-              onClick={() => toggleVisibility('currentPassword')}
+              onClick={() => toggleVisibility("currentPassword")}
             >
-              <FontAwesomeIcon icon={showCurrentPassword ? faEyeSlash : faEye} />
+              <FontAwesomeIcon
+                icon={showCurrentPassword ? faEyeSlash : faEye}
+              />
             </button>
           </div>
-
           <div className="profilepassword-wrapper">
             <input
-              type={showNewPassword ? 'text' : 'password'}
+              type={showNewPassword ? "text" : "password"}
               placeholder="Enter new password"
               className="ChangePassword-input"
               value={newPassword}
@@ -151,15 +203,14 @@ const ChangeProfilePassword = () => {
             <button
               type="button"
               className="toggle-visibility"
-              onClick={() => toggleVisibility('newPassword')}
+              onClick={() => toggleVisibility("newPassword")}
             >
               <FontAwesomeIcon icon={showNewPassword ? faEyeSlash : faEye} />
             </button>
           </div>
-
           <div className="password-wrapper">
             <input
-              type={showConfirmPassword ? 'text' : 'password'}
+              type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm new password"
               className="ChangePassword-input"
               value={confirmPassword}
@@ -168,22 +219,31 @@ const ChangeProfilePassword = () => {
             <button
               type="button"
               className="toggle-visibility"
-              onClick={() => toggleVisibility('confirmPassword')}
+              onClick={() => toggleVisibility("confirmPassword")}
             >
-              <FontAwesomeIcon icon={showConfirmPassword ? faEyeSlash : faEye} />
+              <FontAwesomeIcon
+                icon={showConfirmPassword ? faEyeSlash : faEye}
+              />
             </button>
           </div>
-
-          <button className="save-profilepassword-button" onClick={handleNewPasswordUpdate}>
+          <button
+            className="save-profilepassword-button"
+            onClick={handleNewPasswordUpdate}
+          >
             Save Password
           </button>
-          <button className="ban-button" onClick={() => navigate('/profile')}>Cancel</button>
+          <button className="ban-button" onClick={() => navigate("/profile")}>
+            Cancel
+          </button>
         </div>
       </div>
 
-      <footer className="footer-changeprofilepassword">
+      {/* Footer */}
+      <footer className="footer-mainhomepage">
         <div className="footer-address">
-          <p>Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
+          <p>
+            Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100
+          </p>
         </div>
       </footer>
     </div>

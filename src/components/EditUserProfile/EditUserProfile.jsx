@@ -125,45 +125,46 @@ const EditUserProfile = () => {
         </div>
       </nav>
 
-<div className="edit-profile-content">
-  <h2 className="edit-title">Edit User Information</h2>
-  <div className="edit-container">
-    <div className="edit-info">
-      <div className="edit-info-row">
-        <label className="edit-label">
-          <strong>Name:</strong>
-          <input type="text" name="name" value={userInfo.name} onChange={handleInputChange} className="edit-input" />
-        </label>
-        <label className="edit-label">
-          <strong>Email:</strong>
-          <input type="email" name="email" value={userInfo.email} onChange={handleInputChange} className="edit-input" />
-        </label>
-      </div>
-      <div className="edit-info-row">
-        <label className="edit-label">
-          <strong>Phone Number:</strong>
-          <input type="tel" name="phone" value={userInfo.phone} onChange={handleInputChange} className="edit-input" />
-        </label>
-        <label className="edit-label">
-          <strong>Country:</strong>
-          <input type="text" name="country" value={userInfo.country} onChange={handleInputChange} className="edit-input" />
-        </label>
-      </div>
+      <div className="edit-profile-content">
+        <h2 className="edit-title">Edit User Information</h2>
+        <div className="edit-container">
+          <div className="edit-info">
+            <div className="edit-info-row">
+              <label className="edit-label">
+                <strong>Name:</strong>
+                <input type="text" name="name" value={userInfo.name} onChange={handleInputChange} className="edit-input" />
+              </label>
+              <label className="edit-label">
+                <strong>Email:</strong>
+                <input type="email" name="email" value={userInfo.email} onChange={handleInputChange} className="edit-input" />
+              </label>
+            </div>
+            <div className="edit-info-row">
+              <label className="edit-label">
+                <strong>Phone Number:</strong>
+                <input type="tel" name="phone" value={userInfo.phone} onChange={handleInputChange} className="edit-input" />
+              </label>
+              <label className="edit-label">
+                <strong>Country:</strong>
+                <input type="text" name="country" value={userInfo.country} onChange={handleInputChange} className="edit-input" />
+              </label>
+            </div>
 
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
 
-      <div className="edit-buttons">
-        <button className="edit-button" onClick={handleNavigation(-1)}>Back</button>
-        <button className="change-password-button" onClick={handleSave}>Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-      <footer className="footer-edituserprofile">
-        <div className="footer-address-edituserprofile">
-          <p>Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
+            <div className="edit-buttons">
+              <button className="edit-button" onClick={handleNavigation(-1)}>Back</button>
+              <button className="change-password-button" onClick={handleSave}>Save</button>
+            </div>
+          </div>
         </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="footer-mainhomepage">
+          <div className="footer-address">
+              <p>Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
+          </div>
       </footer>
     </div>
   );

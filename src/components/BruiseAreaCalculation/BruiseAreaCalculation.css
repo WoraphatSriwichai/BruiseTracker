@@ -230,20 +230,6 @@
     transform: scale(1.02);
 }
 
-/* Footer */
-.footer-bruiseareacalculation {
-    background-color: #436850;
-    padding: 15px 20px;
-    text-align: center;
-}
-
-.footer-address-bruiseareacalculation {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9em;
-    color: #FFFFFF;
-    text-align: center;
-}
-
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .file-upload-container {
