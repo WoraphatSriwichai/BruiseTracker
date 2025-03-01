@@ -88,13 +88,15 @@ body {
 
 .profile-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 30px;
-    padding: 35px;
-    margin-top: 1.5%;
+    padding: 30px;
+    margin-top: 2px;
     border-radius: 16px;
-    background: #e5e5e5;
-    border: 2px solid #ADBC9F;
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+    box-shadow: 12px 12px 30px #d9d9d9, -12px -12px 30px #ffffff;
+    max-width: 400px;
+    width: 90%;
 }
 
 .profile-userimage {
@@ -106,54 +108,72 @@ body {
 }
 
 .profile-info {
-    flex: 1;
+    width: 100%;
     font-size: 1em;
-    line-height: 2;
-    color: #333;
+    line-height: 1.6;
 }
 
 .profile-info p {
-    margin: 10px 0;
+    margin: 12px 0;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.profile-info p:hover {
+    transform: translateX(5px);
+    background-color: rgba(67, 104, 80, 0.2);
+}
+
+
+.profile-info strong {
+    color: #436850;
+    font-weight: 600;
+    margin-right: 10px;
 }
 
 .profile-buttons {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     gap: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
 .editer-button,
 .change-userprofilepage-button {
     color: white;
-    padding: 14px 25px;
-    font-size: 0.9em;
-    font-weight: 550;
+    padding: 15px 30px;
+    font-size: 0.65em;
+    font-weight: 800;
     border: none;
-    border-radius: 8px;
+    border-radius: 50px;
     cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .editer-button {
-    background-color: #005dc1;
+    background-color: #436850;
+    box-shadow: 0 4px 15px rgba(67, 104, 80, 0.3);
 }
 
 .editer-button:hover {
-    background-color: #0056b3;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
+    background-color: #355343;
+    box-shadow: 0 6px 20px rgba(67, 104, 80, 0.4);
+    transform: translateY(-2px);
 }
 
 .change-userprofilepage-button {
-    background-color: #436850;
+    background-color: #FFDD55;
+    color: #436850;
+    box-shadow: 0 4px 15px rgba(255, 221, 85, 0.3);
 }
 
 .change-userprofilepage-button:hover {
-    background-color: #FFDD55;
-    color: #4B6A3D;
-    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
+    background-color: #FFD700;
+    box-shadow: 0 6px 20px rgba(255, 221, 85, 0.4);
+    transform: translateY(-2px);
 }
 
 /* Responsive Design */
