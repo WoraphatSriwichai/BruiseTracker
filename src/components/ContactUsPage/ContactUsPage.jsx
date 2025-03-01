@@ -5,7 +5,7 @@ import mangoBackground from '../../assets/differentmango.jpg';
 import mangoLogo from '../../assets/Logo_white.png';
 import facebookLogo from '../../assets/facebook.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faEnvelope, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 function ContactUsPage() {
     const navigate = useNavigate();
@@ -41,8 +41,8 @@ function ContactUsPage() {
                     <img src={mangoLogo} alt="Mango Logo" className="navbar-logo" onClick={handleLogoClick}/>
                 </div>
                 <div className="navbar-actions">
-                    <button className="navbar-button" onClick={handleSignIn}>Sign-In</button>
-                    <button className="navbar-button" onClick={handleSignUp}>Sign-Up</button>
+                    <button className="navbar-button" onClick={handleSignIn}> <FontAwesomeIcon icon={faSignInAlt} /> Sign-In</button>
+                    <button className="navbar-button" onClick={handleSignUp}> <FontAwesomeIcon icon={faUserPlus} /> Sign-Up</button>
                 </div>
             </nav>
 

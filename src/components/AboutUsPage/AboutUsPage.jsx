@@ -7,7 +7,7 @@ import pythonLogo from '../../assets/python.png';
 import pytorchLogo from '../../assets/pytorch.png';
 import tensorflowLogo from '../../assets/tensorflow.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faEnvelope, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 function AboutUsPage() {
     const navigate = useNavigate();
@@ -54,10 +54,10 @@ function AboutUsPage() {
           </div>
           <div className="navbar-actions">
             <button className="navbar-button" onClick={handleSignIn}>
-              Sign-In
+              <FontAwesomeIcon icon={faSignInAlt} /> Sign-In
             </button>
             <button className="navbar-button" onClick={handleSignUp}>
-              Sign-Up
+              <FontAwesomeIcon icon={faUserPlus} /> Sign-Up
             </button>
           </div>
         </nav>

@@ -5,7 +5,7 @@ import mangoBackground from '../../assets/differentmango.jpg';
 import logoWhite from '../../assets/Logo_white.png';
 import useAuth from '../../Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faEnvelope, faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 function FirstHomePage() {
     useAuth();
@@ -26,8 +26,12 @@ function FirstHomePage() {
                     <img src={logoWhite} alt="Logo" className="mango-logo" />
                 </div>
                 <div className="navbar-buttons">
-                    <button className="navbar-btn" onClick={handleSignIn}>Sign-In</button>
-                    <button className="navbar-btn" onClick={handleSignUp}>Sign-Up</button>
+                    <button className="navbar-btn" onClick={handleSignIn}>
+                        <FontAwesomeIcon icon={faSignInAlt} /> Sign-In
+                    </button>
+                    <button className="navbar-btn" onClick={handleSignUp}>
+                        <FontAwesomeIcon icon={faUserPlus} /> Sign-Up
+                    </button>
                 </div>
             </nav>
 
