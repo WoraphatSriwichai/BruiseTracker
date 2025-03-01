@@ -12,6 +12,7 @@
     max-width: 700px;
     margin: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .view-photo-result-page {
@@ -43,6 +44,12 @@
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    animation: zoomIn 1s ease-in-out;
+}
+
+.photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .photo-info {
@@ -54,6 +61,7 @@
     padding: 12px 18px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
 }
 
 .nav-button {
@@ -84,6 +92,7 @@
 
 .nav-button:hover {
     background-color: #6B8F4A;
+    transform: scale(1.1);
 }
 
 /* Back Button */
@@ -99,6 +108,7 @@
     font-weight: bold;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .back-to-btn:hover {
@@ -108,6 +118,41 @@
 
 .back-to-btn:active {
     transform: scale(1.02);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Responsive Design */
