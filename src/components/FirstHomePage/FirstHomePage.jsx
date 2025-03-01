@@ -38,8 +38,8 @@ function FirstHomePage() {
             {/* Hero Section */}
             <div className="hero-section" style={{ backgroundImage: `url(${mangoBackground})` }}>
                 <div className="hero-content">
-                    <h1>Stay Fresh: Monitor Your Mangoes, Minimize Waste!</h1>
-                    <p>Your reliable tracking app.</p>
+                    <h1 className="hero-heading">Stay Fresh: Monitor Your Mangoes, Minimize Waste!</h1>
+                    <p className="hero-subtitle">Your reliable tracking app.</p>
                     <button className="get-started-btn" onClick={handleGetStarted}>Get Started</button>
                 </div>
             </div>
