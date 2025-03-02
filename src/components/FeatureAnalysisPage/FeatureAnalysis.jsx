@@ -103,10 +103,10 @@ const FeatureAnalysis = () => {
                 </div>
                 <div className="navbar-links">
                     <button className={`navbar-link ${activeButton === 'home' ? 'active' : ''}`} onClick={handleDashboard}> <FontAwesomeIcon icon={faHome} />Home</button>
-                    <button className={`navbar-link ${activeButton === 'bruise' ? 'active' : ''}`} onClick={handleBruiseAreaCalculation}><FontAwesomeIcon icon={faCalculator} />Bruised Area Calculation</button>
-                    <button className={`navbar-link ${activeButton === 'featureAnalysis' ? 'active' : ''}`}><FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
                     <button className={`navbar-link ${activeButton === 'resize' ? 'active' : ''}`} onClick={handleResize}><FontAwesomeIcon icon={faExpand} />Resize</button>
                     <button className={`navbar-link ${activeButton === 'removebackground' ? 'active' : ''}`} onClick={handleRemoveBackground}><FontAwesomeIcon icon={faEraser} />Remove Background</button>
+                    <button className={`navbar-link ${activeButton === 'bruise' ? 'active' : ''}`} onClick={handleBruiseAreaCalculation}><FontAwesomeIcon icon={faCalculator} />Bruised Area Calculation</button>
+                    <button className={`navbar-link ${activeButton === 'featureAnalysis' ? 'active' : ''}`}><FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
                     <button className={`navbar-link ${activeButton === 'aboutus' ? 'active' : ''}`} onClick={handleAboutUs}><FontAwesomeIcon icon={faInfoCircle} />About Us</button>
                     <button className={`navbar-link ${activeButton === 'contactus' ? 'active' : ''}`} onClick={handleContactUs}><FontAwesomeIcon icon={faEnvelope} />Contact Us</button>
                 </div>

@@ -72,17 +72,17 @@ const UserProfilePage = () => {
           <button className="navbar-link" onClick={() => navigate('/dashboard')}>
             <FontAwesomeIcon icon={faHome} /> Home
           </button>
-          <button className="navbar-link" onClick={() => navigate('/bruise')}>
-            <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation
-          </button>
-          <button className="navbar-link" onClick={() => navigate('/analysis')}>
-            <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
-          </button>
           <button className="navbar-link" onClick={() => navigate('/resize')}>
             <FontAwesomeIcon icon={faExpand} /> Resize
           </button>
           <button className="navbar-link" onClick={() => navigate('/removebackground')}>
             <FontAwesomeIcon icon={faEraser} /> Remove Background
+          </button>
+          <button className="navbar-link" onClick={() => navigate('/bruise')}>
+            <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation
+          </button>
+          <button className="navbar-link" onClick={() => navigate('/analysis')}>
+            <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
           </button>
           <button className="navbar-link" onClick={() => navigate('/aboutusmain')}>
             <FontAwesomeIcon icon={faInfoCircle} /> About Us

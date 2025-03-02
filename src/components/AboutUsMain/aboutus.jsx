@@ -53,10 +53,10 @@ function AboutUs() {
 
                 <div className="navbar-links">
                     <button className={`navbar-link ${location.pathname === '/dashboard' ? 'active' : ''}`} onClick={() => handleNavigation('/dashboard') }> <FontAwesomeIcon icon={faHome} /> Home </button>
-                    <button className={`navbar-link ${location.pathname === '/bruise' ? 'active' : ''}`} onClick={() => handleNavigation('/bruise')}> <FontAwesomeIcon icon={faCalculator} />Bruise Area Calculation</button>
-                    <button className={`navbar-link ${location.pathname === '/analysis' ? 'active' : ''}`} onClick={() => handleNavigation('/analysis')}> <FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
                     <button className={`navbar-link ${location.pathname === '/resize' ? 'active' : ''}`} onClick={() => handleNavigation('/resize')}> <FontAwesomeIcon icon={faExpand} />Resize</button>
                     <button className={`navbar-link ${location.pathname === '/removebackground' ? 'active' : ''}`} onClick={() => handleNavigation('/removebackground')}> <FontAwesomeIcon icon={faEraser} />Remove Background</button>
+                    <button className={`navbar-link ${location.pathname === '/bruise' ? 'active' : ''}`} onClick={() => handleNavigation('/bruise')}> <FontAwesomeIcon icon={faCalculator} />Bruise Area Calculation</button>
+                    <button className={`navbar-link ${location.pathname === '/analysis' ? 'active' : ''}`} onClick={() => handleNavigation('/analysis')}> <FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
                     <button className={`navbar-link ${location.pathname === '/aboutusmain' ? 'active' : ''}`} onClick={() => handleNavigation('/aboutusmain')}> <FontAwesomeIcon icon={faInfoCircle} />About Us</button>
                     <button className={`navbar-link ${location.pathname === '/contactusmain' ? 'active' : ''}`} onClick={() => handleNavigation('/contactusmain')}> <FontAwesomeIcon icon={faEnvelope} />Contact Us</button>
                 </div>

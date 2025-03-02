@@ -109,6 +109,12 @@ const FeatureAnalysisResults = () => {
                     <button className="navbar-link" onClick={handleDashboard}>
                         <FontAwesomeIcon icon={faHome} /> Home
                     </button>
+                    <button className="navbar-link" onClick={handleResize}>
+                        <FontAwesomeIcon icon={faExpand} /> Resize
+                    </button>
+                    <button className="navbar-link" onClick={handleRemoveBackground}>
+                        <FontAwesomeIcon icon={faEraser} /> Remove Background
+                    </button>
                     <button
                         className="navbar-link"
                         onClick={handleBruiseAreaCalculation}
@@ -120,12 +126,6 @@ const FeatureAnalysisResults = () => {
                         onClick={handleFeatureAnalysis}
                     >
                         <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
-                    </button>
-                    <button className="navbar-link" onClick={handleResize}>
-                        <FontAwesomeIcon icon={faExpand} /> Resize
-                    </button>
-                    <button className="navbar-link" onClick={handleRemoveBackground}>
-                        <FontAwesomeIcon icon={faEraser} /> Remove Background
                     </button>
                     <button className="navbar-link" onClick={handleAboutUs}>
                         <FontAwesomeIcon icon={faInfoCircle} /> About Us

@@ -69,10 +69,10 @@ const DashboardPage = () => {
                 </div>
                 <div className="navbar-links">
                     <button className={`navbar-link ${activeButton === 'home' ? 'active' : ''}`} onClick={() => handleNavigation('/dashboard', 'home')}> <FontAwesomeIcon icon={faHome} />Home</button>
-                    <button className={`navbar-link ${activeButton === 'bruise' ? 'active' : ''}`} onClick={() => handleNavigation('/bruise', 'bruise')}><FontAwesomeIcon icon={faCalculator} />Bruised Area Calculation</button>
-                    <button className={`navbar-link ${activeButton === 'analysis' ? 'active' : ''}`} onClick={() => handleNavigation('/analysis', 'analysis')}> <FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
                     <button className={`navbar-link ${activeButton === 'resize' ? 'active' : ''}`} onClick={() => handleNavigation('/resize', 'resize')}> <FontAwesomeIcon icon={faExpand} />Resize</button>
                     <button className={`navbar-link ${activeButton === 'removebackground' ? 'active' : ''}`} onClick={() => handleNavigation('/removebackground', 'removebackground')}> <FontAwesomeIcon icon={faEraser} />Remove Background</button>
+                    <button className={`navbar-link ${activeButton === 'bruise' ? 'active' : ''}`} onClick={() => handleNavigation('/bruise', 'bruise')}><FontAwesomeIcon icon={faCalculator} />Bruised Area Calculation</button>
+                    <button className={`navbar-link ${activeButton === 'analysis' ? 'active' : ''}`} onClick={() => handleNavigation('/analysis', 'analysis')}> <FontAwesomeIcon icon={faChartBar} />Feature Analysis</button>
                     <button className={`navbar-link ${activeButton === 'aboutus' ? 'active' : ''}`} onClick={() => handleNavigation('/aboutusmain', 'aboutus')}> <FontAwesomeIcon icon={faInfoCircle} />About Us</button>
                     <button className={`navbar-link ${activeButton === 'contactus' ? 'active' : ''}`} onClick={() => handleNavigation('/contactusmain', 'contactus')}><FontAwesomeIcon icon={faEnvelope} />Contact Us</button>
                 </div>
