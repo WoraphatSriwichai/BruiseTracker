@@ -17,6 +17,10 @@
     transition: border-color 0.3s ease;
 }
 
+.user-profile-aboutusmain:hover {
+    border-color: #FFDD55;
+}
+
 /* Navbar */
 .aboutus-navbar {
     display: flex;

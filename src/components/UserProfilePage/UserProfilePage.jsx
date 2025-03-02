@@ -5,7 +5,7 @@ import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
 import { UserContext } from '../../UserContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope,faUser, faPhone, faGlobe, faEdit, faKey } from '@fortawesome/free-solid-svg-icons';
 
 const UserProfilePage = () => {
   const navigate = useNavigate();
@@ -104,20 +104,24 @@ const UserProfilePage = () => {
       </nav>
 
      <div className="user-profile-content">
-      <h2 className="profile-title">User Profile</h2>
-        <div className="profile-container">
-          <div className="profile-info">
-            <p><strong>Name:</strong> {userInfo.name}</p>
-            <p><strong>Email:</strong> {userInfo.email}</p>
-            <p><strong>Phone Number:</strong> {userInfo.phone}</p>
-            <p><strong>Country:</strong> {userInfo.country}</p>
-          </div>
-          <div className="profile-buttons">
-            <button className="editer-button" onClick={() => navigate('/profile/edit')}>Edit Profile</button>
-            <button className="change-userprofilepage-button" onClick={() => navigate('/profile/changepassword')}>Change Password</button>
-          </div>
+            <h2 className="profile-title">User Profile</h2>
+            <div className="profile-container">
+                <div className="profile-info">
+                    <p><strong><FontAwesomeIcon icon={faUser} /> Name:</strong> {userInfo.name}</p>
+                    <p><strong><FontAwesomeIcon icon={faEnvelope} /> Email:</strong> {userInfo.email}</p>
+                    <p><strong><FontAwesomeIcon icon={faPhone} /> Phone Number:</strong> {userInfo.phone}</p>
+                    <p><strong><FontAwesomeIcon icon={faGlobe} /> Country:</strong> {userInfo.country}</p>
+                </div>
+                <div className="profile-buttons">
+                    <button className="editer-button" onClick={() => navigate('/profile/edit')}>
+                        <FontAwesomeIcon icon={faEdit} /> Edit Profile
+                    </button>
+                    <button className="change-userprofilepage-button" onClick={() => navigate('/profile/changepassword')}>
+                        <FontAwesomeIcon icon={faKey} /> Change Password
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
 
       {/* Footer */}
       <footer className="footer-mainhomepage">

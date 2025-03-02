@@ -17,6 +17,10 @@
     transition: border-color 0.3s ease;
 }
 
+.user-profile-contactusmain:hover {
+    border-color: #FFDD55;
+}
+
 /* Navbar */
 .navbar-link.active {
     background-color: #FFDD55;
