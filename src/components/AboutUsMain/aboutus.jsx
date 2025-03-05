@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function AboutUs() {
+
     const navigate = useNavigate();
     const location = useLocation();
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
