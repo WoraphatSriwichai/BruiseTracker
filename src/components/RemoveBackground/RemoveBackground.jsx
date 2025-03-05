@@ -6,8 +6,6 @@ import { saveAs } from 'file-saver';
 import './RemoveBackground.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/profile.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const RemoveBackground = () => {
     const navigate = useNavigate();
@@ -18,7 +16,6 @@ const RemoveBackground = () => {
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [progress, setProgress] = useState(0);
-    const [activeButton, setActiveButton] = useState('removebackground'); // Set default active button
 
     const toggleProfileDropdown = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
@@ -28,19 +25,14 @@ const RemoveBackground = () => {
         navigate('/logout');
     }, [navigate]);
 
-    const handleNavigation = useCallback((path, buttonName) => {
-        navigate(path);
-        setActiveButton(buttonName);
-    }, [navigate]);
-
-    const handleAboutUs = useCallback(() => handleNavigation('/aboutusmain', 'aboutus'), [handleNavigation]);
-    const handleContactUs = useCallback(() => handleNavigation('/contactusmain', 'contactus'), [handleNavigation]);
-    const handleUserProfile = useCallback(() => handleNavigation('/profile', 'profile'), [handleNavigation]);
-    const handleDashboard = useCallback(() => handleNavigation('/dashboard', 'home'), [handleNavigation]);
-    const handleFeatureAnalysis = useCallback(() => handleNavigation('/analysis', 'analysis'), [handleNavigation]);
-    const handleResize = useCallback(() => handleNavigation('/resize', 'resize'), [handleNavigation]);
-    const handleBruiseAreaCalculation = useCallback(() => handleNavigation('/bruise', 'bruise'), [handleNavigation]);
-    const handlemainhomepage = useCallback(() => handleNavigation('/home', 'home'), [handleNavigation]);
+    const handleAboutUs = useCallback(() => navigate('/aboutusmain'), [navigate]);
+    const handleContactUs = useCallback(() => navigate('/contactusmain'), [navigate]);
+    const handleUserProfile = useCallback(() => navigate('/profile'), [navigate]);
+    const handleDashboard = useCallback(() => navigate('/dashboard'), [navigate]);
+    const handleFeatureAnalysis = useCallback(() => navigate('/analysis'), [navigate]);
+    const handleResize = useCallback(() => navigate('/resize'), [navigate]);
+    const handleBruiseAreaCalculation = useCallback(() => navigate('/bruise'), [navigate]);
+    const handlemainhomepage = useCallback(() => navigate('/home'), [navigate]);
 
     const handleFileChange = (event) => {
         const files = Array.from(event.target.files);
@@ -66,7 +58,7 @@ const RemoveBackground = () => {
         try {
             const processed = await Promise.all(selectedFiles.map(async (file, index) => {
                 const formData = new FormData();
-                formData.append('image', file);
+                formData.append('file', file); // Ensure the key matches the FastAPI endpoint parameter
 
                 const response = await axios.post('http://localhost:4000/remove_background', formData, {
                     headers: {
@@ -129,27 +121,13 @@ const RemoveBackground = () => {
                     <img src={mangoLogo} alt="Mango Logo" className="mango-logo" onClick={handlemainhomepage}/>
                 </div>
                 <div className="navbar-links">
-                    <button className={`navbar-link ${activeButton === 'home' ? 'active' : ''}`} onClick={handleDashboard}>
-                        <FontAwesomeIcon icon={faHome} /> Home
-                    </button>
-                    <button className={`navbar-link ${activeButton === 'resize' ? 'active' : ''}`} onClick={handleResize}>
-                        <FontAwesomeIcon icon={faExpand} /> Resize
-                    </button>
-                    <button className={`navbar-link ${activeButton === 'removebackground' ? 'active' : ''}`}>
-                        <FontAwesomeIcon icon={faEraser} /> Remove Background
-                    </button>
-                    <button className={`navbar-link ${activeButton === 'bruise' ? 'active' : ''}`} onClick={handleBruiseAreaCalculation}>
-                        <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation
-                    </button>
-                    <button className={`navbar-link ${activeButton === 'analysis' ? 'active' : ''}`} onClick={handleFeatureAnalysis}>
-                        <FontAwesomeIcon icon={faChartBar} /> Feature Analysis
-                    </button>
-                    <button className={`navbar-link ${activeButton === 'aboutus' ? 'active' : ''}`} onClick={handleAboutUs}>
-                        <FontAwesomeIcon icon={faInfoCircle} /> About Us
-                    </button>
-                    <button className={`navbar-link ${activeButton === 'contactus' ? 'active' : ''}`} onClick={handleContactUs}>
-                        <FontAwesomeIcon icon={faEnvelope} /> Contact Us
-                    </button>
+                    <button className="navbar-link" onClick={handleDashboard}>Dashboard</button>
+                    <button className="navbar-link" onClick={handleBruiseAreaCalculation}>Bruised Area Calculation</button>
+                    <button className="navbar-link" onClick={handleFeatureAnalysis}>Feature Analysis</button>
+                    <button className="navbar-link" onClick={handleResize}>Resize</button>
+                    <button className="navbar-link">Remove Background</button>
+                    <button className="navbar-link" onClick={handleAboutUs}>About Us</button>
+                    <button className="navbar-link" onClick={handleContactUs}>Contact Us</button>
                 </div>
 
                 <div className="navbar-profile">
@@ -249,8 +227,7 @@ const RemoveBackground = () => {
                 )}
             </div>
 
-            {/* Footer */}
-            <footer className="footer-mainhomepage">
+            <footer className="footer">
                 <div className="footer-address">
                     <p>Mae Fah Luang University 333 Moo 1, Thasud, Muang, Chiang Rai 57100</p>
                 </div>

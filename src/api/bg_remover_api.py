@@ -1,18 +1,33 @@
-from flask import Flask, request, jsonify, send_file
-from flask_cors import CORS
 import os
+
+from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
 import cv2
 import numpy as np
 from sklearn.cluster import MiniBatchKMeans
 import io
 from PIL import Image
+import logging
 from concurrent.futures import ThreadPoolExecutor
 
-app = Flask(__name__)
-CORS(app)
+app = FastAPI()
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Set environment variable to optimize MiniBatchKMeans
 os.environ['OMP_NUM_THREADS'] = '6'
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Function to remove background using MiniBatchKMeans
 def remove_background(image):
@@ -55,24 +70,27 @@ def remove_background(image):
 
     return result
 
-@app.route('/remove_background', methods=['POST'])
-def remove_background_route():
-    if 'image' not in request.files:
-        return jsonify({'error': 'No image file provided'}), 400
-    file = request.files['image']
-    image = Image.open(file.stream)
-    image_rgb = np.array(image.convert('RGB'))
-    
-    # Use ThreadPoolExecutor for parallel processing
-    with ThreadPoolExecutor() as executor:
-        future = executor.submit(remove_background, image_rgb)
-        result = future.result()
-    
-    result_image = Image.fromarray(result)
-    img_io = io.BytesIO()
-    result_image.save(img_io, 'PNG')
-    img_io.seek(0)
-    return send_file(img_io, mimetype='image/png')
+@app.post("/remove_background")
+async def remove_background_route(file: UploadFile = File(...)):
+    try:
+        logger.info(f"Received file: {file.filename}")
+        image = Image.open(file.file)
+        image_rgb = np.array(image.convert('RGB'))
+        
+        # Use ThreadPoolExecutor for parallel processing
+        with ThreadPoolExecutor() as executor:
+            future = executor.submit(remove_background, image_rgb)
+            result = future.result()
+        
+        result_image = Image.fromarray(result)
+        img_io = io.BytesIO()
+        result_image.save(img_io, 'PNG')
+        img_io.seek(0)
+        return StreamingResponse(img_io, media_type="image/png")
+    except Exception as e:
+        logger.error(f"Error processing file: {e}")
+        raise HTTPException(status_code=400, detail=str(e))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000)
+    import uvicorn
+    uvicorn.run(app, host='0.0.0.0', port=4000)
