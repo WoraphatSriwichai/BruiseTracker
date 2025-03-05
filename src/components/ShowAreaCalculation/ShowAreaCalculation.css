@@ -38,7 +38,7 @@
 .navbar-links {
     display: flex;
     gap: 18px;
-    margin-right: 0.1%;
+    margin-right: 0%;
 }
 
 .navbar-link.active {
