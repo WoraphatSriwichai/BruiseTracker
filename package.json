@@ -38,7 +38,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"bun run src/server.ts\" \"react-scripts start\" \"python src/api/bg_remover_api.py\"",
+    "start": "concurrently \"bun run src/server.ts\" \"react-scripts start\" \"python -m uvicorn src.api.bg_remover_api:app --host 0.0.0.0 --port 4000 --workers 12\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
