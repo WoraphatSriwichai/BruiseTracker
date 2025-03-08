@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: auto;
+    background-color: #f4f4f9;
 }
 
 .edit-container {
@@ -14,14 +15,15 @@ body {
     gap: 20px;
     padding: 5%;
     border-radius: 15px;
-    background: #e5e5e5;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow: 10px 10px 20px #d1d1d1, -10px -10px 20px #ffffff;
     width: 50%;
     max-width: 800px;
     height: auto;
     margin: 15px auto;
     border: 2px solid #ADBC9F;
     margin-top: 0.4%;
+    animation: popUp 0.5s ease-out;
 }
 
 .edit-image {
@@ -146,6 +148,12 @@ body {
     border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.edit-info input:focus {
+    border-color: #436850;
+    outline: none;
 }
 
 .edit-buttons {
@@ -199,6 +207,22 @@ body {
 .change-password-button:active {
     transform: scale(1);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Responsive Design */
