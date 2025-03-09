@@ -20,41 +20,51 @@ function SignInPage() {
   const handleFirstHomePage = () => { navigate('/'); };
 
   const handleSignInClick = async () => {
-    const usernameOrEmail = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
+      const usernameOrEmail = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-    if (!usernameOrEmail || !password) {
-      setAlertMessage('The field cannot be blank');
-    } else if (password.length < 8) {
-      setPasswordAlert('Password must be at least 8 characters');
-    } else {
-      setAlertMessage('');
-      setPasswordAlert('');
+      if (!usernameOrEmail || !password) {
+          setAlertMessage('The field cannot be blank');
+      } else if (password.length < 8) {
+          setPasswordAlert('Password must be at least 8 characters');
+      } else {
+          setAlertMessage('');
+          setPasswordAlert('');
 
-      try {
-        const response = await fetch('http://localhost:5000/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email: usernameOrEmail, password }),
-        });
+          try {
+              const response = await fetch('http://localhost:5000/login', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ email: usernameOrEmail, password }),
+              });
 
-        if (response.ok) {
-          const data = await response.json();
-          localStorage.setItem('accessToken', data.accessToken);
-          localStorage.setItem('refreshToken', data.refreshToken);
-          navigate('/home'); // Redirect to main page after successful sign-in
-        } else {
-          const errorData = await response.json();
-          setAlertMessage(errorData.error || 'Error logging in');
-          console.error('Error details:', errorData.details);
-        }
-      } catch (err) {
-        setAlertMessage(err.message);
-        console.error('Error details:', err.message);
+              if (response.ok) {
+                  const data = await response.json();
+                  localStorage.setItem('accessToken', data.accessToken);
+                  localStorage.setItem('refreshToken', data.refreshToken);
+
+                  // Add a new operation to the operation history with the username or email
+                  const newOperation = {
+                      type: `Sign In - ${usernameOrEmail}`,
+                      date: new Date().toLocaleString(),
+                  };
+                  const history = JSON.parse(localStorage.getItem('operationHistory')) || [];
+                  history.push(newOperation);
+                  localStorage.setItem('operationHistory', JSON.stringify(history));
+
+                  navigate('/home'); // Redirect to main page after successful sign-in
+              } else {
+                  const errorData = await response.json();
+                  setAlertMessage(errorData.error || 'Error logging in');
+                  console.error('Error details:', errorData.details);
+              }
+          } catch (err) {
+              setAlertMessage(err.message);
+              console.error('Error details:', err.message);
+          }
       }
-    }
   };
 
   const handleKeyDown = (event) => {
