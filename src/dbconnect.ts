@@ -9,20 +9,18 @@ export const createTable = async () => {
       username VARCHAR(100) UNIQUE NOT NULL,
       password VARCHAR(100) NOT NULL,
       phone VARCHAR(15),
-      country VARCHAR(50)
+      country VARCHAR(50),
+      organization VARCHAR(100) NOT NULL
     );
 
     CREATE TABLE IF NOT EXISTS histories (
       id SERIAL PRIMARY KEY,
       operation_type VARCHAR(100) NOT NULL,
       time_stamp TIMESTAMP NOT NULL,
-      result_id INTEGER,
-      user_id INTEGER not null,
+      user_id INTEGER NOT NULL,
       FOREIGN KEY (user_id) REFERENCES users (id)
     );
   `;
-
-
 
   try {
     await client.query(createTableQuery);

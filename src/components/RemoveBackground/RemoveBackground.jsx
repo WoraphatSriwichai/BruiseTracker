@@ -134,6 +134,21 @@ const RemoveBackground = () => {
       );
 
       setProcessedImages(processed);
+
+      // Save remove background action to the database
+      try {
+        await fetch('http://localhost:5000/user/action', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+          },
+          body: JSON.stringify({ operationType: 'Remove Background' })
+        });
+      } catch (err) {
+        console.error('Error saving remove background action:', err);
+      }
+
     } catch (error) {
       console.error("Error removing background:", error);
       setErrorMessage("Failed to remove background. Please try again.");
@@ -208,9 +223,7 @@ const RemoveBackground = () => {
             <FontAwesomeIcon icon={faEraser} /> Remove Background
           </button>
           <button
-            className={`navbar-link ${
-              activeButton === "bruise" ? "active" : ""
-            }`}
+            className={`navbar-link ${activeButton === "bruise" ? "active" : ""}`}
             onClick={handleBruiseAreaCalculation}
           >
             <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation

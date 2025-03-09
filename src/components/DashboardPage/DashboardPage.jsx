@@ -9,7 +9,6 @@ import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faE
 const DashboardPage = () => {
     const navigate = useNavigate();
     const [operationHistory, setOperationHistory] = useState([]);
-    const [exportProgress, setExportProgress] = useState(0);
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
     const [activeButton, setActiveButton] = useState('home'); // Set default active button
 
@@ -27,39 +26,26 @@ const DashboardPage = () => {
     }, [navigate]);
 
     useEffect(() => {
-        const history = JSON.parse(localStorage.getItem('operationHistory')) || [];
-        setOperationHistory(history);
-
-        const handleBeforeUnload = () => {
-            localStorage.removeItem('operationHistory');
-            setOperationHistory([]);
-        };
-
-        window.addEventListener('beforeunload', handleBeforeUnload);
-
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, []);
-
-    const handleExportCSV = useCallback(() => {
-        setExportProgress(0);
-        const interval = setInterval(() => {
-            setExportProgress(prevProgress => {
-                if (prevProgress >= 100) {
-                    clearInterval(interval);
-                    navigate('/exportcsv');
-                    return 100;
+        const fetchHistory = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/user/history', {
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setOperationHistory(data);
+                } else {
+                    console.error('Failed to fetch history');
                 }
-                return prevProgress + 10;
-            });
-        }, 100);
-    }, [navigate]);
+            } catch (err) {
+                console.error('Error fetching history:', err);
+            }
+        };
 
-    const handleShowAreaCalculation = () => {
-        // Add your logic here
-        console.log('Show area calculation');
-    };
+        fetchHistory();
+    }, []);
 
     return (
         <div className="dashboard-page">
@@ -94,19 +80,19 @@ const DashboardPage = () => {
                         <thead>
                             <tr>
                                 <th>Operation Type</th>
+                                <th>User Name</th>
+                                <th>Organization</th>
                                 <th>Date / Time</th>
-                                <th>Results</th>
-                                <th>Download</th>
                             </tr>
                         </thead>
                         <tbody className="dashboard-table-body">
                             {operationHistory.length > 0 ? (
                                 operationHistory.map((operation, index) => (
                                     <tr key={index}>
-                                        <td>{operation.type}</td>
-                                        <td>{operation.date}</td>
-                                        <td><button className="btn view-btn" onClick={handleShowAreaCalculation}>View Result</button></td>
-                                        <td><button className="btn export-btn" onClick={handleExportCSV}>Export CSV</button></td>
+                                        <td>{operation.operation_type}</td>
+                                        <td>{operation.username}</td>
+                                        <td>{operation.organization}</td>
+                                        <td>{new Date(operation.time_stamp).toLocaleString()}</td>
                                     </tr>
                                 ))
                             ) : (
@@ -117,11 +103,6 @@ const DashboardPage = () => {
                         </tbody>
                     </table>
                 </div>
-                {exportProgress > 0 && exportProgress < 100 && (
-                    <div className="export-progress-container">
-                        <div className="export-progress">Exporting CSV... {exportProgress}%</div>
-                    </div>
-                )}
             </div>
 
             {/* Footer */}

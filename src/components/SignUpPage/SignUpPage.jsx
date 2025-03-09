@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-// filepath: /e:/Bruise_Tracker/mango-bruise-area/src/components/SignUpPage/SignUpPage.jsx
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,7 +7,7 @@ import mangoLogo from '../../assets/Logo_black.png';
 import useAuth from '../../Auth';
 
 function SignUpPage() {
-    useAuth();
+  useAuth();
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState('');
   const [passwordVisibility, setPasswordVisibility] = useState({
@@ -23,6 +21,7 @@ function SignUpPage() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
+  const organizationRef = useRef(null); // Add reference for organization
 
   const handleSignInClick = () => {
     navigate('/signin');
@@ -37,10 +36,11 @@ function SignUpPage() {
     const email = emailRef.current ? emailRef.current.value.trim() : '';
     const password = passwordRef.current ? passwordRef.current.value.trim() : '';
     const confirmPassword = confirmPasswordRef.current ? confirmPasswordRef.current.value.trim() : '';
-  
+    const organization = organizationRef.current ? organizationRef.current.value.trim() : ''; // Get organization value
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-    if (!username || !email || !password || !confirmPassword) {
+
+    if (!username || !email || !password || !confirmPassword || !organization) {
       setAlertMessage('The field cannot be blank');
     } else if (!emailRegex.test(email)) {
       setAlertMessage('Invalid email format');
@@ -52,16 +52,16 @@ function SignUpPage() {
     } else {
       setAlertMessage('');
       setPasswordAlert('');
-  
+
       try {
         const response = await fetch('http://localhost:5000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ username, email, password }),
+          body: JSON.stringify({ username, email, password, organization }), // Include organization in the request body
         });
-  
+
         if (response.ok) {
           const data = await response.json();
           localStorage.setItem('token', data.token);
@@ -114,6 +114,14 @@ function SignUpPage() {
           placeholder="Enter your email"
           className="signup-input"
           ref={emailRef}
+          onKeyDown={handleKeyDown}
+        />
+        <input
+          type="text"
+          id="organization"
+          placeholder="Enter your organization"
+          className="signup-input"
+          ref={organizationRef}
           onKeyDown={handleKeyDown}
         />
         <div className="password-container">

@@ -17,15 +17,13 @@ const CropImage = () => {
 
     const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
     
-      const toggleProfileDropdown = () => {
+    const toggleProfileDropdown = () => {
         setIsProfileDropdownOpen(!isProfileDropdownOpen);
-      };
+    };
 
-        const handleSignOut = useCallback(() => {
-            
-            // Navigate to sign-in page
-            navigate('/logout');
-        }, [navigate]);
+    const handleSignOut = useCallback(() => {
+        navigate('/logout');
+    }, [navigate]);
 
     const handleAboutUs = useCallback(() => navigate('/aboutusmain'), [navigate]);
     const handleContactUs = useCallback(() => navigate('/contactusmain'), [navigate]);
@@ -84,13 +82,27 @@ const CropImage = () => {
                 croppedAreaPixels.height
             );
 
-            canvas.toBlob((blob) => {
+            canvas.toBlob(async (blob) => {
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
                 a.download = 'cropped-image.png';
                 a.click();
                 URL.revokeObjectURL(url);
+
+                // Save crop action to the database
+                try {
+                    await fetch('http://localhost:5000/user/action', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify({ operationType: 'Crop' })
+                    });
+                } catch (err) {
+                    console.error('Error saving crop action:', err);
+                }
             }, 'image/png');
         };
     };
@@ -176,7 +188,7 @@ const CropImage = () => {
                         Reset
                     </button>
                     <button className="bt upload-bruiseareacalculation-bt" onClick={handleSave}>
-                        Saved
+                        Save
                     </button>
                 </div>
             </div>

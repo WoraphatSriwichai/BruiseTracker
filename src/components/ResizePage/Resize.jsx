@@ -79,7 +79,7 @@ const Resize = () => {
         }
     }, []);
 
-    const handleResizeImages = useCallback(() => {
+    const handleResizeImages = useCallback(async () => {
         if (!dimensions.width || !dimensions.height) {
             alert('Please enter both width and height!');
             return;
@@ -92,6 +92,20 @@ const Resize = () => {
         }));
 
         setResizedImages(resized);
+
+        // Save resize action to the database
+        try {
+            await fetch('http://localhost:5000/user/action', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify({ operationType: 'Resize' })
+            });
+        } catch (err) {
+            console.error('Error saving resize action:', err);
+        }
     }, [dimensions, selectedFiles]);
 
     const handleDownloadImage = useCallback((image) => {
