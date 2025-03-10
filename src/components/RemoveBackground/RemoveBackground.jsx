@@ -77,6 +77,10 @@ const RemoveBackground = () => {
     [handleNavigation]
   );
 
+  const handleFileDelete = useCallback((index) => {
+    setSelectedFiles(prevFiles => prevFiles.filter((_, i) => i !== index));
+  }, []);
+
   const handleFileChange = (event) => {
     const files = Array.from(event.target.files);
     const validFiles = files.filter((file) =>
@@ -223,7 +227,9 @@ const RemoveBackground = () => {
             <FontAwesomeIcon icon={faEraser} /> Remove Background
           </button>
           <button
-            className={`navbar-link ${activeButton === "bruise" ? "active" : ""}`}
+            className={`navbar-link ${
+              activeButton === "bruise" ? "active" : ""
+            }`}
             onClick={handleBruiseAreaCalculation}
           >
             <FontAwesomeIcon icon={faCalculator} /> Bruised Area Calculation
@@ -316,6 +322,12 @@ const RemoveBackground = () => {
               {selectedFiles.map((file, index) => (
                 <li key={index} className="file-item">
                   {file.name} ({(file.size / 1024).toFixed(2)} KB)
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleFileDelete(index)}
+                  >
+                    ❌
+                  </button>
                 </li>
               ))}
             </ul>
