@@ -90,6 +90,7 @@
 .dashboard-table thead th {
     background: linear-gradient(135deg, #436850, #2c4a3a);
     color: #fff;
+    border: 1px solid #ddd;
     padding: 12px;
     /* Adjusted padding */
     font-weight: bold;

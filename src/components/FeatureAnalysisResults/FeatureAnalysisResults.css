@@ -110,12 +110,13 @@
 }
 
 .results-table th {
-    background-color: #436850;
+    background: linear-gradient(135deg, #436850, #2c4a3a);
     color: #FFFFFF;
     font-weight: bold;
     position: sticky;
     top: 0;
     z-index: 2;
+    font-size: 0.7rem;
 }
 
 .results-table tr:nth-child(even) {
@@ -128,16 +129,19 @@
 
 .results-table td {
     color: #333;
+    font-size: 0.7rem;
 }
 
 .results-table th:first-child,
 .results-table td:first-child {
     border-top-left-radius: 8px;
+    font-size: 0.7rem;
 }
 
 .results-table th:last-child,
 .results-table td:last-child {
     border-top-right-radius: 8px;
+    font-size: 0.7rem;
 }
 
 /* Scroll to Top Button */

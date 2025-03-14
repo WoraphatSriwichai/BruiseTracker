@@ -130,15 +130,16 @@
 
 .show-area-calculation-table thead th {
     background: linear-gradient(135deg, #436850, #2c4a3a);
+    border: 1px solid #ddd;
     color: #fff;
     padding: 12px;
-    /* Adjusted padding */
     font-weight: bold;
     position: sticky;
     top: 0;
     z-index: 1;
     text-transform: uppercase;
-    border-bottom: 2px solid #ccc;
+    font-size: 0.63rem;
+    /* Adjusted font size */
 }
 
 .show-area-calculation-table tbody td {
