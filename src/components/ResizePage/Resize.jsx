@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Resize.css';
 import mangoLogo from '../../assets/Logo_white.png';
-import userProfileImg from '../../assets/profile.jpg';
+import userProfileImg from '../../assets/mango_profile.jpg';
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

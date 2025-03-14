@@ -4,7 +4,7 @@ import './contactus.css';
 import mangoBackground from '../../assets/differentmango.jpg';
 import mangoLogo from '../../assets/Logo_white.png';
 import facebookLogo from '../../assets/facebook.png';
-import userProfileImg from '../../assets/profile.jpg';
+import userProfileImg from '../../assets/mango_profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 

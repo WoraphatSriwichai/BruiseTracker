@@ -93,7 +93,7 @@
     overflow-y: auto;
     border: 2px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 12px 12px 30px #d9d9d9, -12px -12px 30px #ffffff;
     margin-top: 20px;
 }
 
@@ -104,7 +104,7 @@
 
 .results-table th,
 .results-table td {
-    padding: 15px;
+    padding: 20px;
     text-align: center;
 }
 

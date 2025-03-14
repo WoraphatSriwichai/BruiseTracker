@@ -6,7 +6,7 @@ import mangoLogo from '../../assets/Logo_white.png';
 import pythonLogo from '../../assets/python.png';
 import pytorchLogo from '../../assets/pytorch.png';
 import tensorflowLogo from '../../assets/tensorflow.png';
-import userProfileImg from '../../assets/profile.jpg';
+import userProfileImg from '../../assets/mango_profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 

@@ -5,7 +5,7 @@ import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import "./RemoveBackground.css";
 import mangoLogo from "../../assets/Logo_white.png";
-import userProfileImg from "../../assets/profile.jpg";
+import userProfileImg from "../../assets/mango_profile.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,

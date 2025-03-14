@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './FeatureAnalysisResults.css';
 import mangoLogo from '../../assets/Logo_white.png';
-import userProfileImg from '../../assets/profile.jpg';
+import userProfileImg from '../../assets/mango_profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
