@@ -15,7 +15,7 @@
     background-color: #f8d7da;
     color: #721c24;
     padding: 20px;
-    border: 1px solid #f5c6cb;
+    border: 2px solid #f5c6cb;
     border-radius: 8px;
     margin-top: 0px;
     text-align: center;
@@ -91,7 +91,7 @@
 .results-table {
     max-height: 450px;
     overflow-y: auto;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
@@ -105,13 +105,13 @@
 .results-table th,
 .results-table td {
     padding: 15px;
-    border: 1px solid #ddd;
     text-align: center;
 }
 
 .results-table th {
     background: linear-gradient(135deg, #436850, #2c4a3a);
-    color: #FFFFFF;
+    color: #fff;
+    border: 2px solid #ddd;
     font-weight: bold;
     position: sticky;
     top: 0;

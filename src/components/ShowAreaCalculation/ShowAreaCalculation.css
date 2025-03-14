@@ -130,7 +130,7 @@
 
 .show-area-calculation-table thead th {
     background: linear-gradient(135deg, #436850, #2c4a3a);
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     color: #fff;
     padding: 12px;
     font-weight: bold;

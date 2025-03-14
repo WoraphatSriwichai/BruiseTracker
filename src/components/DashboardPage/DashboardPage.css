@@ -81,7 +81,6 @@
     margin: 0 auto;
     max-height: 400px;
     overflow-y: auto;
-    border: 1px solid #ddd;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     margin-top: 1%;
     border-radius: 12px;
@@ -90,7 +89,7 @@
 .dashboard-table thead th {
     background: linear-gradient(135deg, #436850, #2c4a3a);
     color: #fff;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     padding: 12px;
     /* Adjusted padding */
     font-weight: bold;
@@ -98,7 +97,6 @@
     top: 0;
     z-index: 1;
     text-transform: uppercase;
-    border-bottom: 2px solid #ccc;
 }
 
 .dashboard-table tbody td {
@@ -106,7 +104,6 @@
     /* Adjusted padding */
     text-align: center;
     background: #fff;
-    border-bottom: 1px solid #eee;
 }
 
 .dashboard-table tbody tr:nth-child(odd) td {
