@@ -161,7 +161,7 @@
 }
 
 .show-area-calculation-table-container {
-    max-height: 400px;
+    max-height: 420px;
     overflow-y: auto;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
