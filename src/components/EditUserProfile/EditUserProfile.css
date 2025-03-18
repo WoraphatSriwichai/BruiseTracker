@@ -8,6 +8,12 @@ body {
     background-color: #f4f4f9;
 }
 
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
 .edit-container {
     display: flex;
     flex-direction: column;
@@ -154,11 +160,12 @@ body {
 
 .edit-info input {
     margin-top: 5px;
+    margin-left: 2%;
     padding: 10px;
     font-size: 1em;
     border: 1px solid #ddd;
     border-radius: 8px;
-    width: 100%;
+    width: 500%;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
