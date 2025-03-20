@@ -188,7 +188,7 @@ const CropImage = () => {
                         Reset
                     </button>
                     <button className="bt upload-bruiseareacalculation-bt" onClick={handleSave}>
-                        Save
+                        Saved
                     </button>
                 </div>
             </div>
