@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import './SignInPage.css';
+import CryptoJS from 'crypto-js';
 import mangoLogo from '../../assets/Logo_black.png';
 import useAuth from '../../Auth';
+
 
 function SignInPage() {
   useAuth();
@@ -32,12 +34,17 @@ function SignInPage() {
           setPasswordAlert('');
 
           try {
+
+            const secretKey = 'bbK9uUad4AveXz7hsxeW4k9a2YFmIAAlbosjjLh0FDw='; // Use a secure key
+            const encryptedEmail = CryptoJS.AES.encrypt(usernameOrEmail, secretKey).toString();
+            const encryptedPassword = CryptoJS.AES.encrypt(password, secretKey).toString();
+
               const response = await fetch('http://localhost:5000/login', {
                   method: 'POST',
                   headers: {
                       'Content-Type': 'application/json',
                   },
-                  body: JSON.stringify({ email: usernameOrEmail, password }),
+                  body: JSON.stringify({ email: encryptedEmail, password: encryptedPassword }),
               });
 
               if (response.ok) {

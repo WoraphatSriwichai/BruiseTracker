@@ -4,6 +4,7 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import { createTable } from './dbconnect';
 import client from './db';
+import CryptoJS from 'crypto-js';
 import { generateAccessToken, generateRefreshToken, verifyToken } from './jwt';
 import { hashPassword, verifyPassword } from './hash';
 
@@ -59,7 +60,7 @@ app.get('/user/profile', authenticateToken, async (req, res) => {
   const userId = (req as AuthenticatedRequest).user?.id;
 
   try {
-    const result = await client.query('SELECT * FROM users WHERE id = $1', [userId]);
+    const result = await client.query('SELECT name, email, username, phone, country FROM users WHERE id = $1', [userId]);
     const user = result.rows[0];
     res.json(user);
   } catch (err) {
@@ -116,10 +117,15 @@ app.post('/login', loginLimiter, async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const result = await client.query('SELECT * FROM users WHERE email = $1', [email]);
+
+    const secretKey = 'bbK9uUad4AveXz7hsxeW4k9a2YFmIAAlbosjjLh0FDw='; // Use the same secure key
+    const decryptedEmail = CryptoJS.AES.decrypt(email, secretKey).toString(CryptoJS.enc.Utf8);
+    const decryptedPassword = CryptoJS.AES.decrypt(password, secretKey).toString(CryptoJS.enc.Utf8);
+
+    const result = await client.query('SELECT * FROM users WHERE email = $1', [decryptedEmail]);
     const user = result.rows[0];
 
-    if (!user || !(await verifyPassword(password, user.password))) {
+    if (!user || !(await verifyPassword(decryptedPassword, user.password))) {
       res.status(401).json({ error: 'Invalid email or password' });
       return;
     }
@@ -146,15 +152,20 @@ app.post('/change-password', authenticateToken, async (req, res) => {
   const { currentPassword, newPassword } = req.body;
 
   try {
+    
+    const secretKey = 'bbK9uUad4AveXz7hsxeW4k9a2YFmIAAlbosjjLh0FDw='; // Use the same secure key
+    const decryptedCurrentPassword = CryptoJS.AES.decrypt(currentPassword, secretKey).toString(CryptoJS.enc.Utf8);
+    const decryptedNewPassword = CryptoJS.AES.decrypt(newPassword, secretKey).toString(CryptoJS.enc.Utf8);
+
     const result = await client.query('SELECT * FROM users WHERE id = $1', [userId]);
     const user = result.rows[0];
 
-    if (!user || !(await verifyPassword(currentPassword, user.password))) {
+    if (!user || !(await verifyPassword(decryptedCurrentPassword, user.password))) {
       res.status(401).json({ error: 'Invalid current password' });
       return;
     }
 
-    const hashedNewPassword = await hashPassword(newPassword);
+    const hashedNewPassword = await hashPassword(decryptedNewPassword);
     await client.query('UPDATE users SET password = $1 WHERE id = $2', [hashedNewPassword, userId]);
 
     res.status(200).json({ message: 'Password changed successfully' });

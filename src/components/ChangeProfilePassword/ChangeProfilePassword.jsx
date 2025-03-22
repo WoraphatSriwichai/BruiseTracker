@@ -4,6 +4,7 @@ import './ChangeProfilePassword.css';
 import mangoLogo from '../../assets/Logo_white.png';
 import userProfileImg from '../../assets/mango_profile.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CryptoJS from 'crypto-js';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { faHome, faCalculator, faChartBar, faExpand, faEraser, faInfoCircle, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -47,13 +48,17 @@ const ChangeProfilePassword = () => {
       setPasswordLengthAlert(''); // Clear all alerts
 
       try {
+        const secretKey = 'bbK9uUad4AveXz7hsxeW4k9a2YFmIAAlbosjjLh0FDw='; // Use a secure key
+        const encryptedCurrentPassword = CryptoJS.AES.encrypt(currentPassword, secretKey).toString();
+        const encryptedNewPassword = CryptoJS.AES.encrypt(newPassword, secretKey).toString();
+
         const response = await fetch('http://localhost:5000/change-password', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
           },
-          body: JSON.stringify({ currentPassword, newPassword }),
+          body: JSON.stringify({ currentPassword : encryptedCurrentPassword, newPassword: encryptedNewPassword }),
         });
 
         if (response.ok) {
