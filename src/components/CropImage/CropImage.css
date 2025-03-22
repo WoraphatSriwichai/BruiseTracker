@@ -28,50 +28,71 @@
     color: #666;
 }
 
-/* Crop Image Container */
+/* Updated Crop Image Container */
 .crop-image-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     max-width: 1000px;
     background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
+.crop-image-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Crop Image Upload Section */
 .crop-image-upload {
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 30px;
     border: 2px dashed #436850;
-    border-radius: 12px;
+    border-radius: 16px;
     background-color: #f9f9f9;
     transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    text-align: center;
+    cursor: pointer;
+}
+
+.crop-image-upload:hover {
+    border-color: #3a5330;
+    background-color: #f0f0f0;
 }
 
 .upload-label {
     background: #436850;
     color: #fff;
-    padding: 12px 24px;
+    padding: 14px 28px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: inline-block;
 }
 
 .upload-label:hover {
     background: #3a5330;
+    transform: translateY(-2px);
 }
 
+.upload-label:active {
+    transform: translateY(0);
+}
+
+/* Image Crop Section */
 .image-crop {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-top: 20px;
 }
 
 .crop-box {
@@ -81,36 +102,54 @@
     margin-bottom: 20px;
     position: relative;
     border: 2px solid #ddd;
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease-in-out;
 }
 
+.crop-box:hover {
+    border-color: #436850;
+}
+
+/* Crop Controls */
 .crop-controls {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
     margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .zoom-control {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .zoom-icon {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #436850;
     cursor: pointer;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .zoom-icon:hover {
     color: #3a5330;
+    transform: scale(1.1);
 }
 
 .zoom-range {
-    width: 150px;
+    width: 200px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.zoom-range:hover {
+    opacity: 0.8;
 }
 
 /* Action buttons */
